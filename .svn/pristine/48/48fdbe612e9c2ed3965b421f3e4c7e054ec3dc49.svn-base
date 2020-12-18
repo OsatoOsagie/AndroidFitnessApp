@@ -1,0 +1,406 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:2:1-35:12
+INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:2:1-35:12
+INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:2:1-35:12
+INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:2:1-35:12
+MERGED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:2:1-35:12
+MERGED from [com.google.android.material:material:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0a16f4100db977c4771b6e6429e696e6/material-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.jd-alexander:LikeButton:0.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0c9b4768c83bfef8d0c7084ab8bdb9e0/jetified-LikeButton-0.2.3/AndroidManifest.xml:2:1-14:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f152265fd09de6cd0fa6302fbf1dd42b/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d48d37f6bde0f4fc485f35b04de7ffaa/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-gcm:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2b24c93ab5d4d0a468126dba42781671/jetified-play-services-gcm-17.0.0/AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/950948b644ef79c2e360c8fc6000630a/jetified-firebase-storage-19.1.1/AndroidManifest.xml:15:1-39:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/7312c3767539cfe36e45c7769304789a/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/4346422e238b75ecf680e7fda868e499/lifecycle-extensions-2.2.0/AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.gms:play-services-fitness:18.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/dff2ad6b73c20e0e5066a2b731bef7cf/jetified-play-services-fitness-18.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d50bcaa0507a5e79f6fb7c66b3e88a4a/jetified-viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/ccecc4e028fdeef7638fc3af3a271b68/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/85670e7b47e1f2ff4a561bed53cda100/jetified-picasso-2.71828/AndroidManifest.xml:2:1-14:12
+MERGED from [com.github.andyxialm:ColorDialog:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/ab12a78669c443a2322aacd26b1f79bd/jetified-ColorDialog-1.0.0/AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6ee655f145b361012b12062650422411/jetified-MPAndroidChart-v3.1.0/AndroidManifest.xml:2:1-20:12
+MERGED from [com.github.f0ris.sweetalert:library:1.5.6] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/88dbecb270857b59c1154c4809a43ead/jetified-library-1.5.6/AndroidManifest.xml:2:1-13:12
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.19] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/7ea6c2845ea3bf7f2f262b4aba264766/jetified-android-gif-drawable-1.2.19/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/688bef9add79a7a50a472eb9b2f16c41/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0a54ec746b829d321beab9ca189658c2/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/976d9dd00a62f4c1fccc285eda34f03e/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1cdc8ee4ff03dd083d8c1ec41b19b398/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2961e3cfe849728ba3898573ff27ca89/transition-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/c9dbcfc02617acc908aceba5d8931bc0/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2c00aee81c2f0702277c19f7a671b326/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-iid:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/ddbd7969fd3228e2d584151d64059565/jetified-play-services-iid-17.0.0/AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6df9f74b9aba6efcede4e81a591a7cb0/jetified-play-services-stats-17.0.0/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8ceb8de123cbe255a78e6127ba660124/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/83a39a5b214f23cca1ca9da862669bec/jetified-firebase-auth-interop-18.0.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d4526d8655ede5ad93354e63f206cd87/jetified-firebase-common-19.3.0/AndroidManifest.xml:15:1-39:12
+MERGED from [com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/790eb5dddd6a0c7225fc9853edcf9bad/jetified-play-services-base-17.1.0/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/bfed4bba2d6384af595d32f74892d43f/jetified-play-services-tasks-17.0.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8b8d4d8230133bf2cd612c0469568ae7/jetified-play-services-basement-17.0.0/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.media:media:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/689ba840419b3325279360589c66f850/media-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/9998e6ae4d85776477ff65d7dfbfcfb2/fragment-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/9bc724c33888146bf083c87a723fa57e/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/99783e9a0467de8955c7710117b864bf/slidingpanelayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/56add52a7238ecb05d444bbb630e47ee/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/c4db0cfac4d4b14492c3a8adadc573be/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/9de2cac02c4a4780a54028e5475d0307/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d6893263cc77315ddba60918bef6b122/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/019914a3cfc34ef7c92f816bbc614f70/jetified-activity-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/042c169de84c907ce5f4e2f3875ad228/core-1.1.0/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/084872dfe12541782e58b88a23dce24e/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5f5acec22091970f24d27d2fed196611/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-components:16.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5dfe6b2b44a537419eba1a756740db32/jetified-firebase-components-16.0.0/AndroidManifest.xml:15:1-23:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f7333cbb047c6769689e5f7ebfdf27a7/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:17:1-32:12
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/a5c3c6522ff957f7d6430d394744f3b4/jetified-lifecycle-service-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/680989bec7102747bea3d1d5c4a396fc/lifecycle-runtime-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/e244db68d460aeb43f0a09d66d622544/lifecycle-livedata-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/fdc9e0dd2d89590f6446d49a25430345/jetified-lifecycle-viewmodel-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/bccc9bd598843d60c2329f2ae63bf222/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/181e97b3b31db36132e5d584407b4a8c/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/b1f64d095321cdb80ca0d7fd6c898262/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/dd65396040d79def38a3ceaa9d696437/lifecycle-viewmodel-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/dca0b57236bb6ed879fe780212ce38ee/exifinterface-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6151eabfe0c98be7a025563adf5b035c/versionedparcelable-1.1.0/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0c7c42ac7979c09e58be54fb6310b8b/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1c0f53ed03fd8bdc949595d8700ad96f/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/b4bb402bf5f05f3f07aa100ebc4009e6/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/062291adfdba6a75cd10d53a1cecbf0c/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.pnikosis:materialish-progress:1.7] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/4636d38ac81eaba221717472ef3474aa/jetified-materialish-progress-1.7/AndroidManifest.xml:2:1-13:12
+MERGED from [pl.droidsonroids:relinker:1.3.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/66f2f8945f1d94d455925106a4127858/jetified-relinker-1.3.1/AndroidManifest.xml:2:1-7:12
+INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml:2:1-6:12
+INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml:2:1-6:12
+INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml:2:1-6:12
+	package
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:4:5-38
+		INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:4:5-38
+		INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:2:1-35:12
+		INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:3:5-51
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:2:1-35:12
+		INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:6:5-67
+MERGED from [com.google.android.gms:play-services-gcm:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2b24c93ab5d4d0a468126dba42781671/jetified-play-services-gcm-17.0.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-gcm:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2b24c93ab5d4d0a468126dba42781671/jetified-play-services-gcm-17.0.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/950948b644ef79c2e360c8fc6000630a/jetified-firebase-storage-19.1.1/AndroidManifest.xml:27:5-67
+MERGED from [com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/950948b644ef79c2e360c8fc6000630a/jetified-firebase-storage-19.1.1/AndroidManifest.xml:27:5-67
+MERGED from [com.google.android.gms:play-services-iid:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/ddbd7969fd3228e2d584151d64059565/jetified-play-services-iid-17.0.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-iid:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/ddbd7969fd3228e2d584151d64059565/jetified-play-services-iid-17.0.0/AndroidManifest.xml:24:5-67
+	android:name
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:6:22-64
+application
+ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:8:5-33:19
+MERGED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:8:5-33:19
+MERGED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:8:5-33:19
+MERGED from [com.google.android.material:material:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0a16f4100db977c4771b6e6429e696e6/material-1.1.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0a16f4100db977c4771b6e6429e696e6/material-1.1.0/AndroidManifest.xml:22:5-20
+MERGED from [com.github.jd-alexander:LikeButton:0.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0c9b4768c83bfef8d0c7084ab8bdb9e0/jetified-LikeButton-0.2.3/AndroidManifest.xml:11:5-12:19
+MERGED from [com.github.jd-alexander:LikeButton:0.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0c9b4768c83bfef8d0c7084ab8bdb9e0/jetified-LikeButton-0.2.3/AndroidManifest.xml:11:5-12:19
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d48d37f6bde0f4fc485f35b04de7ffaa/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d48d37f6bde0f4fc485f35b04de7ffaa/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-gcm:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2b24c93ab5d4d0a468126dba42781671/jetified-play-services-gcm-17.0.0/AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-gcm:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2b24c93ab5d4d0a468126dba42781671/jetified-play-services-gcm-17.0.0/AndroidManifest.xml:26:5-20
+MERGED from [com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/950948b644ef79c2e360c8fc6000630a/jetified-firebase-storage-19.1.1/AndroidManifest.xml:29:5-37:19
+MERGED from [com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/950948b644ef79c2e360c8fc6000630a/jetified-firebase-storage-19.1.1/AndroidManifest.xml:29:5-37:19
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/4346422e238b75ecf680e7fda868e499/lifecycle-extensions-2.2.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/4346422e238b75ecf680e7fda868e499/lifecycle-extensions-2.2.0/AndroidManifest.xml:24:5-25:19
+MERGED from [com.google.android.gms:play-services-fitness:18.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/dff2ad6b73c20e0e5066a2b731bef7cf/jetified-play-services-fitness-18.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-fitness:18.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/dff2ad6b73c20e0e5066a2b731bef7cf/jetified-play-services-fitness-18.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/85670e7b47e1f2ff4a561bed53cda100/jetified-picasso-2.71828/AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/85670e7b47e1f2ff4a561bed53cda100/jetified-picasso-2.71828/AndroidManifest.xml:7:5-12:19
+MERGED from [com.github.f0ris.sweetalert:library:1.5.6] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/88dbecb270857b59c1154c4809a43ead/jetified-library-1.5.6/AndroidManifest.xml:11:5-20
+MERGED from [com.github.f0ris.sweetalert:library:1.5.6] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/88dbecb270857b59c1154c4809a43ead/jetified-library-1.5.6/AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.gms:play-services-iid:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/ddbd7969fd3228e2d584151d64059565/jetified-play-services-iid-17.0.0/AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-iid:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/ddbd7969fd3228e2d584151d64059565/jetified-play-services-iid-17.0.0/AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6df9f74b9aba6efcede4e81a591a7cb0/jetified-play-services-stats-17.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6df9f74b9aba6efcede4e81a591a7cb0/jetified-play-services-stats-17.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/83a39a5b214f23cca1ca9da862669bec/jetified-firebase-auth-interop-18.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/83a39a5b214f23cca1ca9da862669bec/jetified-firebase-auth-interop-18.0.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d4526d8655ede5ad93354e63f206cd87/jetified-firebase-common-19.3.0/AndroidManifest.xml:25:5-37:19
+MERGED from [com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d4526d8655ede5ad93354e63f206cd87/jetified-firebase-common-19.3.0/AndroidManifest.xml:25:5-37:19
+MERGED from [com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/790eb5dddd6a0c7225fc9853edcf9bad/jetified-play-services-base-17.1.0/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/790eb5dddd6a0c7225fc9853edcf9bad/jetified-play-services-base-17.1.0/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/bfed4bba2d6384af595d32f74892d43f/jetified-play-services-tasks-17.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/bfed4bba2d6384af595d32f74892d43f/jetified-play-services-tasks-17.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8b8d4d8230133bf2cd612c0469568ae7/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8b8d4d8230133bf2cd612c0469568ae7/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.core:core:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/042c169de84c907ce5f4e2f3875ad228/core-1.1.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/042c169de84c907ce5f4e2f3875ad228/core-1.1.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f7333cbb047c6769689e5f7ebfdf27a7/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:24:5-30:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f7333cbb047c6769689e5f7ebfdf27a7/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:24:5-30:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6151eabfe0c98be7a025563adf5b035c/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6151eabfe0c98be7a025563adf5b035c/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
+MERGED from [com.pnikosis:materialish-progress:1.7] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/4636d38ac81eaba221717472ef3474aa/jetified-materialish-progress-1.7/AndroidManifest.xml:11:5-20
+MERGED from [com.pnikosis:materialish-progress:1.7] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/4636d38ac81eaba221717472ef3474aa/jetified-materialish-progress-1.7/AndroidManifest.xml:11:5-20
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/042c169de84c907ce5f4e2f3875ad228/core-1.1.0/AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:13:9-35
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:13:9-35
+	android:label
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:11:9-41
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:11:9-41
+	android:roundIcon
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:12:9-54
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:12:9-54
+	android:icon
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:10:9-43
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:10:9-43
+	android:allowBackup
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:9:9-35
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:9:9-35
+	android:theme
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:14:9-40
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:14:9-40
+	tools:replace
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:15:9-37
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:15:9-37
+activity#com.oo115.myapplication.WelcomeActivity
+ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:17:9-25:20
+	android:theme
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:19:13-54
+	android:name
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:18:13-44
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:20:13-24:29
+action#android.intent.action.MAIN
+ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:21:17-69
+	android:name
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:21:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:23:17-77
+	android:name
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:23:27-74
+activity#com.oo115.myapplication.MainActivity
+ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:26:9-28:59
+	android:theme
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:28:13-56
+	android:name
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:27:13-41
+activity#com.oo115.myapplication.RegisterAndLoginActivity
+ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:29:9-31:59
+	android:theme
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:31:13-56
+	android:name
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:30:13-53
+activity#com.oo115.myapplication.EspressoFragmentTest
+ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:32:9-58
+	android:name
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:32:19-55
+uses-sdk
+INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml
+INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml
+MERGED from [com.google.android.material:material:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0a16f4100db977c4771b6e6429e696e6/material-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0a16f4100db977c4771b6e6429e696e6/material-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [com.github.jd-alexander:LikeButton:0.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0c9b4768c83bfef8d0c7084ab8bdb9e0/jetified-LikeButton-0.2.3/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.jd-alexander:LikeButton:0.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0c9b4768c83bfef8d0c7084ab8bdb9e0/jetified-LikeButton-0.2.3/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f152265fd09de6cd0fa6302fbf1dd42b/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f152265fd09de6cd0fa6302fbf1dd42b/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d48d37f6bde0f4fc485f35b04de7ffaa/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d48d37f6bde0f4fc485f35b04de7ffaa/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-gcm:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2b24c93ab5d4d0a468126dba42781671/jetified-play-services-gcm-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-gcm:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2b24c93ab5d4d0a468126dba42781671/jetified-play-services-gcm-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/950948b644ef79c2e360c8fc6000630a/jetified-firebase-storage-19.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/950948b644ef79c2e360c8fc6000630a/jetified-firebase-storage-19.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/7312c3767539cfe36e45c7769304789a/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/7312c3767539cfe36e45c7769304789a/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/4346422e238b75ecf680e7fda868e499/lifecycle-extensions-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/4346422e238b75ecf680e7fda868e499/lifecycle-extensions-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-fitness:18.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/dff2ad6b73c20e0e5066a2b731bef7cf/jetified-play-services-fitness-18.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-fitness:18.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/dff2ad6b73c20e0e5066a2b731bef7cf/jetified-play-services-fitness-18.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d50bcaa0507a5e79f6fb7c66b3e88a4a/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d50bcaa0507a5e79f6fb7c66b3e88a4a/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/ccecc4e028fdeef7638fc3af3a271b68/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/ccecc4e028fdeef7638fc3af3a271b68/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/85670e7b47e1f2ff4a561bed53cda100/jetified-picasso-2.71828/AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.71828] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/85670e7b47e1f2ff4a561bed53cda100/jetified-picasso-2.71828/AndroidManifest.xml:5:5-44
+MERGED from [com.github.andyxialm:ColorDialog:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/ab12a78669c443a2322aacd26b1f79bd/jetified-ColorDialog-1.0.0/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.andyxialm:ColorDialog:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/ab12a78669c443a2322aacd26b1f79bd/jetified-ColorDialog-1.0.0/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6ee655f145b361012b12062650422411/jetified-MPAndroidChart-v3.1.0/AndroidManifest.xml:16:5-18:41
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6ee655f145b361012b12062650422411/jetified-MPAndroidChart-v3.1.0/AndroidManifest.xml:16:5-18:41
+MERGED from [com.github.f0ris.sweetalert:library:1.5.6] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/88dbecb270857b59c1154c4809a43ead/jetified-library-1.5.6/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.f0ris.sweetalert:library:1.5.6] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/88dbecb270857b59c1154c4809a43ead/jetified-library-1.5.6/AndroidManifest.xml:7:5-9:41
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.19] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/7ea6c2845ea3bf7f2f262b4aba264766/jetified-android-gif-drawable-1.2.19/AndroidManifest.xml:5:5-7:41
+MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.19] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/7ea6c2845ea3bf7f2f262b4aba264766/jetified-android-gif-drawable-1.2.19/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/688bef9add79a7a50a472eb9b2f16c41/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/688bef9add79a7a50a472eb9b2f16c41/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0a54ec746b829d321beab9ca189658c2/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0a54ec746b829d321beab9ca189658c2/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/976d9dd00a62f4c1fccc285eda34f03e/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/976d9dd00a62f4c1fccc285eda34f03e/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1cdc8ee4ff03dd083d8c1ec41b19b398/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1cdc8ee4ff03dd083d8c1ec41b19b398/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2961e3cfe849728ba3898573ff27ca89/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2961e3cfe849728ba3898573ff27ca89/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/c9dbcfc02617acc908aceba5d8931bc0/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/c9dbcfc02617acc908aceba5d8931bc0/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2c00aee81c2f0702277c19f7a671b326/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2c00aee81c2f0702277c19f7a671b326/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-iid:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/ddbd7969fd3228e2d584151d64059565/jetified-play-services-iid-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-iid:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/ddbd7969fd3228e2d584151d64059565/jetified-play-services-iid-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6df9f74b9aba6efcede4e81a591a7cb0/jetified-play-services-stats-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6df9f74b9aba6efcede4e81a591a7cb0/jetified-play-services-stats-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8ceb8de123cbe255a78e6127ba660124/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8ceb8de123cbe255a78e6127ba660124/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/83a39a5b214f23cca1ca9da862669bec/jetified-firebase-auth-interop-18.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:18.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/83a39a5b214f23cca1ca9da862669bec/jetified-firebase-auth-interop-18.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d4526d8655ede5ad93354e63f206cd87/jetified-firebase-common-19.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d4526d8655ede5ad93354e63f206cd87/jetified-firebase-common-19.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/790eb5dddd6a0c7225fc9853edcf9bad/jetified-play-services-base-17.1.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/790eb5dddd6a0c7225fc9853edcf9bad/jetified-play-services-base-17.1.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/bfed4bba2d6384af595d32f74892d43f/jetified-play-services-tasks-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/bfed4bba2d6384af595d32f74892d43f/jetified-play-services-tasks-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8b8d4d8230133bf2cd612c0469568ae7/jetified-play-services-basement-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8b8d4d8230133bf2cd612c0469568ae7/jetified-play-services-basement-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/689ba840419b3325279360589c66f850/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/689ba840419b3325279360589c66f850/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/9998e6ae4d85776477ff65d7dfbfcfb2/fragment-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/9998e6ae4d85776477ff65d7dfbfcfb2/fragment-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/9bc724c33888146bf083c87a723fa57e/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/9bc724c33888146bf083c87a723fa57e/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/99783e9a0467de8955c7710117b864bf/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/99783e9a0467de8955c7710117b864bf/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/56add52a7238ecb05d444bbb630e47ee/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/56add52a7238ecb05d444bbb630e47ee/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/c4db0cfac4d4b14492c3a8adadc573be/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/c4db0cfac4d4b14492c3a8adadc573be/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/9de2cac02c4a4780a54028e5475d0307/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/9de2cac02c4a4780a54028e5475d0307/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d6893263cc77315ddba60918bef6b122/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d6893263cc77315ddba60918bef6b122/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/019914a3cfc34ef7c92f816bbc614f70/jetified-activity-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/019914a3cfc34ef7c92f816bbc614f70/jetified-activity-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/042c169de84c907ce5f4e2f3875ad228/core-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/042c169de84c907ce5f4e2f3875ad228/core-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/084872dfe12541782e58b88a23dce24e/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/084872dfe12541782e58b88a23dce24e/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5f5acec22091970f24d27d2fed196611/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5f5acec22091970f24d27d2fed196611/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-components:16.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5dfe6b2b44a537419eba1a756740db32/jetified-firebase-components-16.0.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-components:16.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5dfe6b2b44a537419eba1a756740db32/jetified-firebase-components-16.0.0/AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f7333cbb047c6769689e5f7ebfdf27a7/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f7333cbb047c6769689e5f7ebfdf27a7/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/a5c3c6522ff957f7d6430d394744f3b4/jetified-lifecycle-service-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/a5c3c6522ff957f7d6430d394744f3b4/jetified-lifecycle-service-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/680989bec7102747bea3d1d5c4a396fc/lifecycle-runtime-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/680989bec7102747bea3d1d5c4a396fc/lifecycle-runtime-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/e244db68d460aeb43f0a09d66d622544/lifecycle-livedata-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/e244db68d460aeb43f0a09d66d622544/lifecycle-livedata-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/fdc9e0dd2d89590f6446d49a25430345/jetified-lifecycle-viewmodel-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/fdc9e0dd2d89590f6446d49a25430345/jetified-lifecycle-viewmodel-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/bccc9bd598843d60c2329f2ae63bf222/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/bccc9bd598843d60c2329f2ae63bf222/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/181e97b3b31db36132e5d584407b4a8c/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/181e97b3b31db36132e5d584407b4a8c/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/b1f64d095321cdb80ca0d7fd6c898262/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/b1f64d095321cdb80ca0d7fd6c898262/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/dd65396040d79def38a3ceaa9d696437/lifecycle-viewmodel-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/dd65396040d79def38a3ceaa9d696437/lifecycle-viewmodel-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/dca0b57236bb6ed879fe780212ce38ee/exifinterface-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/dca0b57236bb6ed879fe780212ce38ee/exifinterface-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6151eabfe0c98be7a025563adf5b035c/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6151eabfe0c98be7a025563adf5b035c/versionedparcelable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0c7c42ac7979c09e58be54fb6310b8b/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0c7c42ac7979c09e58be54fb6310b8b/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1c0f53ed03fd8bdc949595d8700ad96f/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1c0f53ed03fd8bdc949595d8700ad96f/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/b4bb402bf5f05f3f07aa100ebc4009e6/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/b4bb402bf5f05f3f07aa100ebc4009e6/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/062291adfdba6a75cd10d53a1cecbf0c/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/062291adfdba6a75cd10d53a1cecbf0c/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.pnikosis:materialish-progress:1.7] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/4636d38ac81eaba221717472ef3474aa/jetified-materialish-progress-1.7/AndroidManifest.xml:7:5-9:41
+MERGED from [com.pnikosis:materialish-progress:1.7] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/4636d38ac81eaba221717472ef3474aa/jetified-materialish-progress-1.7/AndroidManifest.xml:7:5-9:41
+MERGED from [pl.droidsonroids:relinker:1.3.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/66f2f8945f1d94d455925106a4127858/jetified-relinker-1.3.1/AndroidManifest.xml:5:5-43
+MERGED from [pl.droidsonroids:relinker:1.3.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/66f2f8945f1d94d455925106a4127858/jetified-relinker-1.3.1/AndroidManifest.xml:5:5-43
+INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml
+INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml
+activity#com.oo115.myapplication.TestActivity
+ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml:4:9-73
+	android:name
+		ADDED from /Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml:4:19-70
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.android.gms:play-services-gcm:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2b24c93ab5d4d0a468126dba42781671/jetified-play-services-gcm-17.0.0/AndroidManifest.xml:23:5-82
+MERGED from [com.google.android.gms:play-services-iid:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/ddbd7969fd3228e2d584151d64059565/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:5-82
+MERGED from [com.google.android.gms:play-services-iid:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/ddbd7969fd3228e2d584151d64059565/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:5-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-gcm:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2b24c93ab5d4d0a468126dba42781671/jetified-play-services-gcm-17.0.0/AndroidManifest.xml:23:22-79
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/950948b644ef79c2e360c8fc6000630a/jetified-firebase-storage-19.1.1/AndroidManifest.xml:26:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/950948b644ef79c2e360c8fc6000630a/jetified-firebase-storage-19.1.1/AndroidManifest.xml:26:22-76
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/950948b644ef79c2e360c8fc6000630a/jetified-firebase-storage-19.1.1/AndroidManifest.xml:30:9-36:19
+MERGED from [com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d4526d8655ede5ad93354e63f206cd87/jetified-firebase-common-19.3.0/AndroidManifest.xml:32:9-36:35
+MERGED from [com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d4526d8655ede5ad93354e63f206cd87/jetified-firebase-common-19.3.0/AndroidManifest.xml:32:9-36:35
+	android:exported
+		ADDED from [com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/950948b644ef79c2e360c8fc6000630a/jetified-firebase-storage-19.1.1/AndroidManifest.xml:32:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d4526d8655ede5ad93354e63f206cd87/jetified-firebase-common-19.3.0/AndroidManifest.xml:36:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d4526d8655ede5ad93354e63f206cd87/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
+	android:name
+		ADDED from [com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/950948b644ef79c2e360c8fc6000630a/jetified-firebase-storage-19.1.1/AndroidManifest.xml:31:13-84
+meta-data#com.google.firebase.components:com.google.firebase.storage.StorageRegistrar
+ADDED from [com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/950948b644ef79c2e360c8fc6000630a/jetified-firebase-storage-19.1.1/AndroidManifest.xml:33:13-35:85
+	android:value
+		ADDED from [com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/950948b644ef79c2e360c8fc6000630a/jetified-firebase-storage-19.1.1/AndroidManifest.xml:35:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/950948b644ef79c2e360c8fc6000630a/jetified-firebase-storage-19.1.1/AndroidManifest.xml:34:17-107
+provider#com.squareup.picasso.PicassoProvider
+ADDED from [com.squareup.picasso:picasso:2.71828] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/85670e7b47e1f2ff4a561bed53cda100/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
+	android:authorities
+		ADDED from [com.squareup.picasso:picasso:2.71828] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/85670e7b47e1f2ff4a561bed53cda100/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
+	android:exported
+		ADDED from [com.squareup.picasso:picasso:2.71828] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/85670e7b47e1f2ff4a561bed53cda100/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [com.squareup.picasso:picasso:2.71828] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/85670e7b47e1f2ff4a561bed53cda100/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d4526d8655ede5ad93354e63f206cd87/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d4526d8655ede5ad93354e63f206cd87/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d4526d8655ede5ad93354e63f206cd87/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d4526d8655ede5ad93354e63f206cd87/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d4526d8655ede5ad93354e63f206cd87/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/790eb5dddd6a0c7225fc9853edcf9bad/jetified-play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/790eb5dddd6a0c7225fc9853edcf9bad/jetified-play-services-base-17.1.0/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/790eb5dddd6a0c7225fc9853edcf9bad/jetified-play-services-base-17.1.0/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/790eb5dddd6a0c7225fc9853edcf9bad/jetified-play-services-base-17.1.0/AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8b8d4d8230133bf2cd612c0469568ae7/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8b8d4d8230133bf2cd612c0469568ae7/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8b8d4d8230133bf2cd612c0469568ae7/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+provider#androidx.lifecycle.ProcessLifecycleOwnerInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f7333cbb047c6769689e5f7ebfdf27a7/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+	android:authorities
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f7333cbb047c6769689e5f7ebfdf27a7/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+	android:multiprocess
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f7333cbb047c6769689e5f7ebfdf27a7/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+	android:exported
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f7333cbb047c6769689e5f7ebfdf27a7/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f7333cbb047c6769689e5f7ebfdf27a7/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79

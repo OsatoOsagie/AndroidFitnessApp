@@ -1,0 +1,128 @@
+package com.oo115.myapplication;
+
+
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
+import android.util.Patterns;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.oo115.myapplication.ForgotPassword.GMailSender;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+
+import java.util.Objects;
+
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class FogotPasswordFragment extends Fragment {
+
+    EditText email_address;
+    TextView responseMsg;
+    Button confrim_emailBtn;
+    String user_email = "empty";
+
+    public static PrefConFig prefConFig;
+    public static ApiInterface apiInterface;
+
+    public FogotPasswordFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_forgot_password, container, false);
+
+        confrim_emailBtn = view.findViewById(R.id.forgotPassword_emailConfirmBtn);
+        email_address = view.findViewById(R.id.forgotPassword_emailET);
+        responseMsg = view.findViewById(R.id.forgotPassword_responseMsg);
+        prefConFig = new PrefConFig(Objects.requireNonNull(getActivity()));
+
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+
+
+        confrim_emailBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                user_email = email_address.getText().toString();
+
+                if (!Patterns.EMAIL_ADDRESS.matcher(user_email).matches()) {
+                    email_address.setError("Enter a valid email");
+                    email_address.requestFocus();
+                }
+                Call<ForgotEmailDB> call = apiInterface.performEmailSearch(user_email);
+
+                call.enqueue(new Callback<ForgotEmailDB>() {
+                    @RequiresApi(api = Build.VERSION_CODES.N)
+                    @Override
+                    public void onResponse(Call<ForgotEmailDB> call, Response<ForgotEmailDB> response) {
+//                        int leftLimit = 48; // numeral '0'
+//                        int rightLimit = 122; // letter 'z'
+//                        int targetStringLength = 10;
+//                        Random random = new Random();
+//
+//                        //generating a random password string
+//                        String generatedString = random.ints(leftLimit, rightLimit + 1)
+//                                .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
+//                                .limit(targetStringLength)
+//                                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+//                                .toString();
+                        prefConFig.distplayToast(response.body().getResponse());
+                        responseMsg.setText(user_email);
+
+                        if (response.body().getResponse().equals("exists")) {
+                            prefConFig.writeEmail(user_email);
+                            new Thread(new Runnable() {
+                                //                                It’s also important to send email in a separate Thread to avoid NetworkOnMainException.
+                                @Override
+                                public void run() {
+                                    try {
+                                        GMailSender sender = new GMailSender("totalfitnessapplication@gmail.com",
+                                                "uniProject");
+                                        sender.sendMail("Password Reset", "Body from JavaMail",
+                                                "totalfitnessapplication@gmail.com", user_email);
+                                    } catch (Exception e) {
+                                        Log.e("SendMail", e.getMessage(), e);
+                                    }
+                                }
+
+                            }).start();
+                            responseMsg.setText("An Email has been sent to your email address");
+
+                        } else if (response.body().getResponse().equals("email doesn't exist")) {
+                            responseMsg.setText("Invalid Email address");
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ForgotEmailDB> call, Throwable t) {
+
+                    }
+                });
+            }
+        });
+
+
+        return view;
+    }
+
+}

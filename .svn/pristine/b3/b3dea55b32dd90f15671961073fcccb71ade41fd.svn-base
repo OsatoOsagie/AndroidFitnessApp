@@ -1,0 +1,85 @@
+package com.oo115.myapplication.Calculator;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import com.oo115.myapplication.R;
+import com.oo115.myapplication.Settings.Change_EmailFragment;
+
+import java.util.Objects;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class CalculatorsFragment extends Fragment {
+
+    public CalculatorsFragment() {
+        // Required empty public constructor
+    }
+
+
+    private String[] calculator_name = {"Protein Calculator", "Carbohydrate Calculator", "Calorie Calculator", "Water Intake Calculator"};
+    private Integer[] calculator_image = {R.drawable.protein, R.drawable.healthyfats, R.drawable.calories, R.drawable.water};
+    ListView listView;
+
+    private AdapterView.OnItemClickListener onClickListItem = (parent, view, position, id) -> {
+
+        if (position == 0) {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            // Replace whatever is in the fragment_container view with this fragment,
+            // and add the transaction to the back stack so the user can navigate back
+            transaction.replace(R.id.fragment_containerHome, new MarcoCalcFragment());
+            transaction.addToBackStack(null);
+
+            // Commit the transaction
+            transaction.commit();
+        } else if (position == 1) {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            // Replace whatever is in the fragment_container view with this fragment,
+            // and add the transaction to the back stack so the user can navigate back
+            transaction.replace(R.id.fragment_containerHome, new Change_EmailFragment());
+            transaction.addToBackStack(null);
+
+            // Commit the transaction
+            transaction.commit();
+
+        } else if (position == 2) {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            // Replace whatever is in the fragment_container view with this fragment,
+            // and add the transaction to the back stack so the user can navigate back
+            transaction.replace(R.id.fragment_containerHome, new Calories_Fragment());
+            transaction.addToBackStack(null);
+
+            // Commit the transaction
+            transaction.commit();
+
+
+        }
+
+    };
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_calculators, container, false);
+        listView = view.findViewById(R.id.calculators_ListView);
+        Calculators_LV calculators_lv = new Calculators_LV(getActivity(), calculator_name, calculator_image);
+
+        listView.setAdapter(calculators_lv);
+        listView.setOnItemClickListener(onClickListItem);
+
+
+        //removiing the actionbar so that tool bar can show
+        Objects.requireNonNull(getActivity()).setTitle("Calculators");
+
+        return view;
+    }
+}

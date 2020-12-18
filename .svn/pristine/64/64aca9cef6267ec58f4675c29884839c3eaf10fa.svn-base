@@ -1,0 +1,421 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+
+    <string name="male">
+        Male
+</string>
+
+    <string name="female">
+        Female
+</string>
+
+    <string name="weight">
+    Weight
+</string>
+
+    <string name="height">
+        Height
+    </string>
+    <string name="age">
+        Age
+    </string>
+
+
+    <string name="fatloss">
+        Fat Loss
+</string>
+
+    <string name="maintenance">
+        Maintenance
+</string>
+
+    <string name="muscleGainz">
+        Muscle Gainz
+</string>
+
+    <string name="pounds">
+        pounds
+</string>
+
+    <string name="kilograms">
+        Kilograms
+</string>
+
+    <string name="feet">
+        Feet
+</string>
+
+    <string name="cm">
+       CM
+</string>
+    <string name="centimeters">
+       Centimeters
+</string>
+
+    <string name="save">
+        Save
+    </string>
+    <string name="goal">
+        Goal
+    </string>
+
+    <string name="inches">
+        Inches
+    </string>
+
+
+    <string name="iconHome">
+        Home
+    </string>
+
+    <string name="iconWorkout">
+        Workout
+    </string>
+    <string name="iconNutrition">
+        Nutrition
+    </string>
+    <string name="iconWeight">
+        Weight
+    </string>
+    <string name="iconProfile">
+        Profile
+    </string>
+    <string name="iconLogout">
+        Logout
+    </string>
+
+
+    <string name="iconMeasurement">
+        Measurement
+    </string>
+
+    <string name="communicateWithFriends">
+        communicate with friends
+    </string>
+
+    <string name="insta">
+       Instagram
+    </string>
+
+    <string name="Twitter">
+        Twitter
+    </string>
+
+    <string name="FB">
+        Facebook
+    </string>
+
+
+    //navigation drawer
+    <string name="navigation_drawer_open">
+        Open navigation drawer
+    </string>
+
+    <string name="navigation_drawer_close">
+        close navigation drawer
+    </string>
+
+    <!-- TODO: PrefConfig -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pref_file"> com.fitnessApp.preference</string>
+    <string name="pref_login_status"> com.fitnessApp.preference.login_status</string>
+    <string name="pref_user_name"> com.fitnessApp.preference_user_name</string>
+    <string name="pref_user_quote"> com.fitnessApp.preference_user_quote</string>
+    <string name="pref_user_email"> com.fitnessApp.preference_user_email</string>
+    <string name="pref_user_id"> com.fitnessApp.preference_user_id</string>
+    <string name="pref_user_sex"> com.fitnessApp.preference_user_sex</string>
+    <string name="pref_user_dob"> com.fitnessApp.preference_user_dob</string>
+    <string name="pref_user_height"> com.fitnessApp.preference_user_height</string>
+    <string name="pref_user_goal"> com.fitnessApp.preference_user_goal</string>
+    <string name="pref_user_password"> com.fitnessApp.preference_user_password</string>
+    <string name="pref_user_weight"> com.fitnessApp.preference_user_weight</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="str_ok">OK</string>
+    <string name="str_exits">exists</string>
+    <string name="str_error">error</string>
+    <string name="str_confrimation_sent">Confrimation Sent</string>
+    <string name="str_confrimation_sent_text">A new password has been sent to your email</string>
+    <string name="str_invalid_email">Invalid email, please try again</string>
+    <string name="profile_created">Your profile has been successfully created</string>
+    <string name="profile_updated">Your profile has been successfully updated</string>
+    <string name="histroy_added">Your set has been recorded</string>
+
+    <string name="measurement_added">your measurement has successfully been added </string>
+
+
+    <string name="Logging_out_title">Logging Out </string>
+    <string name="delete_account">Deleting Account</string>
+    <string name="delete_account_confirm">Are you sure you want to delete your account?</string>
+    <string name="confirm_logout">Are you sure you want to logout? </string>
+
+
+    <string name="registration_success">User has been successfully registered</string>
+    <string name="registration_exists">UserDB Already exits</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="success_msg">"Registration success"</string>
+    <string name="userAlreadyExists_msg">User Already exits</string>
+    <string name="default_msg">Something went wrong</string>
+    <string name="title_activity_workout">Workout</string>
+
+    <string name="macro_calcError">Please make sure you create a profile</string>
+    <string name="tab_text_1">Exercises</string>
+    <string name="tab_text_2">Plans</string>
+    <string name="settings">Settings</string>
+    <string name="gettingStarted">Getting Started</string>
+    <string name="tab_text_3">History</string>
+    //measurement
+    <string name="require_fields">Please make sure all the required fields are completed</string>
+    <string name="delete">Delete</string>
+    <string name="confirm_delete">Are you sure you want to delete? </string>
+
+
+    <string name="success_">SUCCESS</string>
+
+    //settings
+    <string name="change_email">Change Email</string>
+    <string name="change_password">Change Password</string>
+    <!-- Body Parts -->
+    <string name="left_arm">Left biceps</string>
+    <string name="right_arm">Right biceps</string>
+    <string name="neck">Neck</string>
+    <string name="left_thigh">Left thigh</string>
+    <string name="right_thigh">Right thigh</string>
+    <string name="left_calves">Left calves</string>
+    <string name="right_calves">Right calves</string>
+    <string name="waist">Waist</string>
+    <string name="behind">Hips</string>
+    <string name="MesureHint">Enter size here</string>
+    <string name="MesureHintKG">Enter weight in kg here</string>
+
+    <string name="backDialog_confirm_text">Do you want to save before exiting?</string>
+    <string name="deleteMachine_confirm_text">Do you want to delete this exercise? All associated records will be deleted.</string>
+    <string name="deleteRecordsWithMachine_confirm_text">Do you want to delete all records associated with this machine? All associated records will be deleted.</string>
+    <string name="renameMachine_warning_text">WARNING: This exercise name already exists. Records will be merged with the other exercise.</string>
+    <string name="renameMachine_error_text">This name already exists, please select another name.</string>
+
+    <string name="lastRecordLabel">Last Record</string>
+
+    <!-- Forgot Password -->
+
+    <string name="email">Email</string>
+    <string name="confirm">Confirm</string>
+
+    <!--    Startup Page-->
+    <string name="getstarted">Get Started</string>
+
+
+    <!--    profile page-->
+
+    <!--    Gender array-->
+    <string name="sex">Sex</string>
+    <string-array name="gender">
+        <item> Male</item>
+        <item>Female</item>
+        <item>Prefer not to say</item>
+    </string-array>
+
+
+    <string name="birthday">Birthday</string>
+    <string name="date">Select date</string>
+
+    <!--    Goal array-->
+    <string-array name="goal">
+        <item> Fat loss</item>
+        <item> Muscle Gainz </item>
+        <item>Mainainence  </item>
+    </string-array>
+
+    <!--    Activity_calories array-->
+    <string-array name="activity_level">
+        <item> No or little exercise/sedentary</item>
+        <item> Easy exercise (2–3 times/week) </item>
+        <item>Moderate exercise (4 times/week)  </item>
+        <item>Active exercise (5 times/week)  </item>
+        <item>Very active exercise (5 times intense/week)  </item>
+        <item>Day by day exercise  </item>
+        <item>Day by day intense exercise/twice daily  </item>
+        <item>Daily exercise and physical activity/job  </item>
+
+
+    </string-array>
+
+
+    <!--    Target_calories array-->
+    <string-array name="target">
+        <item> To maintain your weight</item>
+        <item> To lose 0.5 lb per week </item>
+        <item>To lose 1 lb per week </item>
+        <item>To lose 2 lb per week  </item>
+        <item>To gain 0.5 lb per week </item>
+        <item>To gain 1 lb per week  </item>
+        <item>To gain 2 lb per week  </item>
+    </string-array>
+
+
+    <!--    activity_protein array-->
+
+    <string-array name="protein_calculator_activity">
+        <item>Sedentary</item>
+        <item>Moderate Active</item>
+        <item>Active</item>
+        <item>Highly Active  </item>
+    </string-array>
+
+    <!-- Muscles -->
+    <string name="biceps">Biceps</string>
+    <string name="triceps">Triceps</string>
+    <string name="pectoraux">Chest</string>
+    <string name="deltoids">Deltoids</string>
+    <string name="core">Core</string>
+    <string name="showAll">Show All</string>
+
+    <string name="dorseaux">Back</string>
+    <string name="abdominaux">Abdominals</string>
+    <string name="noFavourites">No favourites found</string>
+
+
+    <string name="leg">Leg</string>
+    <string name="quadriceps">Quadriceps</string>
+    <string name="ischio_jambiers">Hamstrings</string>
+    <string name="adducteurs">Thighs</string>
+    <string name="mollets">Calves</string>
+
+
+    <!-- Profile Fragment -->
+    <string name="weightMenuLabel">Weight Track</string>
+    <string name="weightLabel">Weight(kg)</string>
+    <string name="fatLabel">Fat(%)</string>
+    <string name="bonesLabel">Bones(%)</string>
+    <string name="waterLabel">Water(%)</string>
+    <string name="musclesLabel">Muscles(%)</string>
+    <string name="sizeLabel">Size</string>
+    <string name="measureLabel">Measure</string>
+    <string name="weightTableLabel">Weight records:</string>
+    <string name="sizeTableLabel">Measures history:</string>
+    <string name="createProfilTitle">Create new profile</string>
+    <string name="profileSelected">Profile selected</string>
+    <string name="profileDeleteImpossible">Impossible to delete current profile</string>
+    <string name="createProfilQuestion">Choose your profile name?</string>
+    <string name="userChanged">User changed</string>
+    <string name="renameProfilTitle">Rename profile</string>
+    <string name="renameProfilQuestion">Rename this profile?</string>
+    <string name="DeleteWeightDialog">Remove this weight?</string>
+    <string name="create_profile_msg">Please make sure you have created a profile</string>
+    <string name="selet_date">Select date</string>
+    <string name="dateError">Date or measurement not set</string>
+    <string name="invalid_user">Invalid user</string>
+
+    <!-- Profile Fragment -->
+    <string name="plus">+</string>
+    <string name="DateLabel">Date</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_about">About</string>
+    <string name="menu_log_out">Log out</string>
+    <string name="calculators">Macro Nutrients</string>
+    <string name="indexlabel">Body Composition</string>
+    <string name="imclabel">BMI</string>
+    <string name="BMI_description">The body mass index (BMI) is a measure that uses your height and weight to work out if your weight is healthy.</string>
+
+    <string name="ffmilabel">FFMI</string>
+    <string name="ffmi_description">FFMI is an alternative to body mass index which accounts for a person\'s muscle mass</string>
+
+    <string name="rfmlabel">rfmLabel</string>
+    <string name="quick_workout">Quick Workout</string>
+    <string name="new_password">new Password</string>
+    <string name="minimum_6_characters">Minimum 6 characters</string>
+    <string name="hyphen">-</string>
+
+
+    <!-- BMI -->
+    <string name="underweight">Underweight</string>
+    <string name="overweight">Overweight</string>
+    <string name="obese">Obese</string>
+    <string name="ideal">Ideal</string>
+
+    <!-- FFMI -->
+    <string name="below_average">Below Average</string>
+    <string name="average">Average</string>
+    <string name="above_average">Above Average</string>
+    <string name="excellent">Excellent</string>
+    <string name="superior">Superior</string>
+
+    <!-- Calculators -->
+    <string name="lorem_ipsum">What is Lorem Ipsum?
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+        with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</string>
+    <string name="Calories">Calories</string>
+    <string name="activity_level">Activity Level</string>
+    <string name="target">Target</string>
+    <string name="calorieCalculator">
+    Calorie calculator
+</string>
+
+    <string name="calculate">
+    Calculate
+</string>
+
+
+    <string name="required_calories">
+    Required Calories
+</string>
+
+    <string name="required_protein">
+    Protein
+</string>
+
+    <string name="warning_calories_calc">
+    Please mkae sure your profile and weight measurements are up to date!
+</string>
+
+    <string name="carbohydrates">
+    Carbohydrate
+</string>
+
+    <string name="fats">
+    Fats
+</string>
+
+
+    <string name="water">
+    Water
+</string>
+
+    <string name="grams">
+    g
+</string>
+
+    <string name="Litres">
+    l
+</string>
+
+    <string name="Kcal">
+        Kcal
+</string>
+    <string name="recommended_daily_intake">Recommended Daily Intake</string>
+
+
+    <!-- Exercise_log-->
+
+    <string name="reps">4 sets X 15 reps</string>
+
+    <string name="reps_title">Reps</string>
+
+    <string name="sets_title">Sets</string>
+    <string name="Weight_title">Sets</string>
+    <string name="add_txt">Add</string>
+    <string name="reset">RESET</string>
+    <string name="start">START</string>
+    <string name="pause">PAUSE</string>
+    <string name="confirm_resetTxt">Confirm Reset</string>
+    <string name="sign_upTxt">Sign Up</string>
+    <string name="app_title">Total Fitness </string>
+
+
+</resources>
+

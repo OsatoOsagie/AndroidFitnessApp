@@ -1,0 +1,99 @@
+package com.oo115.myapplication;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+import com.oo115.myapplication.retrofitAPI.QuotesDB;
+
+import java.util.Random;
+
+import androidx.appcompat.app.AppCompatActivity;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class FirstpageActivity extends AppCompatActivity {
+    public static PrefConFig prefConFig;
+    public static ApiInterface apiInterface;
+    TextView quote;
+    Button btn_register;
+    String quoteText;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_firstpage);
+        quote = findViewById(R.id.quote);
+        prefConFig = new PrefConFig(this);
+        Random random = new Random();
+        int rand_int = random.nextInt(10);
+        rand_int += 1;
+        String type = "findQuote";
+        String quoteNum = Integer.toString(rand_int);
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        btn_register = findViewById(R.id.btn_letsgetit);
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                register();
+            }
+        });
+        quote.setText(quoteNum);
+        Call<QuotesDB> call = apiInterface.performQuoteSearch(rand_int);
+
+        call.enqueue(new Callback<QuotesDB>() {
+            @Override
+            public void onResponse(Call<QuotesDB> call, Response<QuotesDB> response) {
+
+                if (response.body().getResponse().equals("exists")) {
+                    prefConFig.distplayToast("Working....");
+                    quoteText = response.body().getQuote();
+                    prefConFig.writeQuote(quoteText);
+
+                } else if (response.body().getResponse().equals("quote doesnt exist")) {
+
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<QuotesDB> call, Throwable t) {
+                prefConFig.distplayToast(t.getMessage());
+                quote.setText(t.getMessage());
+
+
+            }
+        });
+
+        String new_txt = prefConFig.readQuote();
+        quote.setText(new_txt);
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        if (prefConFig.readLoginStatus()) {
+            Intent i = new Intent(this, HomeActivity.class);
+//                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+
+            startActivity(i);
+        }
+        super.onStart();
+    }
+
+    public void register() {
+        Intent i = new Intent(this, RegisterAndLoginActivity.class);
+//                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+
+        startActivity(i);
+
+    }
+}

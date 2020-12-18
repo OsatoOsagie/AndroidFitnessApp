@@ -1,0 +1,288 @@
+package com.oo115.myapplication;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+public class EditProfileActivity extends AppCompatActivity {
+
+    private static final int CHOOSE_IMAGE = 101;
+   RadioGroup goalRadioGroup, heightRadioGroup,weightRadioGroup,sexRadioGroup;
+   RadioButton goalSelectedRadioButton, heightSelectedRadioBtn, weightSelectedRadioBtn,
+    SexSelectedRadioBtn, centimetersRadioButton,
+           feetRadioButton,poundsRadioButton, kilogramsRadioButton, maleRadBtn, femaleRadBtn, fatLossRadioBtn;
+    EditText  weight,age, heightMeasurementFeet, heightMeasurementInches,heightInCm;
+    Button save;
+    Uri uriProfileImage;
+    String profileImageURL;
+FirebaseAuth firebaseAuth;
+    ProgressBar progressBar;
+    Spinner genderSpinner;
+    int count = 0;
+    //height of the tallest man ever in cm according to google
+    int heightOfTallestPersonEver =247;
+    //height of the shortest person according to google
+    int heightOfShortestPerson= 63;
+    //weight in kg added to the database
+    double weightInKg=0;
+    double heightInCmToDB=0;
+    double bmi=0;
+    double heightInMeters;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_edit_profile);
+        firebaseAuth= FirebaseAuth.getInstance();
+
+//        imageView = findViewById(R.id.imageView);
+        save= findViewById(R.id.saveBtn);
+        weight= findViewById(R.id.weigthInput);
+        age= findViewById(R.id.ageInput);
+
+        heightMeasurementFeet = findViewById(R.id.heigthInput);
+        heightMeasurementInches = findViewById(R.id.heightInputTwo);
+        centimetersRadioButton = findViewById(R.id.centimetersRadioButton);
+        feetRadioButton= findViewById(R.id.feetRadioButton);
+        heightInCm= findViewById(R.id.heightInCm);
+
+        poundsRadioButton=findViewById(R.id.poundsRad);
+        kilogramsRadioButton= findViewById(R.id.kilogramRad);
+        fatLossRadioBtn= findViewById(R.id.fatlossRadioBtn);
+        maleRadBtn = findViewById(R.id.maleRad);
+        femaleRadBtn = findViewById(R.id.femaleRad);
+//assigning the radio groups defined above to the ones defined in the xml
+goalRadioGroup = findViewById(R.id.goalRadioGroup);
+heightRadioGroup= findViewById(R.id.heightRadioGroup);
+weightRadioGroup = findViewById(R.id.weightRadioGroup);
+sexRadioGroup= findViewById(R.id.sexRadGroup);
+
+poundsRadioButton.setChecked(true);
+fatLossRadioBtn.setChecked(true);
+feetRadioButton.setChecked(true);
+maleRadBtn.setChecked(true);
+        goalSelectedRadioButton=fatLossRadioBtn;
+        heightSelectedRadioBtn=feetRadioButton;
+        weightSelectedRadioBtn=poundsRadioButton;
+        SexSelectedRadioBtn= maleRadBtn;
+        if (poundsRadioButton.isChecked()){
+            weight.setHint("Pounds");
+        }
+//setting listeners to get the value of the checked item
+goalRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        goalSelectedRadioButton= findViewById(checkedId);
+    }
+});
+
+heightRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        heightSelectedRadioBtn= findViewById(checkedId);
+        if (centimetersRadioButton.isChecked()){
+            heightMeasurementFeet.setVisibility(View.GONE);
+            heightMeasurementInches.setVisibility(View.GONE);
+            heightInCm.setVisibility(View.VISIBLE);
+
+        }else if(feetRadioButton.isChecked()){
+            heightMeasurementFeet.setVisibility(View.VISIBLE);
+            heightMeasurementInches.setVisibility(View.VISIBLE);
+            heightInCm.setVisibility(View.GONE);
+        }
+
+    }
+});
+
+
+
+weightRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        weightSelectedRadioBtn= findViewById(checkedId);
+        if (poundsRadioButton.isChecked()){
+            weight.setHint("Pounds");
+        }else if (kilogramsRadioButton.isChecked()){
+            weight.setHint("Kilograms");
+        }
+
+    }
+});
+
+sexRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        SexSelectedRadioBtn=findViewById(checkedId);
+    }
+});
+
+
+
+
+//setting an onClick listener for the save button
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveUserInformation();
+            }
+        });
+
+    }
+
+    Boolean inputError= false;
+    private void saveUserInformation() {
+
+        FirebaseUser user= firebaseAuth.getCurrentUser();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        DatabaseReference ref = database.getReference("Users").child(Objects.requireNonNull(Objects.requireNonNull(user).getUid()));
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        String goal= goalSelectedRadioButton.getText().toString();
+//
+
+             map.put("goal", goal);
+
+
+
+             //height
+
+             String heightMeasurementFeetString=heightMeasurementFeet.getText().toString();
+             String heightMeasurementInchesString= heightMeasurementInches.getText().toString();
+       if(feetRadioButton.isChecked() &&  !heightMeasurementFeetString.isEmpty() && !heightMeasurementInchesString.isEmpty()){
+
+           double oneCm=30.48;
+
+           double feet= Double.parseDouble(heightMeasurementFeetString + "." + heightMeasurementInches.getText().toString() );
+           heightInCmToDB= Math.round(oneCm * feet);
+
+           if (heightInCmToDB<= heightOfTallestPersonEver && (heightInCmToDB >0 && heightInCmToDB >= heightOfShortestPerson)){
+               map.put("height",heightInCmToDB);
+           }else {
+
+               heightMeasurementFeet.setError("");
+               heightMeasurementInches.setError("");
+               inputError=true;
+
+           }
+
+
+
+       }else {
+
+           heightMeasurementFeet.setError("cannot be empty");
+           heightMeasurementInches.setError("cannot be empty");
+           inputError=true;
+
+       }
+
+       String heightInCmString= heightInCm.getText().toString();
+       if (centimetersRadioButton.isChecked()&& !heightInCmString.isEmpty()){
+           heightInCmToDB =Integer.parseInt(heightInCmString);
+           if ((heightInCmToDB<= heightOfTallestPersonEver)&& (heightInCmToDB >0 && heightInCmToDB >= heightOfShortestPerson)){
+               map.put("height",heightInCmToDB);
+           }else{
+               Toast.makeText(EditProfileActivity.this, "Please check the height provided", Toast.LENGTH_SHORT).show();
+               heightInCm.setError("check height");
+               inputError=true;
+           }
+
+
+
+       }else{
+           heightInCm.setError("Cannot be empty");
+       }
+                //age
+
+                String ageVal= age.getText().toString();
+        if (!ageVal.isEmpty()) {
+            double ageNum = Double.parseDouble(ageVal);
+
+            map.put("age", ageNum);
+
+        }else{
+           age.setError("Cannot be empty");
+        }
+
+        //Sex
+            if (maleRadBtn.isChecked()) {
+                map.put("sex", "Male");
+                ref.updateChildren(map);
+            } else {
+                map.put("sex", "Female");
+            }
+
+            //weight
+
+            if(!weight.getText().toString().isEmpty()){
+                if (poundsRadioButton.isChecked() ){
+                    double weightNum= Double.parseDouble(weight.getText().toString());
+                     weightInKg = (double)(Math.round(weightNum/ 2.2046));
+                    map.put("weight",weightInKg);
+                    ref.updateChildren(map);
+                }else if(kilogramsRadioButton.isChecked() ){
+                    weightInKg = Double.parseDouble(this.weight.getText().toString());
+                    map.put("weight",weightInKg);
+
+                }
+            }else{
+                weight.setError("Cannot be empty");
+            }
+
+
+        //BMI
+
+        //Calculation: [weight (kg) / height (cm) / height (cm)] x 10,000
+            if(weightInKg !=0 && heightInCmToDB !=0){
+
+                heightInMeters= heightInCmToDB/100;
+                double meteresSquared= Math.pow(heightInMeters,2);
+                bmi= (weightInKg/meteresSquared);
+                map.put("bmi",bmi);
+            }
+
+
+
+if(!inputError){
+    ref.updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+        @Override
+        public void onComplete(@NonNull Task<Void> task) {
+            if (task.isSuccessful()) {
+                Toast.makeText(EditProfileActivity.this, "com.oo115.myapplication.ProfileFragment Updated", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(EditProfileActivity.this, "com.oo115.myapplication.ProfileFragment Not Updated", Toast.LENGTH_SHORT).show();
+            }
+        }
+    });
+
+}else {
+    Toast.makeText(EditProfileActivity.this, "com.oo115.myapplication.ProfileFragment Not Updated", Toast.LENGTH_SHORT).show();
+}
+
+
+    }
+
+
+
+
+}

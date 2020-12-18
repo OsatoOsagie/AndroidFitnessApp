@@ -1,0 +1,524 @@
+package com.oo115.myapplication.Calculator;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import com.oo115.myapplication.PrefConFig;
+import com.oo115.myapplication.R;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+import com.oo115.myapplication.retrofitAPI.Profile_UpdateDB;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Objects;
+
+import androidx.fragment.app.Fragment;
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class MarcoCalcFragment extends Fragment {
+
+    public MarcoCalcFragment() {
+        // Required empty public constructor
+    }
+
+    public static ApiInterface apiInterface;
+    public PrefConFig prefConFig;
+    private String user_activity;
+    private double cal_coefficient, protein_coefficient, rec_fatPercentage;
+    private String gender, user_target, goal;
+    private double user_weight, height, bmr,
+            cal_goal, users_required_protein, calories_from_carbs, carb_gramPerDay, require_water_intake, ounces_toAdd;
+    private int calories_toLose, users_age;
+    private TextView proteinTv, carbsTV, fatsTv, waterTv, caloriesTv;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_marco_calc, container, false);
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        prefConFig = new PrefConFig(Objects.requireNonNull(getContext()));
+        Spinner activity_spinner = view.findViewById(R.id.macro_activityLevelSpinner);
+        Spinner target_spinner = view.findViewById(R.id.marcro_targetSpinner);
+        Button calculateMacros = view.findViewById(R.id.macro_calc);
+        proteinTv = view.findViewById(R.id.protein_actual);
+        carbsTV = view.findViewById(R.id.carbohydrates_actualValue);
+        fatsTv = view.findViewById(R.id.fats_actualValue);
+        waterTv = view.findViewById(R.id.water_actualValue);
+        caloriesTv = view.findViewById(R.id.calories_actualValue);
+        ImageButton proteinBtn = view.findViewById(R.id.imcHelp_protein);
+
+        ImageButton carbsBtn = view.findViewById(R.id.carbohydratesHelp);
+        ImageButton fatsBtn = view.findViewById(R.id.fatsHelp);
+        ImageButton waterBtn = view.findViewById(R.id.waterHelp);
+        ImageButton caloriesBtn = view.findViewById(R.id.caloriesHelp);
+
+
+        Objects.requireNonNull(getActivity()).setTitle("Macro Nutrients");
+         /*
+        Activity level spinner
+         */
+        String[] activityLevels = getResources().getStringArray(R.array.activity_level);
+
+        ArrayAdapter<String> myActivity_level = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.activity_level));
+
+        myActivity_level.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //set activity spinner to adaptor
+        activity_spinner.setAdapter(myActivity_level);
+
+
+        waterTv.setText(prefConFig.readWater());
+        caloriesTv.setText(prefConFig.readCalories());
+        proteinTv.setText(prefConFig.readProtein());
+        carbsTV.setText(prefConFig.readCarbs());
+        fatsTv.setText(prefConFig.readFats());
+
+
+        user_activity = activity_spinner.getSelectedItem().toString();
+
+        //setting the activity spinner when the page initially loads up
+        if (activityLevels[0].equals(prefConFig.readActivityLevel())) {
+            activity_spinner.setSelection(0);
+        } else if (activityLevels[1].equals(prefConFig.readActivityLevel())) {
+            activity_spinner.setSelection(1);
+        } else if (activityLevels[2].equals(prefConFig.readActivityLevel())) {
+            activity_spinner.setSelection(2);
+        } else if (activityLevels[3].equals(prefConFig.readActivityLevel())) {
+            activity_spinner.setSelection(3);
+        } else if (activityLevels[4].equals(prefConFig.readActivityLevel())) {
+            activity_spinner.setSelection(4);
+        } else if (activityLevels[5].equals(prefConFig.readActivityLevel())) {
+            activity_spinner.setSelection(5);
+        } else if (activityLevels[6].equals(prefConFig.readActivityLevel())) {
+            activity_spinner.setSelection(6);
+        } else if (activityLevels[7].equals(prefConFig.readActivityLevel())) {
+            activity_spinner.setSelection(7);
+        } else {
+            activity_spinner.setSelection(0);
+
+        }
+
+        //setting the activity spinner after an item is selected
+        activity_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                user_activity = activityLevels[position];
+
+
+                /*calorie coefficient
+
+                 */
+                if (user_activity.equals(activityLevels[0])) {
+                    cal_coefficient = 1.2000;
+                    ounces_toAdd = 0;
+
+                } else if (user_activity.equals(activityLevels[1])) {
+                    cal_coefficient = 1.3751;
+                    ounces_toAdd = 36;
+                } else if (user_activity.equals(activityLevels[2])) {
+                    cal_coefficient = 1.41870;
+                    ounces_toAdd = 48;
+                } else if (user_activity.equals(activityLevels[3])) {
+                    cal_coefficient = 1.46251;
+                    ounces_toAdd = 72;
+                } else if (user_activity.equals(activityLevels[4])) {
+                    cal_coefficient = 1.5500;
+                    ounces_toAdd = 84;
+                } else if (user_activity.equals(activityLevels[5])) {
+                    cal_coefficient = 1.6376;
+                    ounces_toAdd = 96;
+                } else if (user_activity.equals(activityLevels[6])) {
+                    cal_coefficient = 1.7252;
+                    ounces_toAdd = 108;
+                } else if (user_activity.equals(activityLevels[7])) {
+                    cal_coefficient = 1.9100;
+                    ounces_toAdd = 120;
+                }
+
+
+
+
+                /*protein  coefficient
+
+                 */
+
+                gender = prefConFig.readSex();
+
+                if (!gender.equals("no sex found") && !prefConFig.readWeight().equals("no weight found")) {
+                    user_weight = Double.parseDouble(prefConFig.readWeight());
+                    if (gender.equals("Male")) {
+
+                        if (user_activity.equals(activityLevels[0])) {
+                            protein_coefficient = 0.8;
+
+                        } else if (user_activity.equals(activityLevels[1])) {
+                            protein_coefficient = 1.2;
+                        } else if (user_activity.equals(activityLevels[2])) {
+                            protein_coefficient = 1.4;
+                        } else if (user_activity.equals(activityLevels[3])) {
+                            protein_coefficient = 1.8;
+                        } else if (user_activity.equals(activityLevels[4])) {
+                            protein_coefficient = 1.9;
+                        } else if (user_activity.equals(activityLevels[5])) {
+                            protein_coefficient = 2.0;
+                        } else if (user_activity.equals(activityLevels[6])) {
+                            protein_coefficient = 2.0;
+                        } else if (user_activity.equals(activityLevels[7])) {
+                            protein_coefficient = 2.0;
+                        }
+                    } else {
+
+                        if (user_activity.equals(activityLevels[0])) {
+                            protein_coefficient = 0.8;
+
+                        } else if (user_activity.equals(activityLevels[1])) {
+                            protein_coefficient = 0.9;
+                        } else if (user_activity.equals(activityLevels[2])) {
+                            protein_coefficient = 1.0;
+                        } else if (user_activity.equals(activityLevels[3])) {
+                            protein_coefficient = 1.3;
+                        } else if (user_activity.equals(activityLevels[4])) {
+                            protein_coefficient = 1.8;
+                        } else if (user_activity.equals(activityLevels[5])) {
+                            protein_coefficient = 1.9;
+                        } else if (user_activity.equals(activityLevels[6])) {
+                            protein_coefficient = 1.9;
+                        } else if (user_activity.equals(activityLevels[7])) {
+                            protein_coefficient = 1.9;
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+           /*
+        target spinner
+         */
+
+        ArrayAdapter<String> target_array = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.target));
+
+
+        String[] target_to_lose = getResources().getStringArray(R.array.target);
+        myActivity_level.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //set gender spinner to adaptor
+        target_spinner.setAdapter(target_array);
+        user_target = target_spinner.getSelectedItem().toString();
+
+        prefConFig.distplayToast(prefConFig.readWeeklyTarget());
+//setting the initail selection of the target spinner
+        if (target_to_lose[0].equals(prefConFig.readWeeklyTarget())) {
+            target_spinner.setSelection(0);
+        } else if (target_to_lose[1].equals(prefConFig.readWeeklyTarget())) {
+            target_spinner.setSelection(1);
+        } else if (target_to_lose[2].equals(prefConFig.readWeeklyTarget())) {
+            target_spinner.setSelection(2);
+        } else if (target_to_lose[3].equals(prefConFig.readWeeklyTarget())) {
+            target_spinner.setSelection(3);
+        } else if (target_to_lose[4].equals(prefConFig.readWeeklyTarget())) {
+            target_spinner.setSelection(4);
+        } else if (target_to_lose[5].equals(prefConFig.readWeeklyTarget())) {
+            target_spinner.setSelection(5);
+        } else if (target_to_lose[6].equals(prefConFig.readWeeklyTarget())) {
+            target_spinner.setSelection(6);
+        } else {
+            target_spinner.setSelection(0);
+        }
+
+        target_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                user_target = target_to_lose[position];
+
+                if (user_target.equals(target_to_lose[0])) {
+                    calories_toLose = 0;
+                    goal = "Maintain";
+
+                } else if (user_target.equals(target_to_lose[1])) {
+                    calories_toLose = 250;
+                    goal = "lose";
+
+                } else if (user_target.equals(target_to_lose[2])) {
+                    calories_toLose = 500;
+                    goal = "lose";
+                } else if (user_target.equals(target_to_lose[3])) {
+                    calories_toLose = 1000;
+                    goal = "lose";
+                } else if (user_target.equals(target_to_lose[4])) {
+                    calories_toLose = 250;
+                    goal = "gain";
+                } else if (user_target.equals(target_to_lose[5])) {
+                    calories_toLose = 500;
+                    goal = "gain";
+                } else if (user_target.equals(target_to_lose[6])) {
+                    calories_toLose = 1000;
+                    goal = "gain";
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
+
+            /*
+        Calculating users age
+         */
+
+        if (!prefConFig.readDob().equals("no dob found") && !prefConFig.readWeight().equals("no weight found") &&
+                !prefConFig.readHeight().equals("no height found") && !prefConFig.readSex().equals("no sex found") && !prefConFig.readGoal().equals("no sex found")) {
+
+
+            DateFormat dateFormater_two = new SimpleDateFormat("dd/MM/yyy");
+            String dob = prefConFig.readDob();
+            String[] dateParts = dob.split("-");
+            String yearOfBirth = dateParts[0];
+
+
+            //current date
+
+            Date date = new Date();
+
+
+            String current_date = dateFormater_two.format(date);
+            String[] current_dateParts = current_date.split("/");
+
+            String current_year = current_dateParts[2];
+
+            //users age in year
+            users_age = Integer.parseInt(current_year) - Integer.parseInt(yearOfBirth);
+
+
+            //users height in cm
+            height = Double.parseDouble(prefConFig.readHeight());
+
+        } else {
+//            prefConFig.distplayToast(prefConFig.readWeight());
+        }
+
+        calculateMacros.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (!prefConFig.readDob().equals("no dob found") && !prefConFig.readWeight().equals("no weight found") &&
+                            !prefConFig.readHeight().equals("no height found") && !prefConFig.readSex().equals("no sex found") && !prefConFig.readGoal().equals("no sex found")) {
+                         /*
+                    Calories calc
+                     */
+                        if (gender.equals("Male")) {
+                            bmr = ((10 * user_weight) + (6.25 * height) - (5 * users_age) + 5);
+                            cal_goal = bmr * cal_coefficient;
+                            if (goal.equals("lose")) {
+                                cal_goal -= calories_toLose;
+                            } else {
+                                cal_goal += calories_toLose;
+                            }
+
+                            cal_goal = Math.round(cal_goal);
+                        } else if (gender.equals("Female")) {
+                            bmr = ((10 * user_weight) + (6.25 * height) - (5 * users_age) - 161);
+                            cal_goal = bmr * cal_coefficient;
+                            if (goal.equals("lose")) {
+                                cal_goal -= calories_toLose;
+                            } else {
+                                cal_goal += calories_toLose;
+                            }
+                            cal_goal = Math.round(cal_goal);
+                        }
+                    /*
+                Protein Calc
+                 */
+
+                        users_required_protein = Math.round(user_weight * protein_coefficient);
+
+                    /*
+                    Carbohydrate Calc
+
+                     */
+                        if (prefConFig.readGoal().equals("Fat loss")) {
+                            //45%
+                            calories_from_carbs = cal_goal * 0.45;
+
+                        } else if (prefConFig.readGoal().equals("Muscle Gainz")) {
+                            calories_from_carbs = cal_goal * 0.60;
+
+                        } else {
+                            calories_from_carbs = cal_goal * 0.50;
+                        }
+
+                        carb_gramPerDay = Math.round(calories_from_carbs / 4);
+
+                    /*
+                    Water calc
+                     */
+                        double weight_pounds = (user_weight * 2.2) * 0.67;
+
+                        require_water_intake = Math.round((weight_pounds + ounces_toAdd) / 35.195);
+
+                    /*
+                    Fats calc
+
+                     */
+
+                        if (prefConFig.readGoal().equals("Fat loss")) {
+                            //45%
+                            rec_fatPercentage = Math.round(cal_goal * 0.20 / 9);
+
+                        } else if (prefConFig.readGoal().equals("Muscle Gainz")) {
+                            rec_fatPercentage = Math.round(cal_goal * 0.35 / 9);
+
+                        } else {
+                            rec_fatPercentage = Math.round(cal_goal * 0.25 / 9);
+                        }
+
+
+                        waterTv.setText(Double.toString(require_water_intake));
+                        caloriesTv.setText(Double.toString(cal_goal));
+                        proteinTv.setText(Double.toString(users_required_protein));
+                        carbsTV.setText(Double.toString(carb_gramPerDay));
+                        fatsTv.setText(Double.toString(rec_fatPercentage));
+
+
+                        Call<Profile_UpdateDB> update_profile = apiInterface.saveMacro_calc(Integer.parseInt(prefConFig.readId()), users_required_protein, carb_gramPerDay, cal_goal, require_water_intake, rec_fatPercentage, user_target, user_activity);
+
+                        update_profile.enqueue(new Callback<Profile_UpdateDB>() {
+                            @Override
+                            public void onResponse(Call<Profile_UpdateDB> call, Response<Profile_UpdateDB> response) {
+
+                                if (response.body().getResponse().equals("ok")) {
+
+
+                                    prefConFig.writeUser_calories(Double.toString(cal_goal));
+                                    prefConFig.writeUser_water(Double.toString(require_water_intake));
+                                    prefConFig.writeUser_protein(Double.toString(users_required_protein));
+                                    prefConFig.writeUser_fat(Double.toString(rec_fatPercentage));
+                                    prefConFig.writeUser_carbs(Double.toString(carb_gramPerDay));
+                                    prefConFig.writeUser_weeklyActivityLevel(user_activity);
+                                    prefConFig.writeUser_weeklyTarget(user_target);
+                                } else {
+                                    prefConFig.distplayToast("something went wrong in th script");
+                                }
+
+                            }
+
+                            @Override
+                            public void onFailure(Call<Profile_UpdateDB> call, Throwable t) {
+
+                            }
+                        });
+
+
+                    } else {
+                        new SweetAlertDialog(Objects.requireNonNull(getActivity()), SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText(getString(R.string.str_error))
+                                .setContentText(getString(R.string.macro_calcError))
+                                .show();
+
+                    }
+//
+                }
+
+
+            });
+
+
+
+        /*
+        Help Buttons
+         */
+
+        proteinBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SweetAlertDialog(getContext(), SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+                        .setTitleText("Protein")
+                        .setContentText("Proteins are made of amino acids which are basically a chemical structure made of carbon, hydrogen, oxygen and nitrogen.\n\n" +
+                                "A complete source, also called high quality proteins, provides all of the essential amino acids, examples: animal based foods: meat, poultry, fish, milk, eggs and cheese;")
+                        .setCustomImage(R.drawable.ic_info_black_24dp)
+                        .show();
+            }
+        });
+
+        carbsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SweetAlertDialog(getContext(), SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+                        .setTitleText("Carbohydrates")
+                        .setContentText("Carbohydrates are foods that get converted into glucose, or sugar, in our bodies during digestion. Glucose is a main source of fuel for our body.\n\n" +
+                                "There are two kinds of carbohydrates:\n" +
+                                "\n" +
+                                "Simple carbohydrates include sugars found in foods such as table sugar, honey, dairy products, fruit and fruit juice.\n\n" +
+                                "Complex carbohydrates are starches — long chains of glucose molecules — which include grain products, such as bread, crackers, pasta and rice. Some vegetables — corn, peas, white and sweet potatoes, and butternut and winter squash — are high in starch." +
+                                " Complex carbohydrates can be broken down further into refined carbohydrates.")
+                        .setCustomImage(R.drawable.ic_info_black_24dp)
+                        .show();
+            }
+        });
+
+        fatsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SweetAlertDialog(getContext(), SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+                        .setTitleText("Fats")
+                        .setContentText("Fats are a rich source of energy, providing 9 calories per gram.\n" + "Fats are also crucial for optimal hormone production, including testosterone.\n"
+                                + "Furthermore, fats are the most satiating and can help delay the gastric emptying of food, it is important to limit their intake due to exceptionally high caloric content.\n"
+                        )
+                        .setCustomImage(R.drawable.ic_info_black_24dp)
+                        .show();
+            }
+        });
+
+        waterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SweetAlertDialog(getContext(), SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+                        .setTitleText("Water")
+                        .setContentText("Water is very important for many reasons. It has many health and performance benefits. It keeps your organs functioning properly, clears toxins, reduces excess sodium from your body, and it hydrates your muscle cells. It even liberates fat stores on your body so they are burned off as an energy source. Dehydration will cause a major decrement in performance.\n\n" +
+                                "Water plays a major role in cell volumization. This is where nutrients are pulled inside of the muscle cell causing a multitude of reactions that leads to muscle growth. "
+                        )
+                        .setCustomImage(R.drawable.ic_info_black_24dp)
+                        .show();
+            }
+        });
+
+
+        caloriesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SweetAlertDialog(getContext(), SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+                        .setTitleText("Calories")
+                        .setContentText("A calorie is the amount of heat needed to raise the temperature of one gram of water by one degree Celsius. Calories in food provide energy in the form of heat so that our bodies can function. Our bodies store and \"burn\" calories as fuel. Many dieters count calories and try to decrease caloric intake to lose weight.\n\n"
+                        )
+                        .setCustomImage(R.drawable.ic_info_black_24dp)
+                        .show();
+            }
+        });
+
+        return view;
+    }
+}
+

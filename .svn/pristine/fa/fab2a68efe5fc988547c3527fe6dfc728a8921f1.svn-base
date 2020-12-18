@@ -1,0 +1,254 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.oo115.myapplication"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="28" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" /> <!-- Required by older versions of Google Play services to create GCM registration tokens -->
+11-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:5:5-67
+11-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+12-->[com.google.android.gms:play-services-gcm:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/e9356b93cdd4bb6342b046b0e62d1dbe/play-services-gcm-17.0.0/AndroidManifest.xml:23:5-82
+12-->[com.google.android.gms:play-services-gcm:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/e9356b93cdd4bb6342b046b0e62d1dbe/play-services-gcm-17.0.0/AndroidManifest.xml:23:22-79
+13    <!-- <uses-sdk android:minSdkVersion="14"/> -->
+14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+14-->[com.google.firebase:firebase-database:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2a2070385891b0279001622ccb9be954/firebase-database-19.2.0/AndroidManifest.xml:25:5-79
+14-->[com.google.firebase:firebase-database:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2a2070385891b0279001622ccb9be954/firebase-database-19.2.0/AndroidManifest.xml:25:22-76
+15    <uses-permission android:name="android.permission.WAKE_LOCK" />
+15-->[com.google.android.gms:play-services-measurement-api:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/7ed5ea04176fc4b70fe4b94f8051c875/play-services-measurement-api-17.2.1/AndroidManifest.xml:24:5-68
+15-->[com.google.android.gms:play-services-measurement-api:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/7ed5ea04176fc4b70fe4b94f8051c875/play-services-measurement-api-17.2.1/AndroidManifest.xml:24:22-65
+16    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+16-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:26:5-110
+16-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:26:22-107
+17
+18    <application
+18-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:7:5-37:19
+19        android:allowBackup="true"
+19-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:8:9-35
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/53d2545f941c8440d3b0a0969af4d2c0/core-1.1.0/AndroidManifest.xml:24:18-86
+21        android:debuggable="true"
+22        android:icon="@mipmap/ic_launcher"
+22-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:9:9-43
+23        android:label="@string/app_name"
+23-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:10:9-41
+24        android:roundIcon="@mipmap/ic_launcher_round"
+24-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:11:9-54
+25        android:supportsRtl="true"
+25-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:12:9-35
+26        android:testOnly="true"
+27        android:theme="@style/AppTheme" >
+27-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:13:9-40
+28        <activity android:name="com.oo115.myapplication.TestActivity" />
+28-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml:4:9-73
+28-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml:4:19-70
+29        <activity
+29-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:14:9-17:68
+30            android:name="com.oo115.myapplication.Workout"
+30-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:15:13-36
+31            android:label="@string/title_activity_workout"
+31-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:16:13-59
+32            android:theme="@style/AppTheme.NoActionBar" />
+32-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:17:13-56
+33        <activity
+33-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:18:9-26:20
+34            android:name="com.oo115.myapplication.FirstpageActivity"
+34-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:19:13-46
+35            android:theme="@style/AppTheme.ActionBar" >
+35-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:20:13-54
+36            <intent-filter>
+36-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:21:13-25:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:22:17-69
+37-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:22:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:24:17-77
+39-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:24:27-74
+40            </intent-filter>
+41        </activity>
+42        <activity android:name="com.oo115.myapplication.CalorieCalcActivity" />
+42-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:27:9-57
+42-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:27:19-54
+43        <activity android:name="com.oo115.myapplication.EditProfileActivity" />
+43-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:28:9-57
+43-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:28:19-54
+44        <activity android:name="com.oo115.myapplication.ProteinCalculatorActivity" />
+44-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:29:9-63
+44-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:29:19-60
+45        <activity android:name="com.oo115.myapplication.EmailVerificationActivity" />
+45-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:30:9-63
+45-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:30:19-60
+46        <activity
+46-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:31:9-33:59
+47            android:name="com.oo115.myapplication.HomeActivity"
+47-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:32:13-41
+48            android:theme="@style/AppTheme.NoActionBar" />
+48-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:33:13-56
+49        <activity
+49-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:34:9-36:57
+50            android:name="com.oo115.myapplication.RegisterAndLoginActivity"
+50-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:35:13-53
+51            android:theme="@style/AppTheme.ActionBar" />
+51-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:36:13-54
+52        <activity
+52-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0be5efa628e724539c40254ba6886d9/firebase-auth-19.2.0/AndroidManifest.xml:24:9-31:50
+53            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+53-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0be5efa628e724539c40254ba6886d9/firebase-auth-19.2.0/AndroidManifest.xml:25:13-85
+54            android:excludeFromRecents="true"
+54-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0be5efa628e724539c40254ba6886d9/firebase-auth-19.2.0/AndroidManifest.xml:26:13-46
+55            android:exported="true"
+55-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0be5efa628e724539c40254ba6886d9/firebase-auth-19.2.0/AndroidManifest.xml:27:13-36
+56            android:launchMode="singleTask"
+56-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0be5efa628e724539c40254ba6886d9/firebase-auth-19.2.0/AndroidManifest.xml:28:13-44
+57            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+57-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0be5efa628e724539c40254ba6886d9/firebase-auth-19.2.0/AndroidManifest.xml:29:13-102
+58            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+58-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0be5efa628e724539c40254ba6886d9/firebase-auth-19.2.0/AndroidManifest.xml:30:13-72
+59
+60        <service
+60-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0be5efa628e724539c40254ba6886d9/firebase-auth-19.2.0/AndroidManifest.xml:33:9-39:19
+61            android:name="com.google.firebase.components.ComponentDiscoveryService"
+61-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0be5efa628e724539c40254ba6886d9/firebase-auth-19.2.0/AndroidManifest.xml:34:13-84
+62            android:directBootAware="true"
+62-->[com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f383f8e2924acb39dcc0e635eed60ed6/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
+63            android:exported="false" >
+63-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0be5efa628e724539c40254ba6886d9/firebase-auth-19.2.0/AndroidManifest.xml:35:13-37
+64            <meta-data
+64-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0be5efa628e724539c40254ba6886d9/firebase-auth-19.2.0/AndroidManifest.xml:36:13-38:85
+65                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+65-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0be5efa628e724539c40254ba6886d9/firebase-auth-19.2.0/AndroidManifest.xml:37:17-109
+66                android:value="com.google.firebase.components.ComponentRegistrar" />
+66-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/d0be5efa628e724539c40254ba6886d9/firebase-auth-19.2.0/AndroidManifest.xml:38:17-82
+67            <meta-data
+67-->[com.google.firebase:firebase-database:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2a2070385891b0279001622ccb9be954/firebase-database-19.2.0/AndroidManifest.xml:32:13-34:85
+68                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+68-->[com.google.firebase:firebase-database:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2a2070385891b0279001622ccb9be954/firebase-database-19.2.0/AndroidManifest.xml:33:17-109
+69                android:value="com.google.firebase.components.ComponentRegistrar" />
+69-->[com.google.firebase:firebase-database:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2a2070385891b0279001622ccb9be954/firebase-database-19.2.0/AndroidManifest.xml:34:17-82
+70            <meta-data
+70-->[com.google.firebase:firebase-storage:19.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/99e912a433a21549eb5141536afe926e/firebase-storage-19.1.0/AndroidManifest.xml:33:13-35:85
+71                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+71-->[com.google.firebase:firebase-storage:19.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/99e912a433a21549eb5141536afe926e/firebase-storage-19.1.0/AndroidManifest.xml:34:17-107
+72                android:value="com.google.firebase.components.ComponentRegistrar" />
+72-->[com.google.firebase:firebase-storage:19.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/99e912a433a21549eb5141536afe926e/firebase-storage-19.1.0/AndroidManifest.xml:35:17-82
+73            <meta-data
+73-->[com.google.android.gms:play-services-measurement-api:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/7ed5ea04176fc4b70fe4b94f8051c875/play-services-measurement-api-17.2.1/AndroidManifest.xml:30:13-32:85
+74                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+74-->[com.google.android.gms:play-services-measurement-api:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/7ed5ea04176fc4b70fe4b94f8051c875/play-services-measurement-api-17.2.1/AndroidManifest.xml:31:17-139
+75                android:value="com.google.firebase.components.ComponentRegistrar" />
+75-->[com.google.android.gms:play-services-measurement-api:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/7ed5ea04176fc4b70fe4b94f8051c875/play-services-measurement-api-17.2.1/AndroidManifest.xml:32:17-82
+76            <meta-data
+76-->[com.google.firebase:firebase-iid:19.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/05f7dbd9ec05860990f17c7b9c86921c/firebase-iid-19.0.0/AndroidManifest.xml:32:13-34:85
+77                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+77-->[com.google.firebase:firebase-iid:19.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/05f7dbd9ec05860990f17c7b9c86921c/firebase-iid-19.0.0/AndroidManifest.xml:33:17-96
+78                android:value="com.google.firebase.components.ComponentRegistrar" />
+78-->[com.google.firebase:firebase-iid:19.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/05f7dbd9ec05860990f17c7b9c86921c/firebase-iid-19.0.0/AndroidManifest.xml:34:17-82
+79        </service>
+80
+81        <receiver
+81-->[com.google.firebase:firebase-iid:19.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/05f7dbd9ec05860990f17c7b9c86921c/firebase-iid-19.0.0/AndroidManifest.xml:37:9-44:20
+82            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+82-->[com.google.firebase:firebase-iid:19.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/05f7dbd9ec05860990f17c7b9c86921c/firebase-iid-19.0.0/AndroidManifest.xml:38:13-78
+83            android:exported="true"
+83-->[com.google.firebase:firebase-iid:19.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/05f7dbd9ec05860990f17c7b9c86921c/firebase-iid-19.0.0/AndroidManifest.xml:39:13-36
+84            android:permission="com.google.android.c2dm.permission.SEND" >
+84-->[com.google.firebase:firebase-iid:19.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/05f7dbd9ec05860990f17c7b9c86921c/firebase-iid-19.0.0/AndroidManifest.xml:40:13-73
+85            <intent-filter>
+85-->[com.google.firebase:firebase-iid:19.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/05f7dbd9ec05860990f17c7b9c86921c/firebase-iid-19.0.0/AndroidManifest.xml:41:13-43:29
+86                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+86-->[com.google.firebase:firebase-iid:19.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/05f7dbd9ec05860990f17c7b9c86921c/firebase-iid-19.0.0/AndroidManifest.xml:42:17-81
+86-->[com.google.firebase:firebase-iid:19.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/05f7dbd9ec05860990f17c7b9c86921c/firebase-iid-19.0.0/AndroidManifest.xml:42:25-78
+87            </intent-filter>
+88        </receiver>
+89
+90        <activity
+90-->[com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6dc8528582b44a26f95c2d5d0e3a0195/play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
+91            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+91-->[com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6dc8528582b44a26f95c2d5d0e3a0195/play-services-base-17.1.0/AndroidManifest.xml:24:13-79
+92            android:exported="false"
+92-->[com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6dc8528582b44a26f95c2d5d0e3a0195/play-services-base-17.1.0/AndroidManifest.xml:25:13-37
+93            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+93-->[com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6dc8528582b44a26f95c2d5d0e3a0195/play-services-base-17.1.0/AndroidManifest.xml:26:13-72
+94
+95        <receiver
+95-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:29:9-33:20
+96            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+96-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:30:13-85
+97            android:enabled="true"
+97-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:31:13-35
+98            android:exported="false" >
+98-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:32:13-37
+99        </receiver>
+100        <receiver
+100-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:34:9-42:20
+101            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+101-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:35:13-100
+102            android:enabled="true"
+102-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:36:13-35
+103            android:exported="true"
+103-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:37:13-36
+104            android:permission="android.permission.INSTALL_PACKAGES" >
+104-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:38:13-69
+105            <intent-filter>
+105-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:39:13-41:29
+106                <action android:name="com.android.vending.INSTALL_REFERRER" />
+106-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:40:17-79
+106-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:40:25-76
+107            </intent-filter>
+108        </receiver>
+109
+110        <service
+110-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:44:9-47:40
+111            android:name="com.google.android.gms.measurement.AppMeasurementService"
+111-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:45:13-84
+112            android:enabled="true"
+112-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:46:13-35
+113            android:exported="false" />
+113-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:47:13-37
+114        <service
+114-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:48:9-52:72
+115            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+115-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:49:13-87
+116            android:enabled="true"
+116-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:50:13-35
+117            android:exported="false"
+117-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:51:13-37
+118            android:permission="android.permission.BIND_JOB_SERVICE" />
+118-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/5ecdfc67321072f3eef945b028c3b20b/play-services-measurement-17.2.1/AndroidManifest.xml:52:13-69
+119
+120        <provider
+120-->[com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f383f8e2924acb39dcc0e635eed60ed6/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
+121            android:name="com.google.firebase.provider.FirebaseInitProvider"
+121-->[com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f383f8e2924acb39dcc0e635eed60ed6/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
+122            android:authorities="com.oo115.myapplication.firebaseinitprovider"
+122-->[com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f383f8e2924acb39dcc0e635eed60ed6/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
+123            android:exported="false"
+123-->[com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f383f8e2924acb39dcc0e635eed60ed6/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
+124            android:initOrder="100" />
+124-->[com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/f383f8e2924acb39dcc0e635eed60ed6/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
+125
+126        <meta-data
+126-->[com.google.android.gms:play-services-basement:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6c394529409fe3dc8def66c40cb22264/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+127            android:name="com.google.android.gms.version"
+127-->[com.google.android.gms:play-services-basement:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6c394529409fe3dc8def66c40cb22264/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+128            android:value="@integer/google_play_services_version" />
+128-->[com.google.android.gms:play-services-basement:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6c394529409fe3dc8def66c40cb22264/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+129
+130        <provider
+130-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/3147b9521dc59b9139c33e80655d1993/lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
+131            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+131-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/3147b9521dc59b9139c33e80655d1993/lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
+132            android:authorities="com.oo115.myapplication.lifecycle-process"
+132-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/3147b9521dc59b9139c33e80655d1993/lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
+133            android:exported="false"
+133-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/3147b9521dc59b9139c33e80655d1993/lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
+134            android:multiprocess="true" />
+134-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/3147b9521dc59b9139c33e80655d1993/lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
+135    </application>
+136
+137</manifest>

@@ -1,0 +1,40 @@
+package com.oo115.myapplication.Workout_feature;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
+
+import com.oo115.myapplication.R;
+
+import androidx.fragment.app.Fragment;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class Plans_Tab extends Fragment {
+
+    public Plans_Tab() {
+        // Required empty public constructor
+    }
+
+    private ListView listView;
+    private String[] plans = {"Custom", "Beginner", "Intermediate", "Advanced", "Elite"};
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.plans__tab, container, false);
+
+        listView = view.findViewById(R.id.plans_Lv);
+
+        Plans_lvAdapter adapter = new Plans_lvAdapter(getActivity(), plans);
+        //setting the adaptor for the list view
+        listView.setAdapter(adapter);
+
+
+        return view;
+    }
+}

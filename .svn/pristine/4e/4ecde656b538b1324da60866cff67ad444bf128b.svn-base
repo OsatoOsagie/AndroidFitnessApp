@@ -1,0 +1,53 @@
+package com.oo115.myapplication;
+
+import org.junit.Rule;
+import org.junit.Test;
+
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+
+public class RegisterFragmentTest {
+
+    @Rule
+    public FragmentTestRule<RegisterFragment> mFragmentTestRule = new FragmentTestRule<>(RegisterFragment.class);
+
+    @Test
+    public void fragment_can_be_instantiated() {
+
+        // Launch the activity to make the fragment visible
+        mFragmentTestRule.launchActivity(null);
+
+        // Then use Espresso to test the Fragment
+        onView(withId(R.id.firstName)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void user_can_enter_details() {
+
+        // Launch the activity to make the fragment visible
+        mFragmentTestRule.launchActivity(null);
+
+        // testing that the user can enter their first name correctly
+        onView(withId(R.id.firstName)).perform(typeText("Osato"));
+        onView(withId(R.id.lastName)).perform(typeText("Osagie"));
+        onView(withId(R.id.emailInputFromUser)).perform(typeText("greg_osagie@gmail.com"));
+        onView(withId(R.id.passwordInputFromUser)).perform(typeText("123456"));
+        onView(withId(R.id.confrimPassword)).perform(typeText("123456"));
+
+
+        RegisterFragment fragment = mFragmentTestRule.getFragment();
+
+//        onView(withText(R.string.toa)).
+//                inRoot(withDecorView(not(is(mFragmentTestRule.getWindow().getDecorView())))).
+//                check(matches(isDisplayed()));
+
+
+
+    }
+
+
+
+}

@@ -1,0 +1,52 @@
+package com.oo115.myapplication;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+public class NutritionFragment extends Fragment {
+    // declaring a list view for the list items (name, image and description of the macro nutrients)
+    ListView nutritionView_lst;
+
+    //creating a datasource for the different macro nutrients(Proteins, Carbs, Fats)
+    String[] macroNutirentsName = {"Proteins", "Fats", "Carbohydrates"};
+
+    //creating datasource for the descriptions of each macro nutrients
+
+    String[] macronutrientsDes = {"Protein is an important part of our diet and key to building and maintaining all types of body tissue, including muscle. It contains amino acids, the building blocks used for muscle growth.",
+            "fats, along with omega three essential fatty acids, is an important way to improve health and reduce disease, while sculpting the body of your dreams. Conversely, bad fats such as saturated, trans and cholesterol types can cause major health problems",
+            "carbohydrates form a critical component of the bodybuilding diet. Carbohydrates are particularly useful immediately following a workout (Helms et al., 2014). This is because during an anaerobic weight training session, the body uses up stores of glycogen to fuel the workout"};
+
+    //datasource for the pictures of the macronutrients
+    Integer[] macroNutrientImage = {R.drawable.proteinfoods, R.drawable.healthyfats, R.drawable.carbohydrates};
+
+
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_nutrition, container, false);
+
+
+        nutritionView_lst = view.findViewById(R.id.macrosListView);
+        //declaring adaptor for listView
+        MacroNutrientsListView macroNutrientsListView = new MacroNutrientsListView(this.getActivity(), macroNutirentsName, macronutrientsDes, macroNutrientImage);
+        MuscleGroupListView muscleGroupListView = new MuscleGroupListView(this.getActivity(), macroNutirentsName, macroNutrientImage);
+        //setting the adaptor for the list view
+        nutritionView_lst.setAdapter(macroNutrientsListView);
+
+
+        return view;
+
+
+
+
+    }
+}

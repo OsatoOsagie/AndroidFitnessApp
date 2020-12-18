@@ -1,0 +1,45 @@
+package com.oo115.myapplication.retrofitAPI;
+
+import com.google.gson.annotations.SerializedName;
+
+public class UserDB {
+    @SerializedName("name")
+    private String name;
+
+
+    @SerializedName("id")
+    private String user_id;
+
+    @SerializedName("response")
+    private String response;
+
+    @SerializedName("email")
+    private String email;
+
+    @SerializedName("passwordDB")
+    private String password;
+
+
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getResponse() {
+        return response;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+
+}

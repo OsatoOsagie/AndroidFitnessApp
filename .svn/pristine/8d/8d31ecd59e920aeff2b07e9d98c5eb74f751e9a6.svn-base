@@ -1,0 +1,93 @@
+package com.oo115.myapplication.Workout_feature;
+
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.google.android.material.tabs.TabLayout;
+import com.oo115.myapplication.Adapter;
+import com.oo115.myapplication.PrefConFig;
+import com.oo115.myapplication.R;
+
+import java.util.Objects;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class Workout_Details_Fragment extends Fragment {
+
+
+    public Workout_Details_Fragment() {
+        // Required empty public constructor
+    }
+
+    public static Workout_Details_Fragment newInstance(String exerciseName, boolean showInput) {
+        Workout_Details_Fragment f = new Workout_Details_Fragment();
+
+        // Supply index input as an argument.
+        Bundle args = new Bundle();
+        args.putString("exerciseName", exerciseName);
+        args.putBoolean("showInput", showInput);
+        f.setArguments(args);
+
+        return f;
+
+    }
+
+    TabLayout tabs;
+    Toolbar toolbar;
+    public static PrefConFig prefConFig;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        /// Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_workout_page, container, false);
+        // Setting ViewPager for each Tabs
+        ViewPager viewPager = view.findViewById(R.id.viewpager_workoutPage);
+        setupViewPager(viewPager);
+        // Set Tabs inside Toolbar
+        tabs = view.findViewById(R.id.result_tabs_workoutPage);
+        tabs.setupWithViewPager(viewPager);
+
+        Objects.requireNonNull(((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).hide();
+        toolbar = view.findViewById(R.id.toolbar_exercises);
+//
+//
+//
+
+        prefConFig = new PrefConFig(Objects.requireNonNull(getContext()));
+
+        String extras = Objects.requireNonNull(getArguments()).getString("exerciseName");
+        toolbar.setTitle(extras);
+        toolbar.setNavigationIcon(R.drawable.ic_back);
+        toolbar.setNavigationOnClickListener(v -> getActivity().onBackPressed());
+        return view;
+    }
+
+
+    private void setupViewPager(ViewPager viewPager) {
+
+
+        Adapter adapter = new Adapter(getChildFragmentManager());
+        adapter.addFragment(new WorkoutExercisesFragment(), "Image");
+        adapter.addFragment(new Muscle_Worked_Tab(), "Muscle");
+        adapter.addFragment(new Exercise_description_tab(), "Description");
+        viewPager.setAdapter(adapter);
+
+
+    }
+
+    public void switchPage() {
+        tabs.setVisibility(View.GONE);
+
+    }
+
+}

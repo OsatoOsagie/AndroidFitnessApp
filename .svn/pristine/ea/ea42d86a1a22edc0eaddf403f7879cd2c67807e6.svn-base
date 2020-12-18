@@ -1,0 +1,91 @@
+package com.oo115.myapplication.retrofitAPI;
+
+import com.google.gson.annotations.SerializedName;
+
+/* DataBase Object */
+public class BodyMeasureDB {
+    // Notez que l'identifiant est un long
+
+    @SerializedName("responseOne_date")
+    private String mDateOne;
+    @SerializedName("responseTwo_date")
+    private String mDateTwo;
+    @SerializedName("responseThree_date")
+
+    private String mDateThree;
+    @SerializedName("responseFour_date")
+    private String mDateFour;
+    @SerializedName("responseFive_date")
+    private String mDateFive;
+
+
+    @SerializedName("responseOne_measure")
+
+    private String mMeasureOne;
+    @SerializedName("responseTwo_measure")
+
+    private String mMeasureTwo;
+    @SerializedName("responseThree_measure")
+
+    private String mMeasureThree;
+    @SerializedName("responseFour_measure")
+    private String mMeasureFour;
+
+    @SerializedName("responseFive_measure")
+    private String mMeasureFive;
+
+
+    @SerializedName("status")
+    private String status;
+
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getmDateOne() {
+        return mDateOne;
+    }
+
+    public String getmDateTwo() {
+        return mDateTwo;
+    }
+
+    public String getmDateThree() {
+        return mDateThree;
+    }
+
+    public String getmDateFour() {
+        return mDateFour;
+    }
+
+    public String getmDateFive() {
+        return mDateFive;
+    }
+
+    public String getmMeasureOne() {
+        return mMeasureOne;
+    }
+
+    public String getmMeasureTwo() {
+        return mMeasureTwo;
+    }
+
+    public String getmMeasureThree() {
+        return mMeasureThree;
+    }
+
+    public String getmMeasureFour() {
+        return mMeasureFour;
+    }
+
+    public String getmMeasureFive() {
+        return mMeasureFive;
+    }
+
+
+
+//    public int getBodyMeasure() {
+//
+//    }
+}

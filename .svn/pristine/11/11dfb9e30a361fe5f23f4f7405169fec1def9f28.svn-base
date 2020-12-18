@@ -1,0 +1,173 @@
+package com.oo115.myapplication.Settings;
+
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.oo115.myapplication.PrefConFig;
+import com.oo115.myapplication.R;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+import com.oo115.myapplication.retrofitAPI.Password_changeDB;
+
+import java.util.Objects;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class ChangePasswordFragment extends Fragment {
+
+
+    private EditText current_password, new_password, confirm_password;
+    private Button change_passwordBtn;
+    public static PrefConFig prefConFig;
+    public static ApiInterface apiInterface;
+
+    Toolbar toolbar;
+    public ChangePasswordFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_confirm_password, container, false);
+
+        toolbar = view.findViewById(R.id.passwordChange_toolBar);
+        current_password = view.findViewById(R.id.current_password_restET);
+        new_password = view.findViewById(R.id.password_resetET);
+        confirm_password = view.findViewById(R.id.passwordConfirm_resetET2);
+        change_passwordBtn = view.findViewById(R.id.changePassword_btn);
+
+        prefConFig = new PrefConFig(Objects.requireNonNull(getContext()));
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+
+
+        Objects.requireNonNull(((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).hide();
+        toolbar.setNavigationIcon(R.drawable.ic_back);
+        toolbar.setNavigationOnClickListener(v -> getActivity().onBackPressed());
+
+        toolbar.setTitle(R.string.change_password);
+
+
+        SpannableStringBuilder builderCurrentPassword = new SpannableStringBuilder();
+        String fnameHint = "Password";
+        String asterisk = "*";
+        SpannableString redSpannable = new SpannableString(asterisk);
+        redSpannable.setSpan(new ForegroundColorSpan(Color.RED), 0, asterisk.length(), 0);
+        builderCurrentPassword.append(fnameHint);
+        builderCurrentPassword.append(redSpannable);
+        current_password.setHint(builderCurrentPassword);
+
+        SpannableStringBuilder builderNewPassword = new SpannableStringBuilder();
+        String builderNewPasswordHint = "New Password";
+        builderNewPassword.append(builderNewPasswordHint);
+        builderNewPassword.append(redSpannable);
+        new_password.setHint(builderNewPassword);
+
+
+        SpannableStringBuilder builderConfirmPassword = new SpannableStringBuilder();
+        String builderConfirmPasswordHint = "Confirm Password";
+        builderConfirmPassword.append(builderConfirmPasswordHint);
+        builderConfirmPassword.append(redSpannable);
+        confirm_password.setHint(builderConfirmPassword);
+
+        change_passwordBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!current_password.getText().toString().equals(prefConFig.readPassword())) {
+                    new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText(getString(R.string.str_error))
+                            .setContentText("Invalid password")
+                            .show();
+
+                } else {
+                    if ((new_password.getText().toString().length() >= 6) && (confirm_password.getText().toString().length() >= 6)) {
+
+                        if ((new_password.getText().toString()).equals(current_password.getText().toString())) {
+                            new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+                                    .setTitleText(getString(R.string.str_error))
+                                    .setContentText("old password cannot be the same as new password")
+                                    .show();
+                        } else {
+
+
+                            if ((new_password.getText().toString()).equals(confirm_password.getText().toString())) {
+                                Call<Password_changeDB> password_change = apiInterface.passwordChange(prefConFig.readEmail(), new_password.getText().toString());
+                                SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
+                                pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+                                pDialog.setTitleText("Loading");
+                                pDialog.setCancelable(false);
+                                pDialog.show();
+                                password_change.enqueue(new Callback<Password_changeDB>() {
+                                    @Override
+                                    public void onResponse(Call<Password_changeDB> call, Response<Password_changeDB> response) {
+                                        if (response.body().getResponse().equals("changed")) {
+                                            pDialog.getProgressHelper().stopSpinning();
+                                            pDialog.dismissWithAnimation();
+
+
+                                            new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
+                                                    .setTitleText(getString(R.string.success_))
+                                                    .setContentText("Your password has been updated")
+                                                    .show();
+
+
+                                            new_password.setText("");
+                                            current_password.setText("");
+                                            confirm_password.setText("");
+                                        } else {
+                                            pDialog.getProgressHelper().stopSpinning();
+                                            pDialog.dismissWithAnimation();
+
+                                            new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+                                                    .setTitleText(getString(R.string.str_error))
+                                                    .setContentText(getString(R.string.default_msg))
+                                                    .show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Password_changeDB> call, Throwable t) {
+
+                                    }
+                                });
+                            }
+
+                        }
+                    } else {
+                        new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText(getString(R.string.str_error))
+                                .setContentText("Password Must be equal to or more than 6 characters")
+                                .show();
+                    }
+
+
+                }
+            }
+        });
+
+
+        return view;
+    }
+
+}

@@ -1,0 +1,60 @@
+# TotalFitness- An Android application for tracking progress
+
+The name of my application is TotalFitness and it is an android based fitness tracking and nutrition application. 
+TotalFitness aims to tackle the notion of having training and nutrition applications as separate entities by combining them into one application. 
+
+## Getting Started
+
+1. Download Project
+2. Install Android Studio
+3. Set up an emulator for android studio
+4. Run application on emulator 
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+1. The database and php scripts for the application is hosted on 
+https://login.siteground.com/users?lang=en 
+
+The database can be accessed through SQL workbench using the following information:
+
+$db_name= "peterp15_totalFitness";
+$mysql_username="peterp15_osa2";
+$mysql_password ="project123";
+$server_name= "77.104.130.132";
+$conn= mysqli_connect($server_name,$mysql_username,$mysql_password,$db_name);
+
+
+The PHP files used to communicate with the database are stored in the project, check the folder called PHP Scripts.
+
+Requests within the application is handled by a REST API Client called Retrofit. 
+
+## Running the tests
+
+1. Go into the android view
+2. Naivigate to java
+3. Right click on the android test folder and click on run tests. 
+
+### Break down into end to end tests
+
+* tests are broken down into classes, each class represents a feature of the application e.g login. 
+The classes consists of both Expresso UI tests and Unit tests. 
+The tests are meant to emulate a users actions within the application. For example, registering and trying to use a particular feature such as weight tracking. 
+
+## Built With
+
+* [Retrofit](https://square.github.io/retrofit/) - API CLient 
+* [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) - Charts view
+* [AlertDialog](https://github.com/pedant/sweet-alert-dialog) - Used to display alerts
+* [G suite developer] (https://developers.google.com/gmail/api/guides/sending) - used to send emails to the user
+
+## Authors
+
+* **OsatO Osagie** - *Initial work* - [University Of Leicester](https://campus.cs.le.ac.uk/svn/oo115/code/trunk/)
+
+## Acknowledgments
+
+* Inspiration taken from https://play.google.com/store/apps/details?id=com.easyfitness
+
+

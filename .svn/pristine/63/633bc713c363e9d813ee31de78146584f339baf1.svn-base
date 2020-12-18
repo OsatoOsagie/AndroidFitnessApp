@@ -1,0 +1,111 @@
+package com.oo115.myapplication;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.Objects;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+public class WorkoutExercisesFragment extends Fragment {
+    ListView exercises_lv;
+    //data source for the individual muscle groups
+    String[] exerciseGroups = {"Triceps", "Chest", "Shoulders", "Biceps", "Core", "Back", "Legs", "Show All"};
+    //data source for the images relating to each muscle group
+    Integer[] groupImage = {R.drawable.triceps, R.drawable.chest, R.drawable.shoulders, R.drawable.bicep, R.drawable.core,
+            R.drawable.back, R.drawable.quads, R.drawable.cardio, R.drawable.showall};
+
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_workout, container, false);
+
+
+        exercises_lv = view.findViewById(R.id.exercisesListView);
+        //declaring adaptor for listView
+        MuscleGroupListView muscleGroupListView = new MuscleGroupListView(this.getActivity(), exerciseGroups, groupImage);
+        exercises_lv.setAdapter(muscleGroupListView);
+        exercises_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                WorkoutPageFragment workoutPageFragment = new WorkoutPageFragment();
+
+                switch (position) {
+                    case 0:
+                        workoutPageFragment.switchPage();
+                        TricepFragment tricepFragment = new TricepFragment();
+                        FragmentManager fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction
+                                .replace(R.id.main_content_workoutPage, tricepFragment);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+
+                        break;
+
+                    case 1:
+                        Toast.makeText(getActivity(), "This is my Toast message 1!",
+                                Toast.LENGTH_LONG).show();
+                        break;
+                    case 2:
+                        Toast.makeText(getActivity(), "This is my Toast message 2!",
+                                Toast.LENGTH_LONG).show();
+                        break;
+                    case 3:
+                        Toast.makeText(getActivity(), "This is my Toast message 3!",
+                                Toast.LENGTH_LONG).show();
+                        break;
+                    case 4:
+                        Toast.makeText(getActivity(), "This is my Toast message 4!",
+                                Toast.LENGTH_LONG).show();
+                        break;
+                    case 5:
+                        Toast.makeText(getActivity(), "This is my Toast message 5!",
+                                Toast.LENGTH_LONG).show();
+                        break;
+                    case 6:
+                        Toast.makeText(getActivity(), "This is my Toast message 6!",
+                                Toast.LENGTH_LONG).show();
+                        break;
+                    case 7:
+                        Toast.makeText(getActivity(), "This is my Toast message 7!",
+                                Toast.LENGTH_LONG).show();
+                        break;
+
+                    default:
+                        Toast.makeText(getActivity(), "This is my Toast message!",
+                                Toast.LENGTH_LONG).show();
+                        break;
+
+
+                }
+            }
+        });
+
+        return view;
+    }
+
+//    @Override
+//    public void onDestroyView() {
+//        //mContainer.removeAllViews();
+//        ViewGroup mContainer = (ViewGroup) getActivity().findViewById(R.id.container);
+//        mContainer.removeAllViews();
+//        super.onDestroyView();
+//    }
+
+
+
+
+}

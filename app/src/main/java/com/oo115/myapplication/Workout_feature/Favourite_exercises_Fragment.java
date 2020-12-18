@@ -1,0 +1,167 @@
+package com.oo115.myapplication.Workout_feature;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SearchView;
+
+import com.oo115.myapplication.PrefConFig;
+import com.oo115.myapplication.R;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+import com.oo115.myapplication.retrofitAPI.Custom_plan_searchResponse;
+import com.oo115.myapplication.retrofitAPI.Favourites_search_response;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+import androidx.fragment.app.Fragment;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class Favourite_exercises_Fragment extends Fragment {
+    private ArrayList<String> exercises_array = new ArrayList<String>();
+    private ArrayList<String> image_url = new ArrayList<String>();
+    private ArrayList<String> ex_id = new ArrayList<String>();
+    ArrayList<String> custom_plan = new ArrayList<String>();
+    public static PrefConFig prefConFig;
+    public static ApiInterface apiInterface;
+    private ListView listView;
+    private SearchView searchView;
+
+
+    public Favourite_exercises_Fragment() {
+        // Required empty public constructor
+    }
+
+    private AdapterView.OnItemClickListener onClickListItem = (parent, view, position, id) -> {
+//        TextView textView = view.findViewById(R.id.LIST_BODYPART_ID);
+//        String exerciseName = exercises_array.get(position);
+//        String exerciseDesc= ex_desc.get(position);
+//
+//
+//        Workout_Details_Fragment fragment = Workout_Details_Fragment.newInstance(exerciseName, exerciseDesc,true);
+//        String backStateName = fragment.getClass().getName();
+//        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+//        // Replace whatever is in the fragment_container view with this fragment,
+//        // and add the transaction to the back stack so the user can navigate back
+//        transaction.replace(R.id.fragment_container, fragment);
+//        transaction.addToBackStack(backStateName);
+//
+//        // Commit the transaction
+//        transaction.commit();
+
+    };
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_favourite_exercises, container, false);
+
+
+        //inintialisations
+        listView = view.findViewById(R.id.favourite_workout_ListView);
+        searchView = view.findViewById(R.id.favourite_search);
+
+        Favourites_listAdaptor adapter = new Favourites_listAdaptor(getActivity(), exercises_array, image_url, custom_plan, ex_id);
+        //setting the adaptor for the list view
+        listView.setAdapter(adapter);
+//        listView.setOnItemClickListener();
+
+
+        prefConFig = new PrefConFig(Objects.requireNonNull(getContext()));
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+
+        int id = Integer.parseInt(prefConFig.readId());
+
+        Call<Favourites_search_response> search_favourites = apiInterface.search_favourites(id);
+
+        search_favourites.enqueue(new Callback<Favourites_search_response>() {
+            @Override
+            public void onResponse(Call<Favourites_search_response> call, Response<Favourites_search_response> response) {
+                if (response.body().getResponse().equals("favourites found")) {
+
+                    for (int i = 0; i < response.body().getFavourites().size(); i++) {
+
+                        exercises_array.add(i, response.body().getFavourites().get(i).getName());
+
+                        ex_id.add(i, response.body().getFavourites().get(i).getEx_id());
+
+                        image_url.add(i, response.body().getFavourites().get(i).getImage());
+
+                        adapter.notifyDataSetChanged();
+
+                    }
+                } else {
+
+                    exercises_array.add(0, "No favourites found");
+                    adapter.notifyDataSetChanged();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Favourites_search_response> call, Throwable t) {
+
+            }
+        });
+
+        //getting all the custom_plan
+        Call<Custom_plan_searchResponse> get_custom_plan = apiInterface.get_custom_plan(Integer.parseInt(prefConFig.readId()));
+
+        get_custom_plan.enqueue(new Callback<Custom_plan_searchResponse>() {
+            @Override
+            public void onResponse(Call<Custom_plan_searchResponse> call, Response<Custom_plan_searchResponse> response) {
+                if (response.body().getResponse().equals("plan not empty")) {
+                    prefConFig.distplayToast("here");
+                    for (int i = 0; i < response.body().getCustom_planArraysArray().size(); i++) {
+
+                        custom_plan.add(i, response.body().getCustom_planArraysArray().get(i).getEx_name());
+
+
+                        adapter.notifyDataSetChanged();
+
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Custom_plan_searchResponse> call, Throwable t) {
+
+            }
+        });
+
+        return view;
+    }
+
+
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        image_url = new ArrayList<String>();
+//        exercises_array=new ArrayList<String>();
+//    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        image_url = new ArrayList<String>();
+        exercises_array = new ArrayList<String>();
+    }
+
+    //    @Override
+//    public void onResume() {
+//        super.onResume();
+//        image_url = new ArrayList<String>();
+//        exercises_array=new ArrayList<String>();
+//
+//    }
+}

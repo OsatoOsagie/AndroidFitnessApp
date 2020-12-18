@@ -1,0 +1,141 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+
+    <string name="male">
+        Male
+</string>
+
+    <string name="female">
+        Female
+</string>
+
+    <string name="weight">
+    Weight
+</string>
+
+    <string name="height">
+        Height
+    </string>
+    <string name="age">
+        Age
+    </string>
+
+    <string name="sex">
+        Sex
+</string>
+    <string name="fatloss">
+        Fat Loss
+</string>
+
+    <string name="maintenance">
+        Maintenance
+</string>
+
+    <string name="muscleGainz">
+        Muscle Gainz
+</string>
+
+    <string name="pounds">
+        pounds
+</string>
+
+    <string name="kilograms">
+        Kilograms
+</string>
+
+    <string name="feet">
+        Feet
+</string>
+
+    <string name="centimeters">
+        Centimeters
+</string>
+
+    <string name="save">
+        Save
+    </string>
+    <string name="goal">
+        Goal
+    </string>
+
+    <string name="inches">
+        Inches
+    </string>
+
+    <string name="calorieCalculator">
+    Calorie calculator
+</string>
+    <string name="iconHome">
+        Home
+    </string>
+
+    <string name="iconWorkout">
+        Workout
+    </string>
+    <string name="iconNutrition">
+        Nutrition
+    </string>
+    <string name="iconMore">
+        More
+    </string>
+    <string name="iconProfile">
+        Profile
+    </string>
+    <string name="iconLogout">
+        Logout
+    </string>
+
+    <string name="communicateWithFriends">
+        communicate with friends
+    </string>
+
+    <string name="insta">
+       Instagram
+    </string>
+
+    <string name="Twitter">
+        Twitter
+    </string>
+
+    <string name="FB">
+        Facebook
+    </string>
+
+
+    //navigation drawer
+    <string name="navigation_drawer_open">
+        Open navigation drawer
+    </string>
+
+    <string name="navigation_drawer_close">
+        close navigation drawer
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pref_file"> com.fitnessApp.preference</string>
+    <string name="pref_login_status"> com.fitnessApp.preference.login_status</string>
+    <string name="pref_user_name"> com.fitnessApp.preference_user_name</string>
+    <string name="pref_user_quote"> com.fitnessApp.preference_user_quote</string>
+    <string name="pref_user_email"> com.fitnessApp.preference_user_email</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="str_ok">OK</string>
+    <string name="str_exits">exists</string>
+    <string name="str_error">error</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="success_msg">"Registration success"</string>
+    <string name="userAlreadyExists_msg">User Already exits</string>
+    <string name="default_msg">Something went wrong</string>
+    <string name="title_activity_workout">Workout</string>
+    <string name="tab_text_1">Exercises</string>
+    <string name="tab_text_2">Plans</string>
+    <string name="tab_text_3">History</string>
+
+    //
+    <string name="firstName"></string>
+
+
+</resources>

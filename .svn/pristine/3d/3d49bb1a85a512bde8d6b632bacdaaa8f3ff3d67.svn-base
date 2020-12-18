@@ -1,0 +1,255 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.oo115.myapplication"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="28" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" /> <!-- Required by older versions of Google Play services to create GCM registration tokens -->
+11-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:5:5-67
+11-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+12-->[com.google.android.gms:play-services-gcm:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2d05051d67859228e06ac697f3176edb/jetified-play-services-gcm-17.0.0/AndroidManifest.xml:23:5-82
+12-->[com.google.android.gms:play-services-gcm:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2d05051d67859228e06ac697f3176edb/jetified-play-services-gcm-17.0.0/AndroidManifest.xml:23:22-79
+13    <!-- <uses-sdk android:minSdkVersion="14"/> -->
+14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+14-->[com.google.firebase:firebase-database:19.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/13d62a772ae9c1b7ac1be76007b52870/jetified-firebase-database-19.2.1/AndroidManifest.xml:25:5-79
+14-->[com.google.firebase:firebase-database:19.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/13d62a772ae9c1b7ac1be76007b52870/jetified-firebase-database-19.2.1/AndroidManifest.xml:25:22-76
+15    <uses-permission android:name="android.permission.WAKE_LOCK" />
+15-->[com.google.android.gms:play-services-measurement-api:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/60b3ef899fedce84201bec0f432e0e8d/jetified-play-services-measurement-api-17.2.3/AndroidManifest.xml:24:5-68
+15-->[com.google.android.gms:play-services-measurement-api:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/60b3ef899fedce84201bec0f432e0e8d/jetified-play-services-measurement-api-17.2.3/AndroidManifest.xml:24:22-65
+16    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+16-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:26:5-110
+16-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:26:22-107
+17
+18    <application
+18-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:7:5-33:19
+19        android:allowBackup="true"
+19-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:8:9-35
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/6c1320d930eb574cd70c8672a4bfd0d9/core-1.1.0/AndroidManifest.xml:24:18-86
+21        android:debuggable="true"
+22        android:icon="@mipmap/ic_launcher"
+22-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:9:9-43
+23        android:label="@string/app_name"
+23-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:10:9-41
+24        android:roundIcon="@mipmap/ic_launcher_round"
+24-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:11:9-54
+25        android:supportsRtl="true"
+25-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:12:9-35
+26        android:testOnly="true"
+27        android:theme="@style/AppTheme" >
+27-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:13:9-40
+28        <activity android:name="com.oo115.myapplication.TestActivity" />
+28-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml:4:9-73
+28-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/debug/AndroidManifest.xml:4:19-70
+29        <activity
+29-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:14:9-22:20
+30            android:name="com.oo115.myapplication.FirstpageActivity"
+30-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:15:13-46
+31            android:theme="@style/AppTheme.ActionBar" >
+31-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:16:13-54
+32            <intent-filter>
+32-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:17:13-21:29
+33                <action android:name="android.intent.action.MAIN" />
+33-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:18:17-69
+33-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:18:25-66
+34
+35                <category android:name="android.intent.category.LAUNCHER" />
+35-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:20:17-77
+35-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:20:27-74
+36            </intent-filter>
+37        </activity>
+38        <activity android:name="com.oo115.myapplication.CalorieCalcActivity" />
+38-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:23:9-57
+38-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:23:19-54
+39        <activity android:name="com.oo115.myapplication.EditProfileActivity" />
+39-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:24:9-57
+39-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:24:19-54
+40        <activity android:name="com.oo115.myapplication.ProteinCalculatorActivity" />
+40-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:25:9-63
+40-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:25:19-60
+41        <activity android:name="com.oo115.myapplication.EmailVerificationActivity" />
+41-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:26:9-63
+41-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:26:19-60
+42        <activity
+42-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:27:9-29:59
+43            android:name="com.oo115.myapplication.HomeActivity"
+43-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:28:13-41
+44            android:theme="@style/AppTheme.NoActionBar" />
+44-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:29:13-56
+45        <activity
+45-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:30:9-32:57
+46            android:name="com.oo115.myapplication.RegisterAndLoginActivity"
+46-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:31:13-53
+47            android:theme="@style/AppTheme.ActionBar" />
+47-->/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/AndroidManifest.xml:32:13-54
+48        <activity
+48-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/78ea54449dad0bf80665f8ac92eb93da/jetified-firebase-auth-19.2.0/AndroidManifest.xml:24:9-31:50
+49            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+49-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/78ea54449dad0bf80665f8ac92eb93da/jetified-firebase-auth-19.2.0/AndroidManifest.xml:25:13-85
+50            android:excludeFromRecents="true"
+50-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/78ea54449dad0bf80665f8ac92eb93da/jetified-firebase-auth-19.2.0/AndroidManifest.xml:26:13-46
+51            android:exported="true"
+51-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/78ea54449dad0bf80665f8ac92eb93da/jetified-firebase-auth-19.2.0/AndroidManifest.xml:27:13-36
+52            android:launchMode="singleTask"
+52-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/78ea54449dad0bf80665f8ac92eb93da/jetified-firebase-auth-19.2.0/AndroidManifest.xml:28:13-44
+53            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+53-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/78ea54449dad0bf80665f8ac92eb93da/jetified-firebase-auth-19.2.0/AndroidManifest.xml:29:13-102
+54            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+54-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/78ea54449dad0bf80665f8ac92eb93da/jetified-firebase-auth-19.2.0/AndroidManifest.xml:30:13-72
+55
+56        <service
+56-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/78ea54449dad0bf80665f8ac92eb93da/jetified-firebase-auth-19.2.0/AndroidManifest.xml:33:9-39:19
+57            android:name="com.google.firebase.components.ComponentDiscoveryService"
+57-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/78ea54449dad0bf80665f8ac92eb93da/jetified-firebase-auth-19.2.0/AndroidManifest.xml:34:13-84
+58            android:directBootAware="true"
+58-->[com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/86a04de8e712d4324c77fc2153c19801/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
+59            android:exported="false" >
+59-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/78ea54449dad0bf80665f8ac92eb93da/jetified-firebase-auth-19.2.0/AndroidManifest.xml:35:13-37
+60            <meta-data
+60-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/78ea54449dad0bf80665f8ac92eb93da/jetified-firebase-auth-19.2.0/AndroidManifest.xml:36:13-38:85
+61                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+61-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/78ea54449dad0bf80665f8ac92eb93da/jetified-firebase-auth-19.2.0/AndroidManifest.xml:37:17-109
+62                android:value="com.google.firebase.components.ComponentRegistrar" />
+62-->[com.google.firebase:firebase-auth:19.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/78ea54449dad0bf80665f8ac92eb93da/jetified-firebase-auth-19.2.0/AndroidManifest.xml:38:17-82
+63            <meta-data
+63-->[com.google.firebase:firebase-database:19.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/13d62a772ae9c1b7ac1be76007b52870/jetified-firebase-database-19.2.1/AndroidManifest.xml:32:13-34:85
+64                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+64-->[com.google.firebase:firebase-database:19.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/13d62a772ae9c1b7ac1be76007b52870/jetified-firebase-database-19.2.1/AndroidManifest.xml:33:17-109
+65                android:value="com.google.firebase.components.ComponentRegistrar" />
+65-->[com.google.firebase:firebase-database:19.2.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/13d62a772ae9c1b7ac1be76007b52870/jetified-firebase-database-19.2.1/AndroidManifest.xml:34:17-82
+66            <meta-data
+66-->[com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/853ca95e69b5da8a7a6788c20aba81b1/jetified-firebase-storage-19.1.1/AndroidManifest.xml:33:13-35:85
+67                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+67-->[com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/853ca95e69b5da8a7a6788c20aba81b1/jetified-firebase-storage-19.1.1/AndroidManifest.xml:34:17-107
+68                android:value="com.google.firebase.components.ComponentRegistrar" />
+68-->[com.google.firebase:firebase-storage:19.1.1] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/853ca95e69b5da8a7a6788c20aba81b1/jetified-firebase-storage-19.1.1/AndroidManifest.xml:35:17-82
+69            <meta-data
+69-->[com.google.android.gms:play-services-measurement-api:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/60b3ef899fedce84201bec0f432e0e8d/jetified-play-services-measurement-api-17.2.3/AndroidManifest.xml:30:13-32:85
+70                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+70-->[com.google.android.gms:play-services-measurement-api:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/60b3ef899fedce84201bec0f432e0e8d/jetified-play-services-measurement-api-17.2.3/AndroidManifest.xml:31:17-139
+71                android:value="com.google.firebase.components.ComponentRegistrar" />
+71-->[com.google.android.gms:play-services-measurement-api:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/60b3ef899fedce84201bec0f432e0e8d/jetified-play-services-measurement-api-17.2.3/AndroidManifest.xml:32:17-82
+72            <meta-data
+72-->[com.google.firebase:firebase-iid:20.0.2] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1e478ec0171623d227558091fe85c642/jetified-firebase-iid-20.0.2/AndroidManifest.xml:32:13-34:85
+73                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+73-->[com.google.firebase:firebase-iid:20.0.2] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1e478ec0171623d227558091fe85c642/jetified-firebase-iid-20.0.2/AndroidManifest.xml:33:17-96
+74                android:value="com.google.firebase.components.ComponentRegistrar" />
+74-->[com.google.firebase:firebase-iid:20.0.2] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1e478ec0171623d227558091fe85c642/jetified-firebase-iid-20.0.2/AndroidManifest.xml:34:17-82
+75        </service>
+76
+77        <provider
+77-->[com.squareup.picasso:picasso:2.71828] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/7ef3ee8d482a1b907fe6c40bdab9381a/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
+78            android:name="com.squareup.picasso.PicassoProvider"
+78-->[com.squareup.picasso:picasso:2.71828] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/7ef3ee8d482a1b907fe6c40bdab9381a/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
+79            android:authorities="com.oo115.myapplication.com.squareup.picasso"
+79-->[com.squareup.picasso:picasso:2.71828] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/7ef3ee8d482a1b907fe6c40bdab9381a/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
+80            android:exported="false" />
+80-->[com.squareup.picasso:picasso:2.71828] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/7ef3ee8d482a1b907fe6c40bdab9381a/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
+81
+82        <receiver
+82-->[com.google.firebase:firebase-iid:20.0.2] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1e478ec0171623d227558091fe85c642/jetified-firebase-iid-20.0.2/AndroidManifest.xml:37:9-44:20
+83            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+83-->[com.google.firebase:firebase-iid:20.0.2] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1e478ec0171623d227558091fe85c642/jetified-firebase-iid-20.0.2/AndroidManifest.xml:38:13-78
+84            android:exported="true"
+84-->[com.google.firebase:firebase-iid:20.0.2] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1e478ec0171623d227558091fe85c642/jetified-firebase-iid-20.0.2/AndroidManifest.xml:39:13-36
+85            android:permission="com.google.android.c2dm.permission.SEND" >
+85-->[com.google.firebase:firebase-iid:20.0.2] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1e478ec0171623d227558091fe85c642/jetified-firebase-iid-20.0.2/AndroidManifest.xml:40:13-73
+86            <intent-filter>
+86-->[com.google.firebase:firebase-iid:20.0.2] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1e478ec0171623d227558091fe85c642/jetified-firebase-iid-20.0.2/AndroidManifest.xml:41:13-43:29
+87                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+87-->[com.google.firebase:firebase-iid:20.0.2] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1e478ec0171623d227558091fe85c642/jetified-firebase-iid-20.0.2/AndroidManifest.xml:42:17-81
+87-->[com.google.firebase:firebase-iid:20.0.2] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/1e478ec0171623d227558091fe85c642/jetified-firebase-iid-20.0.2/AndroidManifest.xml:42:25-78
+88            </intent-filter>
+89        </receiver>
+90
+91        <activity
+91-->[com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/434cc56e1010cd3b95e945f9b302896a/jetified-play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
+92            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+92-->[com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/434cc56e1010cd3b95e945f9b302896a/jetified-play-services-base-17.1.0/AndroidManifest.xml:24:13-79
+93            android:exported="false"
+93-->[com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/434cc56e1010cd3b95e945f9b302896a/jetified-play-services-base-17.1.0/AndroidManifest.xml:25:13-37
+94            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+94-->[com.google.android.gms:play-services-base:17.1.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/434cc56e1010cd3b95e945f9b302896a/jetified-play-services-base-17.1.0/AndroidManifest.xml:26:13-72
+95
+96        <receiver
+96-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:29:9-33:20
+97            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+97-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:30:13-85
+98            android:enabled="true"
+98-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:31:13-35
+99            android:exported="false" >
+99-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:32:13-37
+100        </receiver>
+101        <receiver
+101-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:34:9-42:20
+102            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+102-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:35:13-100
+103            android:enabled="true"
+103-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:36:13-35
+104            android:exported="true"
+104-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:37:13-36
+105            android:permission="android.permission.INSTALL_PACKAGES" >
+105-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:38:13-69
+106            <intent-filter>
+106-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:39:13-41:29
+107                <action android:name="com.android.vending.INSTALL_REFERRER" />
+107-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:40:17-79
+107-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:40:25-76
+108            </intent-filter>
+109        </receiver>
+110
+111        <service
+111-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:44:9-47:40
+112            android:name="com.google.android.gms.measurement.AppMeasurementService"
+112-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:45:13-84
+113            android:enabled="true"
+113-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:46:13-35
+114            android:exported="false" />
+114-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:47:13-37
+115        <service
+115-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:48:9-52:72
+116            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+116-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:49:13-87
+117            android:enabled="true"
+117-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:50:13-35
+118            android:exported="false"
+118-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:51:13-37
+119            android:permission="android.permission.BIND_JOB_SERVICE" />
+119-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/8754b3cf07da5e21ffdcbc3bf117ab15/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:52:13-69
+120
+121        <provider
+121-->[com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/86a04de8e712d4324c77fc2153c19801/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
+122            android:name="com.google.firebase.provider.FirebaseInitProvider"
+122-->[com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/86a04de8e712d4324c77fc2153c19801/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
+123            android:authorities="com.oo115.myapplication.firebaseinitprovider"
+123-->[com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/86a04de8e712d4324c77fc2153c19801/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
+124            android:exported="false"
+124-->[com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/86a04de8e712d4324c77fc2153c19801/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
+125            android:initOrder="100" />
+125-->[com.google.firebase:firebase-common:19.3.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/86a04de8e712d4324c77fc2153c19801/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
+126
+127        <meta-data
+127-->[com.google.android.gms:play-services-basement:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0bbff661d90b92c536edf84ef6958670/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+128            android:name="com.google.android.gms.version"
+128-->[com.google.android.gms:play-services-basement:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0bbff661d90b92c536edf84ef6958670/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+129            android:value="@integer/google_play_services_version" />
+129-->[com.google.android.gms:play-services-basement:17.0.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/0bbff661d90b92c536edf84ef6958670/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+130
+131        <provider
+131-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2e58c3d9d7b23460bf556499276878f8/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+132            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+132-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2e58c3d9d7b23460bf556499276878f8/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+133            android:authorities="com.oo115.myapplication.lifecycle-process"
+133-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2e58c3d9d7b23460bf556499276878f8/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+134            android:exported="false"
+134-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2e58c3d9d7b23460bf556499276878f8/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+135            android:multiprocess="true" />
+135-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/aesthetic/.gradle/caches/transforms-2/files-2.1/2e58c3d9d7b23460bf556499276878f8/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+136    </application>
+137
+138</manifest>

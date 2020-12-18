@@ -1,0 +1,238 @@
+package com.oo115.myapplication;
+
+
+import android.content.Intent;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import java.util.Random;
+
+import androidx.test.espresso.action.ViewActions;
+import androidx.test.espresso.contrib.DrawerActions;
+import androidx.test.espresso.contrib.NavigationViewActions;
+import androidx.test.espresso.intent.Intents;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.runner.AndroidJUnit4;
+
+import static androidx.test.espresso.Espresso.onData;
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.swipeLeft;
+import static androidx.test.espresso.action.ViewActions.swipeRight;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.Matchers.anything;
+
+@RunWith(AndroidJUnit4.class)
+public class WelcomePageExpressoTest {
+
+//    @Rule
+//    public FragmentTestRule<HomeFragment> mFragmentTestRule = new FragmentTestRule<>(HomeFragment.class);
+
+
+    @Rule
+    public ActivityTestRule<MainActivity> mActivityRule =
+            new ActivityTestRule<>(MainActivity.class);
+
+    @Before
+    public void setUp() throws Exception {
+        Intents.init();
+
+
+    }
+
+    @After
+    public void cleanUp() {
+        Intents.release();
+    }
+
+    @Test
+    public void fragment_can_be_instantiated() {
+
+        // Launch the activity to make the fragment visible
+//        mFragmentTestRule.launchActivity(null);
+        onView(withText("Quick Workout")).check(matches(isDisplayed()));
+//
+        onView(withId(R.id.btnQuickWork)).check(matches(isDisplayed()));
+
+    }
+
+
+    /*
+    Tests that you can click the show all button in the home page
+    it takes you to a page with all the exercises and then
+    you can click one of the exercises
+    you can swipe to different tabs
+     */
+    @Test
+    public void show_all_test() {
+        Random rand = new Random();
+        int rand_int1 = rand.nextInt(36);
+        // Launch the activity to make the fragment visible
+
+//        mFragmentTestRule.launchActivity(null);
+        mActivityRule.launchActivity(new Intent());
+
+        onView(withId(R.id.btnQuickWork)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout))
+                .perform(click());
+
+        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
+        onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_home));
+        onView(withText("Quick Workout")).check(matches(isDisplayed()));
+        onView(withId(R.id.btnQuickWork)).perform(click());
+
+        onData(anything()).inAdapterView(withId(R.id.exercises_workout_ListView)).atPosition(rand_int1).perform(click());
+        onView(withText("Muscle")).check(matches(isDisplayed()));
+        onView(withId(R.id.gif)).check(matches(isDisplayed()));
+        onView(withId(R.id.viewpager_workoutPage)).perform(swipeLeft());
+        onView(withId(R.id.muscle_worked)).check(matches(isDisplayed()));
+        onView(withId(R.id.viewpager_workoutPage)).perform(swipeLeft());
+        onView(withId(R.id.ex_title)).check(matches(isDisplayed()));
+        onView(withId(R.id.ex_desc)).check(matches(isDisplayed()));
+
+    }
+
+    /*
+    tests each muscle group in the list view to make sure everything works correctly.
+     */
+    @Test
+    public void drawer_workoutNav_test() {
+        Random rand = new Random();
+        int rand_int1 = rand.nextInt(9);
+        mActivityRule.launchActivity(new Intent());
+
+        onView(withId(R.id.btnQuickWork)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout))
+                .perform(click());
+//
+
+        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
+        onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_workout));
+        onView(withText("PLANS")).check(matches(isDisplayed()));
+        onView(withId(R.id.exercisesListView)).check(matches(isDisplayed()));
+        onView(withId(R.id.viewpager_exercises)).perform(swipeLeft());
+        onView(withId(R.id.favourite_workout_ListView)).check(matches(isDisplayed()));
+        onView(withId(R.id.favourite_search)).check(matches(isDisplayed()));
+        onView(withId(R.id.viewpager_exercises)).perform(swipeLeft());
+        onView(withId(R.id.plans_Lv)).check(matches(isDisplayed()));
+
+        onView(withId(R.id.viewpager_exercises)).perform(swipeRight());
+        onView(withId(R.id.viewpager_exercises)).perform(swipeRight());
+
+
+        //muscle groups
+
+        onData(anything()).inAdapterView(withId(R.id.exercisesListView)).atPosition(0).perform(click());
+        onView(withText("Triceps")).check(matches(isDisplayed()));
+        onView(withId(R.id.exercises_workout_ListView)).check(matches(isDisplayed()));
+        onView(isRoot()).perform(ViewActions.pressBack());
+
+
+        onData(anything()).inAdapterView(withId(R.id.exercisesListView)).atPosition(1).perform(click());
+        onView(withText("Chest")).check(matches(isDisplayed()));
+        onView(withId(R.id.exercises_workout_ListView)).check(matches(isDisplayed()));
+        onView(isRoot()).perform(ViewActions.pressBack());
+
+
+        onData(anything()).inAdapterView(withId(R.id.exercisesListView)).atPosition(2).perform(click());
+        onView(withText("Deltoids")).check(matches(isDisplayed()));
+        onView(withId(R.id.exercises_workout_ListView)).check(matches(isDisplayed()));
+        onView(isRoot()).perform(ViewActions.pressBack());
+
+
+        onData(anything()).inAdapterView(withId(R.id.exercisesListView)).atPosition(3).perform(click());
+        onView(withText("Biceps")).check(matches(isDisplayed()));
+        onView(withId(R.id.exercises_workout_ListView)).check(matches(isDisplayed()));
+        onView(isRoot()).perform(ViewActions.pressBack());
+
+
+        onData(anything()).inAdapterView(withId(R.id.exercisesListView)).atPosition(4).perform(click());
+        onView(withText("Core")).check(matches(isDisplayed()));
+        onView(withId(R.id.exercises_workout_ListView)).check(matches(isDisplayed()));
+        onView(isRoot()).perform(ViewActions.pressBack());
+
+
+        onData(anything()).inAdapterView(withId(R.id.exercisesListView)).atPosition(5).perform(click());
+        onView(withText("Back")).check(matches(isDisplayed()));
+        onView(withId(R.id.exercises_workout_ListView)).check(matches(isDisplayed()));
+        onView(isRoot()).perform(ViewActions.pressBack());
+
+
+        onData(anything()).inAdapterView(withId(R.id.exercisesListView)).atPosition(6).perform(click());
+        onView(withText("Leg")).check(matches(isDisplayed()));
+        onView(withId(R.id.exercises_workout_ListView)).check(matches(isDisplayed()));
+        onView(isRoot()).perform(ViewActions.pressBack());
+
+
+        onData(anything()).inAdapterView(withId(R.id.exercisesListView)).atPosition(7).perform(click());
+        onView(withText("Show All")).check(matches(isDisplayed()));
+        onView(withId(R.id.exercises_workout_ListView)).check(matches(isDisplayed()));
+        onView(isRoot()).perform(ViewActions.pressBack());
+    }
+
+    /*
+    tests clicking "workout" from drawer
+    clicking on a muscle group
+    clicking on an exercise
+     */
+    @Test
+    public void finding_exercise() {
+        Random rand = new Random();
+        int rand_int1 = rand.nextInt(8);
+        int rand_int2 = rand.nextInt(5);
+
+        mActivityRule.launchActivity(new Intent());
+
+        onView(withId(R.id.btnQuickWork)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout))
+                .perform(click());
+
+
+        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
+        onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_workout));
+        onView(withText("PLANS")).check(matches(isDisplayed()));
+        onView(withId(R.id.exercisesListView)).check(matches(isDisplayed()));
+
+        onData(anything()).inAdapterView(withId(R.id.exercisesListView)).atPosition(rand_int1).perform(click());
+
+        onData(anything()).inAdapterView(withId(R.id.exercises_workout_ListView)).atPosition(rand_int2).perform(click());
+        onView(withText("Muscle")).check(matches(isDisplayed()));
+        onView(withId(R.id.gif)).check(matches(isDisplayed()));
+        onView(withId(R.id.viewpager_workoutPage)).perform(swipeLeft());
+        onView(withId(R.id.muscle_worked)).check(matches(isDisplayed()));
+        onView(withId(R.id.viewpager_workoutPage)).perform(swipeLeft());
+        onView(withId(R.id.ex_title)).check(matches(isDisplayed()));
+        onView(withId(R.id.ex_desc)).check(matches(isDisplayed()));
+
+    }
+
+
+    /*
+   testing when you click the weight nav in the drawer
+    */
+    @Test
+    public void drawer_weightNav_test() {
+
+        mActivityRule.launchActivity(new Intent());
+        onView(withId(R.id.btnQuickWork)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout))
+                .perform(click());
+
+
+        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
+        onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_weight));
+        onView(withText("Body Composition")).check(matches(isDisplayed()));
+
+    }
+//
+
+
+}

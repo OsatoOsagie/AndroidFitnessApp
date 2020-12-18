@@ -1,0 +1,26 @@
+package com.oo115.myapplication;
+
+import org.junit.Rule;
+import org.junit.Test;
+
+import androidx.test.rule.ActivityTestRule;
+
+public class LoginFragmentTest {
+    @Rule
+    public FragmentTestRule<LoginFragment> mFragmentTestRule = new FragmentTestRule<>(LoginFragment.class);
+    @Rule
+    public ActivityTestRule<RegisterAndLoginActivity> mLoginActivity = new ActivityTestRule<>(RegisterAndLoginActivity.class);
+
+    @Test
+    public void fragment_can_be_instantiated() {
+
+        // Launch the activity to make the fragment visible
+
+//        mLoginActivity.launchActivity(null);
+        mFragmentTestRule.launchActivity(null);
+        mLoginActivity.launchActivity(null);
+
+
+    }
+
+}

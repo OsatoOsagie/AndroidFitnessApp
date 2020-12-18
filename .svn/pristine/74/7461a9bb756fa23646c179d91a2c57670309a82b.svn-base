@@ -1,0 +1,53 @@
+package com.oo115.myapplication;
+
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.google.android.material.tabs.TabLayout;
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class WorkoutPageFragment extends Fragment {
+
+
+    public WorkoutPageFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        /// Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_workout_page, container, false);
+        // Setting ViewPager for each Tabs
+        ViewPager viewPager = view.findViewById(R.id.viewpager_workoutPage);
+        setupViewPager(viewPager);
+        // Set Tabs inside Toolbar
+        TabLayout tabs = view.findViewById(R.id.result_tabs_workoutPage);
+        tabs.setupWithViewPager(viewPager);
+
+        return view;
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+
+
+        Adapter adapter = new Adapter(getChildFragmentManager());
+        adapter.addFragment(new WorkoutExercisesFragment(), "Exercises");
+        adapter.addFragment(new WorkoutPlansFragment(), "Training Plans");
+        adapter.addFragment(new WorkoutHistoryFragment(), "History");
+        viewPager.setAdapter(adapter);
+
+
+    }
+
+}

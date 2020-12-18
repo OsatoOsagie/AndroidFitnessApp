@@ -1,0 +1,108 @@
+package com.oo115.myapplication.Workout_feature;
+
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Filterable;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.oo115.myapplication.PrefConFig;
+import com.oo115.myapplication.R;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+public class Favourites_listAdaptor extends ArrayAdapter<String> implements View.OnClickListener, Filterable {
+
+    private ArrayList<String> image_url = new ArrayList<String>();
+    private ArrayList<String> exercise = new ArrayList<String>();
+    private Activity context;
+
+    public static PrefConFig prefConFig;
+    public static ApiInterface apiInterface;
+
+    public Favourites_listAdaptor(Activity context, ArrayList<String> exercise, ArrayList<String> image_url) {
+        super(context, R.layout.exercises_layout, exercise);
+
+        this.context = context;
+        this.exercise = exercise;
+        this.image_url = image_url;
+
+    }
+
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        prefConFig = new PrefConFig(Objects.requireNonNull(getContext()));
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        View view = convertView;
+        Favourites_listAdaptor.ViewHolder viewHolder;
+        if (view == null) {
+            //build in class to convert xml file to corressponding java object
+            LayoutInflater layoutInflater = context.getLayoutInflater();
+            view = layoutInflater.inflate(R.layout.exercises_layout, null, true);
+            viewHolder = new Favourites_listAdaptor.ViewHolder(view);
+            //view class method which stores view
+            view.setTag(viewHolder);
+        } else {
+            //this gets the stored method in set tag
+            viewHolder = (Favourites_listAdaptor.ViewHolder) view.getTag();
+        }
+
+
+        //setting the reference for the image and text view
+        viewHolder.exercise_array.setText(exercise.get(position));
+//     viewHolder.image.setImageResource(image.get(0));
+
+
+        if (image_url.size() > 0 && !image_url.get(position).isEmpty()) {
+            Picasso.get().
+                    load(image_url.get(position))
+                    .placeholder(R.drawable.back)
+                    .into(viewHolder.image);
+
+        } else {
+            Picasso.get().
+                    load("http://osatoo1.sgedu.site//images//linked%20inPic.jpg")
+                    .placeholder(R.drawable.back)
+                    .into(viewHolder.image);
+        }
+
+
+        return view;
+
+
+    }
+
+
+    class ViewHolder {
+        TextView exercise_array;
+        ImageView image;
+
+
+        ViewHolder(View view) {
+            exercise_array = view.findViewById(R.id.list_exercise);
+            image = view.findViewById(R.id.exercise_picture);
+
+
+        }
+    }
+
+
+}

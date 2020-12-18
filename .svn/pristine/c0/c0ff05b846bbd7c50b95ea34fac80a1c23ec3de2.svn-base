@@ -1,0 +1,123 @@
+package com.oo115.myapplication.Workout_feature;
+
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.oo115.myapplication.PrefConFig;
+import com.oo115.myapplication.R;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+
+public class CustomPlanLVAdapter extends ArrayAdapter<String> {
+
+    private Activity context;
+    private ArrayList<String> exercise = new ArrayList<String>();
+    private ArrayList<String> image_url = new ArrayList<String>();
+    public static PrefConFig prefConFig;
+    public static ApiInterface apiInterface;
+    private ChangeFragmentListener changeFragmentListener;
+
+    public interface ChangeFragmentListener {
+        void callFragment(Fragment fragment);
+
+
+    }
+
+    public CustomPlanLVAdapter(Activity context, ArrayList<String> exercise, ArrayList<String> image_url) {
+        super(context, R.layout.plan_exercises_layout, exercise);
+        this.context = context;
+        this.exercise = exercise;
+        this.image_url = image_url;
+
+    }
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        prefConFig = new PrefConFig(Objects.requireNonNull(getContext()));
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        View view = convertView;
+        CustomPlanLVAdapter.ViewHolder viewHolder;
+        changeFragmentListener = (ChangeFragmentListener) context;
+
+        if (view == null) {
+            //build in class to convert xml file to corressponding java object
+            LayoutInflater layoutInflater = context.getLayoutInflater();
+            view = layoutInflater.inflate(R.layout.plan_exercises_layout, null, true);
+            viewHolder = new CustomPlanLVAdapter.ViewHolder(view);
+            //view class method which stores view
+            view.setTag(viewHolder);
+        } else {
+            //this gets the stored method in set tag
+            viewHolder = (CustomPlanLVAdapter.ViewHolder) view.getTag();
+        }
+        viewHolder.exercise_array.setText(exercise.get(position));
+//     viewHolder.image.setImageResource(image.get(0));
+
+        if (image_url.size() > 0 && !image_url.get(position).isEmpty()) {
+            Picasso.get().
+                    load(image_url.get(position))
+                    .placeholder(R.drawable.back)
+                    .into(viewHolder.image);
+
+        } else {
+            Picasso.get().
+                    load("http://peterp1.sgedu.site//images//linked%20inPic.jpg")
+                    .placeholder(R.drawable.back)
+                    .into(viewHolder.image);
+        }
+
+        viewHolder.sets_reps.setText(R.string.reps);
+
+        viewHolder.imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ExerciseLogFragment fragment = ExerciseLogFragment.newInstance(exercise.get(position), true);
+
+                changeFragmentListener.callFragment(fragment);
+
+
+            }
+        });
+
+
+        return view;
+
+    }
+
+
+    class ViewHolder {
+        TextView exercise_array, sets_reps;
+        ImageView image;
+        ListView listView;
+        ImageButton imageButton;
+
+
+        ViewHolder(View view) {
+            exercise_array = view.findViewById(R.id.custom_plan_list_exercise);
+            image = view.findViewById(R.id.custom_plan_exercise_picture);
+            sets_reps = view.findViewById(R.id.custom_plan_reps);
+            imageButton = view.findViewById(R.id.add_log);
+
+
+        }
+    }
+
+
+}

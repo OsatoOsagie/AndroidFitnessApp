@@ -1,0 +1,48 @@
+package com.oo115.myapplication;
+
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.util.Calendar;
+import java.util.Objects;
+
+import androidx.fragment.app.Fragment;
+
+
+public class WelcomeFragment extends Fragment {
+
+    TextView greeting;
+    String userName;
+    public static PrefConFig prefConFig;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_welcome, container, false);
+        greeting = view.findViewById(R.id.greetingET);
+        prefConFig = new PrefConFig(Objects.requireNonNull(getActivity()));
+
+        userName = prefConFig.readName();
+
+        Calendar c = Calendar.getInstance();
+        int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
+
+        if (timeOfDay >= 0 && timeOfDay < 12) {
+            greeting.setText("Good Morning " + userName);
+
+        } else if (timeOfDay >= 12 && timeOfDay < 16) {
+            greeting.setText("Good Afternoon " + userName);
+        } else if (timeOfDay >= 16 && timeOfDay < 21) {
+            greeting.setText("Good Evening " + userName);
+        }
+
+
+        return view;
+    }
+
+}

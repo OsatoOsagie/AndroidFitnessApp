@@ -1,0 +1,161 @@
+package com.oo115.myapplication.bodyMeasures;
+
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.oo115.myapplication.BodyPart;
+import com.oo115.myapplication.BodyPartAdaptor;
+import com.oo115.myapplication.PrefConFig;
+import com.oo115.myapplication.R;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+import com.oo115.myapplication.retrofitAPI.BodyMeasureDB;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class MeasurementFragment extends Fragment {
+
+    ListView listView;
+    String[] bodyPart = {"Left bicep", "Right bicep", "Chest", "Waist", "Hips", "Left thigh", "Right thigh", "Left calves", "Right calves"};
+    //datasource for the pictures of the macronutrients
+    Integer[] bodyPartIMV = {R.drawable.ic_arm_measure, R.drawable.ic_arm_measure, R.drawable.ic_chest_measure, R.drawable.ic_waist_measure,
+            R.drawable.ic_buttock_measure, R.drawable.ic_tight_measure, R.drawable.ic_tight_measure, R.drawable.ic_calve_measure, R.drawable.ic_calve_measure};
+    String[] last_record;
+
+    private static final String TAG = "TEST";
+    ArrayList<BodyPart> dataModels;
+    List<BodyMeasureDB> data;
+    public static ApiInterface apiInterface;
+    public static PrefConFig prefConFig;
+    private int id;
+
+    public MeasurementFragment() {
+        // Required empty public constructor
+    }
+
+
+    private AdapterView.OnItemClickListener onClickListItem = (parent, view, position, id) -> {
+//0-8
+
+
+//        switch (position){
+//            case 0:
+//                Left_BicepFragment fragment= new Left_BicepFragment();
+//                FragmentManager fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction
+//                        .replace(R.id.fragment_container, fragment);
+//                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.commit();
+//                break;
+//            case 1:
+//                //
+//                break;
+//            case 2:
+//                //
+//                break;
+//            case 3:
+//                //
+//                break;
+//            case 4:
+//                //
+//                break;
+//            case 5:
+//                //
+//                break;
+//            case 6:
+//                //
+//                break;
+//            case 7:
+//                //
+//                break;
+//            case 8:
+//                //
+//                break;
+//
+//        }
+        prefConFig.distplayToast(Integer.toString(position));
+        TextView textView = view.findViewById(R.id.LIST_BODYPART_ID);
+        int bodyPartID = position;
+        Left_BicepFragment fragment = Left_BicepFragment.newInstance(bodyPartID, true);
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack so the user can navigate back
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+    };
+
+
+    public void apiCalls() {
+
+        Call<BodyMeasureDB> callTwo = apiInterface.lastMeasureSearch(Integer.parseInt(prefConFig.readId()), BodyPart.LEFTARM);
+
+        callTwo.enqueue(new Callback<BodyMeasureDB>() {
+            @Override
+            public void onResponse(Call<BodyMeasureDB> call, Response<BodyMeasureDB> response) {
+
+                prefConFig.writeUser_arm_measurement_one(response.body().getmMeasureOne());
+            }
+
+            @Override
+            public void onFailure(Call<BodyMeasureDB> call, Throwable t) {
+
+            }
+        });
+
+
+    }
+
+
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_measurement, container, false);
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        prefConFig = new PrefConFig(Objects.requireNonNull(getContext()));
+
+        dataModels = new ArrayList<>();
+        data = new ArrayList<>();
+
+        apiCalls();
+//
+//
+
+        String[] last_record = {prefConFig.readId(), "-", "-", "-", "-", "-", "-", "-", "-"};
+
+
+        listView = view.findViewById(R.id.measurementListView);
+
+
+        BodyPartAdaptor bodyPartAdaptor = new BodyPartAdaptor(this.getActivity(), bodyPart, bodyPartIMV, last_record);
+        listView.setAdapter(bodyPartAdaptor);
+        listView.setOnItemClickListener(onClickListItem);
+
+        return view;
+    }
+
+}

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProteinCalculatorActivity">
+
+    <EditText
+        android:id="@+id/weightInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.277"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <RadioGroup
+        android:id="@+id/weightGroup"
+        android:layout_width="237dp"
+        android:layout_height="105dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="25dp">
+
+        <RadioButton
+            android:id="@+id/kg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kilograms (Kg)" />
+
+        <RadioButton
+            android:id="@+id/pounds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pounds (lbs)" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/muscleGain"
+        android:layout_width="225dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="104dp"
+        android:text="hello"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.294"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculator" />
+
+    <TextView
+        android:id="@+id/muscleMaintain"
+        android:layout_width="229dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
+        android:text="hellooooo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.199"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/muscleGain" />
+
+    <Button
+        android:id="@+id/calculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Calculate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.325"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weightInput" />
+
+    <TextView
+        android:id="@+id/weightField"
+        android:layout_width="169dp"
+        android:layout_height="32dp"
+        android:text="Please enter weight"
+        app:layout_constraintBottom_toTopOf="@+id/weightInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weightGroup" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

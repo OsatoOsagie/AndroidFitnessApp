@@ -1,0 +1,44 @@
+package com.oo115.myapplication;
+
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
+
+import androidx.fragment.app.Fragment;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class MeasurementFragment extends Fragment {
+
+    ListView listView;
+    String[] bodyPart = {"Left bicep", "Right bicep", "Chest", "Waist", "Hips", "Left thigh", "Right thigh", "Left calves", "Right calves"};
+    String[] last_record = {"-", "-", "-", "-", "-", "-", "-", "-", "-"};
+    //datasource for the pictures of the macronutrients
+    Integer[] bodyPartIMV = {R.drawable.ic_arm_measure, R.drawable.ic_arm_measure, R.drawable.ic_chest_measure, R.drawable.ic_waist_measure,
+            R.drawable.ic_buttock_measure, R.drawable.ic_tight_measure, R.drawable.ic_tight_measure, R.drawable.ic_calve_measure, R.drawable.ic_calve_measure};
+
+    public MeasurementFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_measurement, container, false);
+
+
+        listView = view.findViewById(R.id.measurementListView);
+        BodyPartAdaptor bodyPartAdaptor = new BodyPartAdaptor(this.getActivity(), bodyPart, bodyPartIMV, last_record);
+        listView.setAdapter(bodyPartAdaptor);
+
+        return view;
+    }
+
+}

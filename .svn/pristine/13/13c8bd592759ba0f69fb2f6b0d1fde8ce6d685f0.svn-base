@@ -1,0 +1,334 @@
+package com.oo115.myapplication;
+
+import android.content.Context;
+
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import java.util.Random;
+
+import androidx.test.espresso.action.ViewActions;
+import androidx.test.espresso.contrib.DrawerActions;
+import androidx.test.espresso.contrib.NavigationViewActions;
+import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.runner.AndroidJUnit4;
+
+import static androidx.test.espresso.Espresso.onData;
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
+import static androidx.test.espresso.action.ViewActions.swipeLeft;
+import static androidx.test.espresso.action.ViewActions.swipeRight;
+import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.Matchers.anything;
+import static org.junit.Assert.assertEquals;
+
+/**
+ * Instrumented test, which will execute on an Android device.
+ *
+ * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ */
+
+
+
+@RunWith(AndroidJUnit4.class)
+public class ExampleInstrumentedTest {
+
+    @Test
+    public void useAppContext() {
+        // Context of the app under test.
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+
+        assertEquals("com.oo115.myapplication", appContext.getPackageName());
+    }
+
+    private Random rand = new Random();
+
+    @Rule
+    public ActivityTestRule<MainActivity> mActivityRule =
+            new ActivityTestRule<>(MainActivity.class);
+
+
+    @Rule
+    public FragmentTestRule<RegisterFragment> mFragmentTestRule = new FragmentTestRule<>(RegisterFragment.class);
+
+
+//    @Test
+//    public void finding_exercise() throws InterruptedException {
+//        Random rand = new Random();
+//        int rand_int1 = rand.nextInt(5);
+//        int rand_int2 = rand.nextInt(3);
+//
+//        mActivityRule.launchActivity(new Intent());
+//
+//        onView(withId(R.id.btnQuickWork)).check(matches(isDisplayed()));
+//        onView(withId(R.id.drawer_layout))
+//                .perform(click());
+//
+//
+//        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
+//        onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_workout));
+//        onView(withText("PLANS")).check(matches(isDisplayed()));
+//        onView(withId(R.id.exercisesListView)).check(matches(isDisplayed()));
+//
+//        Thread.sleep(10000);
+//
+//        onData(anything()).inAdapterView(withId(R.id.exercisesListView)).atPosition(2).perform(click());
+//        Thread.sleep(20000);
+//        onData(anything()).inAdapterView(withId(R.id.exercises_workout_ListView)).atPosition(1).perform(click());
+//        onView(withText("Muscle")).check(matches(isDisplayed()));
+//        onView(withId(R.id.gif)).check(matches(isDisplayed()));
+//        onView(withId(R.id.viewpager_workoutPage)).perform(swipeLeft());
+//        onView(withId(R.id.muscle_worked)).check(matches(isDisplayed()));
+//        onView(withId(R.id.viewpager_workoutPage)).perform(swipeLeft());
+//        onView(withId(R.id.ex_title)).check(matches(isDisplayed()));
+//        onView(withId(R.id.ex_desc)).check(matches(isDisplayed()));
+//
+//    }
+//
+//
+//    @Test
+//    public void show_all_test() throws InterruptedException {
+//
+//        int rand_int1 = rand.nextInt(10);
+//        // Launch the activity to make the fragment visible
+//
+////        mFragmentTestRule.launchActivity(null);
+//        mActivityRule.launchActivity(new Intent());
+//
+////        onView(withId(R.id.btnQuickWork)).check(matches(isDisplayed()));
+//        onView(withId(R.id.drawer_layout))
+//                .perform(click());
+//
+//        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
+//        onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_home));
+////        onView(withText("Quick Workout")).check(matches(isDisplayed()));
+//        onView(withId(R.id.btnQuickWork)).perform(click());
+////  onData(withRowString(rand_int1,"Alternate Hammer Curl")).perform(click());
+//        Thread.sleep(10000);
+//        onData(anything()).inAdapterView(withId(R.id.exercises_workout_ListView)).atPosition(2).perform(click());
+//        Thread.sleep(10000);
+//        onView(withText("Muscle")).check(matches(isDisplayed()));
+//        onView(withId(R.id.gif)).check(matches(isDisplayed()));
+//        onView(withId(R.id.viewpager_workoutPage)).perform(swipeLeft());
+//        onView(withId(R.id.muscle_worked)).check(matches(isDisplayed()));
+//        onView(withId(R.id.viewpager_workoutPage)).perform(swipeLeft());
+//        onView(withId(R.id.ex_title)).check(matches(isDisplayed()));
+//        onView(withId(R.id.ex_desc)).check(matches(isDisplayed()));
+//
+//
+//    }
+
+
+//    @Test
+//    public void drawer_addNew_bodyFat_test() throws InterruptedException {
+//
+//        mActivityRule.launchActivity(new Intent());
+//        onView(withId(R.id.btnQuickWork)).check(matches(isDisplayed()));
+//        onView(withId(R.id.drawer_layout))
+//                .perform(click());
+//
+//
+//        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
+//        onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_weight));
+//        onView(withText("Body Composition")).check(matches(isDisplayed()));
+//        onView(withId(R.id.fat_imgbtn))
+//                .perform(click());
+//        Thread.sleep(1000);
+//        onView(withId(R.id.measuredate)).perform(click());
+//        onView(withText("OK")).perform(click());
+////        weightMeasurement
+//        onView(withId(R.id.weightMeasurement)).perform(typeText("10"));
+//        onView(withId(R.id.buttonAddMeasure)).perform(click());
+//        Thread.sleep(2000);
+//        onView(withText(R.string.measurement_added)).check(matches(isDisplayed()));
+////If you want to set it as 2018.
+////        onView(withText("2018")).perform(click());
+////        checkIfIdIsDisplayedWithText(R.id.input_date_display, "10/27/2015");
+//
+//    }
+
+//    @Test
+//    public void change_email_test() throws InterruptedException {
+//
+////        mActivityRule.launchActivity(new Intent());
+//
+//        String a_z = "abcdefghijklmnopqrst";
+//        String email = generateString(rand, a_z, 6) + "@yahoo.com";
+//
+//
+//        mFragmentTestRule.launchActivity(null);
+//
+//        String email_change = generateString(rand, a_z, 6) + "@yahoo.com";
+//        String password = "123456";
+//
+//
+//        // testing that the user can enter their first name correctly
+//        onView(withId(R.id.firstName)).perform(typeText(generateString(rand, a_z, 6)));
+//        onView(withId(R.id.lastName)).perform(typeText(generateString(rand, a_z, 6)), closeSoftKeyboard());
+//
+//        onView(withId(R.id.passwordInputFromUser)).perform(typeText(password), closeSoftKeyboard());
+//
+//        onView(withId(R.id.emailInputFromUser)).check(matches(isDisplayed()));
+//        onView(withId(R.id.emailInputFromUser)).perform(typeText(email), closeSoftKeyboard());
+//
+//        onView(withId(R.id.confirmPassword)).perform(closeSoftKeyboard());
+//        onView(withId(R.id.confirmPassword)).perform(typeText(password), closeSoftKeyboard());
+//
+//
+//        onView(withId(R.id.signUp)).check(matches(isDisplayed()));
+//        onView(withId(R.id.signUp)).perform(scrollTo(), click());
+//
+//
+//        Thread.sleep(2000);
+//        onView(withText("OK")).perform(click());
+//        Thread.sleep(1000);
+//        openContextualActionModeOverflowMenu();
+//        onView(withText(R.string.settings))
+//                .perform(click());
+//        onView(withId(R.id.settings_listView)).check(matches(isDisplayed()));
+//        onData(anything()).inAdapterView(withId(R.id.settings_listView)).atPosition(0).perform(click());
+//        onView(withText(R.string.change_email)).check(matches(isDisplayed()));
+//        onView(withId(R.id.email_resetET)).perform(typeText(email_change), closeSoftKeyboard());
+//        onView(withId(R.id.emailConfirm_resetET2)).perform(typeText(email_change), closeSoftKeyboard());
+//
+//        onView(withId(R.id.changeEmail_btn)).perform(click());
+//
+//        onView(withText(R.string.str_ok)).perform(click());
+//
+//        onView(withId(R.id.current_email_restET)).check(matches(withText(email_change)));
+////        onView(withText(email)).check(matches(isDisplayed()));
+////        onView(withText(endsWith(email))).check(matches(isDisplayed()));
+//
+//        onView(isRoot()).perform(ViewActions.pressBack());
+//        onView(withText(R.string.settings)).check(matches(isDisplayed()));
+//        onView(isRoot()).perform(ViewActions.pressBack());
+//        openContextualActionModeOverflowMenu();
+//        onView(withText(R.string.menu_log_out))
+//                .perform(click());
+//        onView(withText(R.string.menu_log_out)).perform(click());
+//        // Click the item.
+////        onView(withText("Settings"))
+////                .perform(click());
+//        Thread.sleep(2000);
+//        onView(withId(R.id.btn_letsGetIt)).perform(click());
+//
+//        Thread.sleep(2000);
+//        onView(withId(R.id.etEmail)).perform(typeText(email_change), closeSoftKeyboard());
+//        onView(withId(R.id.etPassword)).perform(typeText("123456"), closeSoftKeyboard());
+//
+//        onView(withId(R.id.btn_Signin))
+//                .perform(click());
+//        Thread.sleep(2000);
+//
+//        onView(withId(R.id.btnQuickWork)).check(matches(isDisplayed()));
+//
+//    }
+//
+
+
+    @Test
+    public void likingAndUnliking_exercise() throws InterruptedException {
+        int rand_int2 = rand.nextInt(4);
+
+        mFragmentTestRule.launchActivity(null);
+        String a_z = "abcdefghijklmnopqrstxyz";
+
+        String email = generateString(rand, a_z, 6) + "@yahoo.com";
+        String password = generateString(rand, a_z, 6);
+
+
+        // testing that the user can enter their first name correctly
+        onView(withId(R.id.firstName)).perform(typeText(generateString(rand, a_z, 6)));
+        onView(withId(R.id.lastName)).perform(typeText(generateString(rand, a_z, 6)), closeSoftKeyboard());
+
+        onView(withId(R.id.passwordInputFromUser)).perform(typeText(password), closeSoftKeyboard());
+
+        onView(withId(R.id.emailInputFromUser)).check(matches(isDisplayed()));
+        onView(withId(R.id.emailInputFromUser)).perform(typeText(email), closeSoftKeyboard());
+
+        onView(withId(R.id.confirmPassword)).perform(closeSoftKeyboard());
+        onView(withId(R.id.confirmPassword)).perform(typeText(password), closeSoftKeyboard());
+
+
+        onView(withId(R.id.signUp)).check(matches(isDisplayed()));
+        onView(withId(R.id.signUp)).perform(scrollTo(), click());
+
+        Thread.sleep(1000);
+        onView(withText(R.string.registration_success)).check(matches(isDisplayed()));
+
+
+//        onView(withText(R.string.registration_success)).inRoot(isDialog()) // <---
+//                .check(matches(isDisplayed()))
+//                .perform(click());
+
+
+//        onView(withText(R.string.registration_success))
+//    .inRoot(isDialog()) // <---
+//                .check(matches(isDisplayed()))
+//                .perform(click());
+        onView(withText("OK")).perform(click());
+
+
+        Thread.sleep(1000);
+
+
+        onView(withId(R.id.btnQuickWork)).check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout))
+                .perform(click());
+//
+
+        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
+        onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_workout));
+        Thread.sleep(3000);
+        onView(withText("PLANS")).check(matches(isDisplayed()));
+        onView(withId(R.id.exercisesListView)).check(matches(isDisplayed()));
+        Thread.sleep(1000);
+        onData(anything()).inAdapterView(withId(R.id.exercisesListView)).atPosition(0).perform(click());
+
+
+        Thread.sleep(1000);
+        onData(anything()).inAdapterView(withId(R.id.exercises_workout_ListView)).atPosition(0).onChildView(withId(R.id.favouriteBtn)).check(matches(isDisplayed())).perform(click());
+
+        onView(isRoot()).perform(ViewActions.pressBack());
+        Thread.sleep(1000);
+        onView(withId(R.id.viewpager_exercises)).perform(swipeLeft());
+        onView(withText("Triceps Pushdown V-Bar")).check(matches(isDisplayed()));
+        Thread.sleep(1000);
+
+
+        onView(withId(R.id.viewpager_exercises)).perform(swipeRight());
+
+        onView(withId(R.id.exercisesListView)).check(matches(isDisplayed()));
+        Thread.sleep(1000);
+        onData(anything()).inAdapterView(withId(R.id.exercisesListView)).atPosition(0).perform(click());
+
+
+        Thread.sleep(1000);
+        onData(anything()).inAdapterView(withId(R.id.exercises_workout_ListView)).atPosition(0).onChildView(withId(R.id.favouriteBtn)).check(matches(isDisplayed())).perform(click());
+        onView(isRoot()).perform(ViewActions.pressBack());
+        Thread.sleep(1000);
+        onView(withId(R.id.viewpager_exercises)).perform(swipeLeft());
+//        Thread.sleep(1000);
+        onView(withText("No favourites found")).check(matches(isDisplayed()));
+
+    }
+    public String generateString(Random random, String characters, int length) {
+        char[] text = new char[length];
+        for (int i = 0; i < length; i++) {
+            text[i] = characters.charAt(random.nextInt(characters.length()));
+        }
+        return new String(text);
+    }
+
+
+
+}

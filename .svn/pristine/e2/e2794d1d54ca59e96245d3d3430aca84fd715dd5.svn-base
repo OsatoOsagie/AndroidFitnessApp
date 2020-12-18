@@ -1,0 +1,148 @@
+package com.oo115.myapplication.Workout_feature;
+
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
+
+import com.oo115.myapplication.BodyPart;
+import com.oo115.myapplication.PrefConFig;
+import com.oo115.myapplication.R;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+import com.oo115.myapplication.retrofitAPI.Exercises_response;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class Exercises_for_muscle_groupsFragment extends Fragment {
+    private Toolbar toolbar;
+    public static PrefConFig prefConFig;
+    public static ApiInterface apiInterface;
+    ArrayList<String> exercises_array = new ArrayList<String>();
+    private ListView listView;
+
+    public Exercises_for_muscle_groupsFragment() {
+        // Required empty public constructor
+    }
+
+
+    /**
+     * Create a new instance of DetailsFragment, initialized to
+     * show the text at 'index'.
+     */
+    public static Exercises_for_muscle_groupsFragment newInstance(int muscle_group, boolean showInput) {
+        Exercises_for_muscle_groupsFragment f = new Exercises_for_muscle_groupsFragment();
+
+        // Supply index input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("muscle_groupID", muscle_group);
+        args.putBoolean("showInput", showInput);
+        f.setArguments(args);
+
+        return f;
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_exercises_for_muscle_groups, container, false);
+
+//setting up the tool bar to have a back arrow on create and setting the title of the fragment
+        toolbar = view.findViewById(R.id.toolbar_exercises);
+
+
+        //removing the actionbar so that tool bar can show
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        toolbar.setNavigationIcon(R.drawable.ic_back);
+        toolbar.setNavigationOnClickListener(v -> getActivity().onBackPressed());
+
+
+        prefConFig = new PrefConFig(Objects.requireNonNull(getContext()));
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+
+        //getting the extras sent over when item was clicked on the list view
+        int extras = getArguments().getInt("muscle_groupID");
+
+
+        listView = view.findViewById(R.id.exercises_workout_ListView);
+        Integer[] macroNutrientImage = {R.drawable.proteinfoods, R.drawable.healthyfats, R.drawable.carbohydrates};
+        Exercises_LVAdapter adapter = new Exercises_LVAdapter(getActivity(), exercises_array, macroNutrientImage);
+        //setting the adaptor for the list view
+        listView.setAdapter(adapter);
+
+
+
+
+        switch (extras) {
+            case 0:
+                toolbar.setTitle(R.string.triceps);
+                Call<Exercises_response> exercises = apiInterface.findExercises(BodyPart.TRICEPS);
+
+                exercises.enqueue(new Callback<Exercises_response>() {
+                    @Override
+                    public void onResponse(Call<Exercises_response> call, Response<Exercises_response> response) {
+
+//                        exercises_array=new String[response.body().getExercisesArray().size()];
+
+                        for (int i = 0; i < response.body().getExercisesArray().size(); i++) {
+
+                            exercises_array.add(i, response.body().getExercisesArray().get(i).getName());
+//                            exercises_array[i]=
+                            adapter.notifyDataSetChanged();
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Exercises_response> call, Throwable t) {
+
+                    }
+                });
+
+                break;
+            case 1:
+                toolbar.setTitle(R.string.pectoraux);
+                break;
+            case 2:
+                toolbar.setTitle(R.string.deltoids);
+                break;
+            case 3:
+                toolbar.setTitle(R.string.biceps);
+                break;
+            case 4:
+                toolbar.setTitle(R.string.core);
+                break;
+            case 5:
+                toolbar.setTitle(R.string.dorseaux);
+                break;
+            case 6:
+                toolbar.setTitle(R.string.quadriceps);
+                break;
+            case 7:
+                toolbar.setTitle(R.string.showAll);
+                break;
+
+
+        }
+
+
+        return view;
+
+    }
+
+}

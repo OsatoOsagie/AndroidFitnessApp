@@ -1,0 +1,385 @@
+package com.oo115.myapplication.WeightTracking;
+
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
+import com.oo115.myapplication.PrefConFig;
+import com.oo115.myapplication.R;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+import com.oo115.myapplication.retrofitAPI.Recent_weightSearch;
+import com.oo115.myapplication.retrofitAPI.WeightMeasurement_Response;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class WeightTrackingFragment extends Fragment {
+
+    private ImageButton weight_imageButton, fat_imgbtn, muscle_imgbtn, water_imgbtn, bmi_helpBtn, ffmi_helpBtn;
+    private TextView weightTv, fatTv, muscleTv, waterTv, bmi_predicted_tv, bmi_actual_tv, ffmi_actualtv, ffmi_predicted;
+    public static ApiInterface apiInterface;
+    public static PrefConFig prefConFig;
+    private String weight = "-";
+    private String fat_percentage = "-";
+    private String muscle_percentage = "-";
+    private String water_percentage = "-";
+    private double height_meters;
+    private double height_feet;
+    private double height_inch;
+    private String page_name, table_name;
+    private int user_id;
+    private ArrayList<String> measurements_size = new ArrayList<String>();
+
+    private ArrayList<String> measurements_date = new ArrayList<String>();
+    private ArrayList<String> measurements_Id = new ArrayList<String>();
+    public WeightTrackingFragment() {
+        // Required empty public constructor
+    }
+
+    public void apiCall(int id, String measurement_type, String name) {
+
+
+        /*
+        getting the users most recent measurements
+         */
+        Call<WeightMeasurement_Response> search_weight = apiInterface.search_weight_measurements_forGraph(id, measurement_type);
+
+
+        search_weight.enqueue(new Callback<WeightMeasurement_Response>() {
+            @Override
+            public void onResponse(Call<WeightMeasurement_Response> call, Response<WeightMeasurement_Response> response) {
+                // this if statement will check the response from the server to see if there is a measurement for that user in the database.
+                if (response.body() != null && response.body().getResponse().equals("Measurement Found")) {
+
+                    //initialises an int for the size of the list sent back by the server
+                    int listSize = response.body().getMeasurementArray().size();
+
+                    //this will check if the size of the list sent back by the server is more than or equal to 5
+                    //the nested for loops will the get the date and the measurements and store them in an array
+
+                    for (int i = 0; i < listSize; i++) {
+
+                        measurements_date.add(i, response.body().getMeasurementArray().get(i).getDate());
+                        measurements_size.add(i, response.body().getMeasurementArray().get(i).getMeasurement());
+                        measurements_Id.add(i, response.body().getMeasurementArray().get(i).getId());
+
+
+                    }
+
+                }
+                Weight_Add_Fragment fragment = Weight_Add_Fragment.newInstance(name, measurements_size, measurements_date, true);
+                String backStateName = fragment.getClass().getName();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack so the user can navigate back
+                transaction.replace(R.id.fragment_container, fragment);
+                transaction.addToBackStack(backStateName);
+
+                // Commit the transaction
+                transaction.commit();
+
+
+            }
+
+            @Override
+            public void onFailure(Call<WeightMeasurement_Response> call, Throwable t) {
+
+            }
+        });
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_weight_tracking, container, false);
+
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        prefConFig = new PrefConFig(Objects.requireNonNull(getContext()));
+        weightTv = view.findViewById(R.id.weightInput);
+        fatTv = view.findViewById(R.id.fatInput);
+        waterTv = view.findViewById(R.id.waterInput);
+        muscleTv = view.findViewById(R.id.musclesInput);
+        bmi_helpBtn = view.findViewById(R.id.imcHelp);
+        ffmi_helpBtn = view.findViewById(R.id.ffmiHelp);
+        bmi_predicted_tv = view.findViewById(R.id.bmi_predicted);
+        bmi_actual_tv = view.findViewById(R.id.bmi_actual);
+        ffmi_actualtv = view.findViewById(R.id.ffmi_actualValue);
+        ffmi_predicted = view.findViewById(R.id.ffmi_predictedValue);
+        user_id = Integer.parseInt(prefConFig.readId());
+
+        Objects.requireNonNull(getActivity()).setTitle("Weight Tracking");
+
+        bmi_helpBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                new SweetAlertDialog(getContext(), SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+                        .setTitleText("BMI")
+                        .setContentText("The body mass index (BMI) is a measure that uses your height and weight to work out if your weight is healthy.")
+                        .setCustomImage(R.drawable.ic_info_black_24dp)
+                        .show();
+            }
+        });
+
+        ffmi_helpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SweetAlertDialog(getContext(), SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+                        .setTitleText("FFMI")
+                        .setContentText("FFMI is an alternative to body mass index which accounts for a person's muscle mass")
+                        .setCustomImage(R.drawable.ic_info_black_24dp)
+                        .show();
+            }
+        });
+
+        Call<Recent_weightSearch> weight_search = apiInterface.recent_weight_measurements(Integer.parseInt(prefConFig.readId()));
+
+        weight_search.enqueue(new Callback<Recent_weightSearch>() {
+            @Override
+            public void onResponse(Call<Recent_weightSearch> call, Response<Recent_weightSearch> response) {
+                if (response.body().getResponse() != null && response.body().getResponse().equals("exists")) {
+                    prefConFig.distplayToast("hereyggfj");
+                    weight = response.body().getUser_weight();
+                    fat_percentage = response.body().getUser_fat();
+                    muscle_percentage = response.body().getUser_muscle();
+                    water_percentage = response.body().getUser_water();
+//                    prefConFig.distplayToast("im here");
+
+                    //calculating the users FFMI
+                    if (weight != null && fat_percentage != null && !prefConFig.readHeight().equals("no height found")) {
+                        //users height in inches
+                        height_feet = Double.parseDouble(prefConFig.readHeight()) / 30.38;
+
+
+                        //users height in feet
+                        height_inch = (height_feet - Math.floor(height_feet)) * 10;
+
+                        double height_in = Math.round(height_feet);
+                        double height_ft = Math.floor(Double.parseDouble(prefConFig.readHeight()) / 30.38);
+
+                        double lean_muscle = Double.parseDouble(weight) * (1.0 - (Double.parseDouble(fat_percentage) / 100.0));
+
+                        double ffmi = (lean_muscle / 2.2) / Math.pow(((height_ft * 12.0 + height_in) * 0.0254), 2) * 2.20462;
+
+                        ffmi = Math.round(ffmi);
+
+                        ffmi_actualtv.setText(Double.toString(ffmi));
+
+                        if (ffmi < 18) {
+                            ffmi_predicted.setText(getText(R.string.below_average));
+                            ffmi_predicted.setTextColor(Color.parseColor("#FF0000"));
+                        } else if (ffmi >= 18 && ffmi <= 19) {
+                            ffmi_predicted.setText(getText(R.string.average));
+                            ffmi_predicted.setTextColor(Color.parseColor("#ffbf00"));
+
+                        } else if (ffmi >= 20 && ffmi <= 21) {
+                            ffmi_predicted.setText(getText(R.string.above_average));
+                            ffmi_predicted.setTextColor(Color.parseColor("#008000"));
+
+                        } else if (ffmi == 22) {
+                            ffmi_predicted.setText(getText(R.string.excellent));
+                            ffmi_predicted.setTextColor(Color.parseColor("#008000"));
+
+                        } else {
+                            ffmi_predicted.setText(getText(R.string.superior));
+                            ffmi_predicted.setTextColor(Color.parseColor("#008000"));
+                        }
+
+                    }
+
+
+                    if (weight != null && !prefConFig.readHeight().equals("no height found")) {
+                        weightTv.setText(weight);
+                        prefConFig.writeUser_weight(weight);
+
+                        height_meters = Double.parseDouble(prefConFig.readHeight()) / 100;
+                        double bmi = Math.round(Integer.parseInt(prefConFig.readWeight()) / Math.pow(height_meters, 2));
+
+                        bmi_actual_tv.setText(Double.toString(Math.round(bmi)));
+
+                        if (bmi < 18.5) {
+                            bmi_predicted_tv.setText(getText(R.string.underweight));
+                            bmi_predicted_tv.setTextColor(Color.parseColor("#FF0000"));
+                        } else if (bmi >= 18.5 && bmi <= 24.9) {
+                            bmi_predicted_tv.setText(getText(R.string.ideal));
+                            bmi_predicted_tv.setTextColor(Color.parseColor("#008000"));
+                        } else if (bmi >= 25 && bmi <= 29.9) {
+                            bmi_predicted_tv.setText(getText(R.string.overweight));
+                            bmi_predicted_tv.setTextColor(Color.parseColor("#FF0000"));
+                        } else {
+                            bmi_predicted_tv.setText(getText(R.string.obese));
+                            bmi_predicted_tv.setTextColor(Color.parseColor("#FF0000"));
+                        }
+                    }
+
+
+                    if (weight != null) {
+                        weightTv.setText(weight);
+                    }
+                    if (fat_percentage != null) {
+                        fatTv.setText(fat_percentage);
+                    }
+
+
+                    if (water_percentage != null) {
+                        waterTv.setText(water_percentage);
+                    }
+
+                    if (muscle_percentage != null) {
+                        muscleTv.setText(muscle_percentage);
+                    }
+
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Recent_weightSearch> call, Throwable t) {
+
+            }
+        });
+
+
+
+//weight image button
+        weight_imageButton = view.findViewById(R.id.weightDetailsButton);
+        weight_imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                measurements_size.clear();
+                measurements_date.clear();
+                measurements_Id.clear();
+
+                table_name = "Weight_measurement";
+                page_name = "Weight";
+
+                apiCall(user_id, table_name, page_name);
+
+            }
+        });
+//fat image button
+        fat_imgbtn = view.findViewById(R.id.fat_imgbtn);
+        fat_imgbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                measurements_size.clear();
+                measurements_date.clear();
+                measurements_Id.clear();
+
+                table_name = "BodyFatPercentage";
+                page_name = "Body Fat";
+
+                apiCall(user_id, table_name, page_name);
+            }
+        });
+        //water image button
+        water_imgbtn = view.findViewById(R.id.water_imgBtn);
+        water_imgbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                measurements_size.clear();
+                measurements_date.clear();
+                measurements_Id.clear();
+
+                table_name = "WaterPercentage";
+                page_name = "Water";
+
+                apiCall(user_id, table_name, page_name);
+            }
+        });
+
+        //Muscles image button
+        muscle_imgbtn = view.findViewById(R.id.muscles_imgBtn);
+        muscle_imgbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                measurements_size.clear();
+                measurements_date.clear();
+                measurements_Id.clear();
+
+                table_name = "MusclePercentage";
+                page_name = "Muscle";
+
+                apiCall(user_id, table_name, page_name);
+//
+            }
+        });
+
+
+        //Body composition
+
+
+
+
+        return view;
+    }
+
+
+    public void myClickMethod(View v) {
+
+
+    }
+
+
+}

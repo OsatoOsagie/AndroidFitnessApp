@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn= "navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/iconHome" />
+        <item
+            android:id="@+id/nav_workout"
+            android:icon="@drawable/ic_workout"
+            android:title="@string/iconWorkout" />
+        <item
+            android:id="@+id/nav_nutrition"
+            android:icon="@drawable/ic_dish"
+            android:title="@string/iconNutrition" />
+        <item
+            android:id="@+id/nav_weight"
+            android:icon="@drawable/ic_weight"
+            android:title="@string/iconWeight" />
+        <item
+            android:id="@+id/nav_Measurements"
+            android:icon="@drawable/ic_ruler"
+            android:title="@string/iconMeasurement" />
+        <item
+            android:id="@+id/nav_progile"
+            android:icon="@drawable/ic_profile"
+            android:title="@string/iconProfile" />
+
+        <item
+            android:id="@+id/nav_calculator"
+            android:icon="@drawable/ic_calculator"
+            android:title="@string/calculators" />
+
+
+    </group>
+
+    <item android:title="@string/communicateWithFriends">
+        <menu>
+            <item
+                android:id="@+id/nav_insta"
+                android:icon="@drawable/ic_instagram_2"
+                android:title="@string/insta" />
+            <item
+                android:id="@+id/nav_twitter"
+                android:icon="@drawable/ic_twitter"
+                android:title="@string/Twitter" />
+            <item
+                android:id="@+id/nav_facebook"
+                android:icon="@drawable/ic_facebook"
+                android:title="@string/FB" />
+        </menu>
+    </item>
+
+</menu>

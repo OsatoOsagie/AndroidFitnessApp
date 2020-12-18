@@ -1,0 +1,243 @@
+package com.oo115.myapplication;
+
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.util.Patterns;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.oo115.myapplication.ForgotPassword.ForgotPasswordFragment;
+import com.oo115.myapplication.retrofitAPI.UserDB;
+
+import java.util.Objects;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
+/**
+ * This class is responsible for handling the logic behind the login fragment
+ */
+public class LoginFragment extends Fragment {
+    private EditText etEmail, etpassword;
+    private Button btnSignIn;
+    private TextView tvSignUp, forgotPassword;
+
+    private TextView registerText;
+    private OnLoginFormActivityListener loginFormActivityListener;
+    private PrefConFig prefConFig;
+    private RegisterAndLoginActivity registerAndLoginActivity;
+
+
+    //interface methods for login and register implemented in the mainActivity
+    public  interface OnLoginFormActivityListener{
+        void performRegister();
+
+        void performLogin(String name);
+
+
+    }
+
+    public LoginFragment() {
+        // Required empty public constructor
+    }
+
+
+    // this method is for colouring a text
+    private SpannableString colour_txt(String asterisk) {
+        SpannableString blueSpannable = new SpannableString(asterisk);
+        blueSpannable.setSpan(new ForegroundColorSpan(Color.BLUE), 0, asterisk.length(), 0);
+
+        return blueSpannable;
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        // Inflate the layout for this fragment
+        View view= inflater.inflate(R.layout.fragment_login, container, false);
+        registerText= view.findViewById(R.id.register_text);
+        prefConFig = new PrefConFig(Objects.requireNonNull(getActivity()));
+        registerAndLoginActivity = new RegisterAndLoginActivity();
+
+
+//building the signup Hint and colouring parts of the text
+        SpannableStringBuilder builderSignUp = new SpannableStringBuilder();
+        String signUpHint = "Not registered?";
+        String signUp_txt = "Sign Up here";
+
+        builderSignUp.append(signUpHint);
+        builderSignUp.append(" ");
+        builderSignUp.append(colour_txt(signUp_txt));
+
+        registerText.setText(builderSignUp);
+
+        registerText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                loginFormActivityListener.performRegister();
+            }
+        });
+
+
+        //setting up the forgot password text and on click listener
+
+        forgotPassword = view.findViewById(R.id.forgot_password);
+
+        SpannableStringBuilder builderForgotPassword = new SpannableStringBuilder();
+        String forgotPassword_text = "Forgot Password? ";
+
+        builderForgotPassword.append(" ");
+        builderForgotPassword.append(colour_txt(forgotPassword_text));
+
+        forgotPassword.setText(builderForgotPassword);
+
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new ForgotPasswordFragment();
+                FragmentManager fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_containerHome, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        etEmail = view.findViewById(R.id.etEmail);
+        etpassword = view.findViewById(R.id.etPassword);
+        btnSignIn = view.findViewById(R.id.btn_Signin);
+
+
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onLogin();
+
+
+
+            }
+        });
+        return view;
+
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+
+        Activity activity = (Activity) context;
+        loginFormActivityListener = (OnLoginFormActivityListener) context;
+        super.onAttach(context);
+    }
+
+
+    public void onLogin(){
+        /*
+        this method performs the login by validating the details entered by the user then making a
+        call to the restful webservice to check if the user is registered
+         */
+
+        String email= etEmail.getText().toString();
+        String password= etpassword.getText().toString();
+
+
+        //Validations for login
+        if ((email.isEmpty()) && (password.isEmpty())) {
+            RegisterAndLoginActivity.prefConFig.distplayToast("Empty Fields");
+            etEmail.setError("Enter email");
+            etEmail.requestFocus();
+            etpassword.setError("Enter Password");
+            etpassword.requestFocus();
+        } else if ((email.isEmpty())) {
+            etEmail.setError("Enter email");
+            etEmail.requestFocus();
+        } else if ((password.isEmpty())) {
+            etpassword.setError("Enter Password");
+            etpassword.requestFocus();
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            etEmail.setError("Enter a valid email");
+            etEmail.requestFocus();
+        } else {
+            Call<UserDB> call = RegisterAndLoginActivity.apiInterface.performUserLogin(email, password);
+
+
+            SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
+            pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+            pDialog.setTitleText("Loading");
+            pDialog.setCancelable(false);
+            pDialog.show();
+            //this checks of the call to the web service was successfull or not
+            call.enqueue(new Callback<UserDB>() {
+                @Override
+                public void onResponse(Call<UserDB> call, Response<UserDB> response) {
+
+                    if (response.body().getResponse().equals("ok")) {
+                        RegisterAndLoginActivity.prefConFig.writeLoginStatus(true);
+                        loginFormActivityListener.performLogin(response.body().getName());
+                        prefConFig.writeName(response.body().getName());
+                        prefConFig.writeEmail(response.body().getEmail());
+                        prefConFig.writeUser_Id(response.body().getUser_id());
+                        prefConFig.writeUser_sex(response.body().getGender());
+                        prefConFig.writeUser_dob(response.body().getBirthday());
+                        prefConFig.writeUser_height(response.body().getHeight());
+                        prefConFig.writeUser_goal(response.body().getGoal());
+                        prefConFig.writeUser_password(response.body().getPassword());
+                        pDialog.getProgressHelper().stopSpinning();
+                        pDialog.cancel();
+
+
+                    } else if (response.body().getResponse().equals("failed")) {
+                        pDialog.getProgressHelper().stopSpinning();
+                        pDialog.cancel();
+
+                        new SweetAlertDialog(Objects.requireNonNull(getActivity()), SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText(getString(R.string.str_error))
+                                .setContentText(getString(R.string.invalid_user))
+                                .show();
+
+
+                    } else {
+                        pDialog.getProgressHelper().stopSpinning();
+                        pDialog.cancel();
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<UserDB> call, Throwable t) {
+
+
+                }
+            });
+
+            etEmail.setText("");
+            etpassword.setText("");
+
+        }
+
+
+
+
+    }
+
+
+
+}

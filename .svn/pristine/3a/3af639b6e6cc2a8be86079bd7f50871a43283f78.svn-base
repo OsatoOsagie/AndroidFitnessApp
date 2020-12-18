@@ -1,0 +1,114 @@
+package com.oo115.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class ProteinCalculatorActivity extends AppCompatActivity {
+   EditText weight;
+        TextView mscGain,mscMaintain;
+    RadioGroup radioGroup;
+    RadioButton radioButton;
+    Button btnCalculator;
+
+    int weightValue;
+    int radioButtonid;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_protein_calculator);
+        radioGroup = findViewById(R.id.weightGroup);
+        weight= findViewById(R.id.weightInput);
+        mscGain= findViewById(R.id.muscleGain);
+        mscMaintain=findViewById(R.id.muscleMaintain);
+        btnCalculator= findViewById(R.id.calculator);
+
+
+//        mscMaintain.setVisibility(View.GONE);
+//        mscGain.setVisibility(View.GONE);
+
+
+//        mscGain.setText(radioButton.getText());
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//                radioButtonid = radioGroup.getCheckedRadioButtonId();
+//                String radId = String.valueOf(radioButtonid);
+//                //storing the checked radio button Id
+//                radioButton = findViewById(radioButtonid);
+                radioButton= findViewById(checkedId);
+
+                Toast.makeText(ProteinCalculatorActivity.this, radioButton.getText(), Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnCalculator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculate();
+            }
+        });
+
+
+    }
+
+
+    public void calculate(){
+        weightValue = Integer.parseInt(weight.getText().toString());
+
+       // Strength athletes (to gain muscle mass): 1.6–1.7g/kg
+      //  Strength training (to maintain): 1.2–1.4 g/kg
+        if (radioButton.getText().equals("Kilograms (Kg)")) {
+            double muscleGainCalc = (weightValue * 1.7);
+            double muscleMaintainanceCalc = (weightValue * 1.4);
+
+            final String MUSCLE_GAIN_OUTPUT= "MUSCLE GAIN= "+ muscleGainCalc + " grams per day" ;
+            final String MUSCLE_Maintain_OUTPUT= "Maintenance = "+ muscleMaintainanceCalc + " grams per day" ;
+
+            mscGain.setVisibility(View.VISIBLE);
+            mscGain.setText(MUSCLE_GAIN_OUTPUT);
+
+
+            mscMaintain.setVisibility(View.VISIBLE);
+            mscMaintain.setText(MUSCLE_Maintain_OUTPUT);
+        }
+
+        if (radioButton.getText().equals("Pounds (lbs)")){
+ 
+
+            double muscleGainCalc = ((Math.round(weightValue /2.205)) * 1.7);
+            double muscleMaintainanceCalc = ((weightValue /2.205)* 1.4);
+
+            final String MUSCLE_GAIN_OUTPUT= "MUSCLE GAIN= "+ muscleGainCalc + " grams per day" ;
+            final String MUSCLE_Maintain_OUTPUT= "Maintenance = "+ muscleMaintainanceCalc + " grams per day" ;
+
+            mscGain.setVisibility(View.VISIBLE);
+            mscGain.setText(MUSCLE_GAIN_OUTPUT);
+
+
+            mscMaintain.setVisibility(View.VISIBLE);
+            mscMaintain.setText(MUSCLE_Maintain_OUTPUT);
+        }
+    }
+
+    }
+
+//    public void weightClick(View view) {
+//
+//
+//
+//        mscGain.setText( "gotcha");
+//        // Strength athletes (to gain muscle mass): 1.6–1.7g/kg
+//        //  Strength training (to maintain): 1.2–1.4 g/kg
+////
+
+

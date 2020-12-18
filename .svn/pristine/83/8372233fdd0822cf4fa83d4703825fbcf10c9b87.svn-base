@@ -1,0 +1,74 @@
+package com.oo115.myapplication.bodyMeasures;
+
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
+import com.oo115.myapplication.R;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+
+public class BodyPartHistoryAdaptor extends ArrayAdapter<String> {
+    private String[] measurement_size;
+    private String[] date_taken;
+    private Activity context;
+
+    public BodyPartHistoryAdaptor(Activity context, String[] measuement_size, String[] date_taken) {
+        super(context, R.layout.measure_history, measuement_size);
+
+        this.context = context;
+        this.measurement_size = measuement_size;
+        this.date_taken = date_taken;
+    }
+
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
+        View view = convertView;
+        ViewHolder viewHolder = null;
+        if (view == null) {
+            //build in class to convert xml file to corressponding java object
+            LayoutInflater layoutInflater = context.getLayoutInflater();
+            view = layoutInflater.inflate(R.layout.measure_history, null, true);
+            viewHolder = new ViewHolder(view);
+            //view class method which stores view
+            view.setTag(viewHolder);
+        } else {
+            //this gets the stored method in set tag
+            viewHolder = (ViewHolder) view.getTag();
+        }
+        //setting the reference for the image and text view
+        viewHolder.MeasurementDate.setText(date_taken[position]);
+        viewHolder.measurementSize.setText(measurement_size[position]);
+        viewHolder.delete.setImageResource(R.drawable.ic_delete_forever_black_24dp);
+
+
+        return view;
+    }
+
+
+    //to optimise list viw performance
+    //holds and finds view by id of image and name
+
+    class ViewHolder {
+        TextView MeasurementDate, measurementSize, unit;
+        ImageButton delete;
+
+
+        ViewHolder(View view) {
+            MeasurementDate = view.findViewById(R.id.LIST_DATE);
+            measurementSize = view.findViewById(R.id.LIST_MEASUREMENT_SIZE);
+            delete = view.findViewById(R.id.deleteBtn);
+
+        }
+    }
+
+}

@@ -1,0 +1,251 @@
+package com.oo115.myapplication;
+
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.oo115.myapplication.Workout_feature.WeightTrackingFragment;
+import com.oo115.myapplication.Workout_feature.WorkoutExercisesFragment;
+import com.oo115.myapplication.bodyMeasures.MeasurementFragment;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+import com.oo115.myapplication.retrofitAPI.BodyMeasuresResponse;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+    FirebaseAuth mFirebaseAuth;
+    TextView nav_header_name, nav_header_mail;
+    Toolbar toolbar;
+    ProgressBar progressBarLogin;
+    private DrawerLayout drawer;
+    public static PrefConFig prefConFig;
+    String user_firstName, user_Email;
+    public static ApiInterface apiInterface;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+        toolbar= findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        drawer= findViewById(R.id.drawer_layout);
+        progressBarLogin = findViewById(R.id.progressBarLogin);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        toolbar.setTitle("Home");
+        prefConFig = new PrefConFig(this);
+        user_firstName = prefConFig.readName();
+        nav_header_name = findViewById(R.id.nav_header_name);
+
+
+
+        //loads up the home fragment instead of home activity view
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new HomeFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_home);
+        }
+
+        //setting menu header to contain email address of user
+        View header_email = navigationView.getHeaderView(0);
+        nav_header_mail = header_email.findViewById(R.id.nav_header_email);
+        user_Email = prefConFig.readEmail();
+        nav_header_mail.setText(user_Email);
+
+        Toast.makeText(this, prefConFig.readId(), Toast.LENGTH_SHORT).show();
+        ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+
+//        prefConFig.writeUser_arm_measurement_Left("16");
+
+//
+        apiCalls_recentMeasurement();
+
+
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        switch (menuItem.getItemId()){
+            case R.id.nav_progile:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new ProfileFragment()).commit();
+
+                break;
+            case R.id.nav_weight:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new WeightTrackingFragment()).commit();
+                break;
+            case R.id.nav_Measurements:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new MeasurementFragment()).commit();
+                break;
+            case R.id.nav_home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new HomeFragment()).commit();
+                break;
+            case R.id.nav_workout:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new WorkoutExercisesFragment()).commit();
+                break;
+            case R.id.nav_nutrition:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new WorkoutPageFragment()).commit();
+                break;
+
+
+        }
+        drawer.closeDrawer(GravityCompat.START );
+        return true;
+    }
+
+    /**
+     * gets the most recent measurements for that user
+     */
+    public void apiCalls_recentMeasurement() {
+
+
+        Call<BodyMeasuresResponse> recent_Measurement = apiInterface.recentMeasures(Integer.parseInt(prefConFig.readId()));
+
+        recent_Measurement.enqueue(new Callback<BodyMeasuresResponse>() {
+            @Override
+            public void onResponse(Call<BodyMeasuresResponse> call, Response<BodyMeasuresResponse> response) {
+                prefConFig.writeUser_arm_measurement_Left(response.body().getMeasurementArray().get(0).getMeasurement());
+                prefConFig.writeUser_arm_measurement_Right(response.body().getMeasurementArray().get(1).getMeasurement());
+                prefConFig.writeUser_chest_measurement_Chest(response.body().getMeasurementArray().get(2).getMeasurement());
+                prefConFig.writeUser_waist_measurement_Waist(response.body().getMeasurementArray().get(3).getMeasurement());
+                prefConFig.writeUser_hips_measurement_Hips(response.body().getMeasurementArray().get(4).getMeasurement());
+                prefConFig.writeUser_thigh_measurement_Right(response.body().getMeasurementArray().get(6).getMeasurement());
+                prefConFig.writeUser_thigh_measurement_Left(response.body().getMeasurementArray().get(5).getMeasurement());
+                prefConFig.writeUser_calf_measurement_Left(response.body().getMeasurementArray().get(7).getMeasurement());
+                prefConFig.writeUser_calf_measurement_Right(response.body().getMeasurementArray().get(8).getMeasurement());
+
+
+            }
+
+            @Override
+            public void onFailure(Call<BodyMeasuresResponse> call, Throwable t) {
+
+//                recent_measureArray[0]= t.getMessage();
+
+                prefConFig.distplayToast(t.getMessage());
+
+            }
+        });
+
+
+    }
+//
+
+    /**
+     * check what item in the three dot menu was clicked and performs the corresponding action
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        switch (item.getItemId()) {
+
+            case R.id.action_setting:
+                prefConFig.distplayToast("something was selected" + item);
+                break;
+
+            case R.id.action_about:
+                prefConFig.distplayToast("something was selected" + item);
+                break;
+            case R.id.action_logout:
+                logout();
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    /**
+     * helps to inflate the three dot menu
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.home_menu, menu);
+
+        return true;
+    }
+
+
+    @Override
+    public void onBackPressed() {
+
+        if (drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+            this.getSupportActionBar().show();
+
+        }else{
+            super.onBackPressed();
+            this.getSupportActionBar().show();
+        }
+
+    }
+
+
+    /**
+     * Logs the user out of the application
+     */
+    public void logout(){
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("logging out")
+                .setMessage("Are you sure you want to logout?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                            prefConFig.writeLoginStatus(false);
+
+                        prefConFig.writeUser_arm_measurement_Left("-");
+                        prefConFig.writeUser_arm_measurement_Right("-");
+                        prefConFig.writeUser_chest_measurement_Chest("-");
+                        prefConFig.writeUser_waist_measurement_Waist("-");
+                        prefConFig.writeUser_hips_measurement_Hips("-");
+                        prefConFig.writeUser_thigh_measurement_Right("-");
+                        prefConFig.writeUser_thigh_measurement_Left("-");
+                        prefConFig.writeUser_calf_measurement_Left("-");
+                        prefConFig.writeUser_calf_measurement_Right("-");
+                            Intent intToMain = new Intent(HomeActivity.this, RegisterAndLoginActivity.class);
+                            startActivity(intToMain);
+                        
+
+                    }
+
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
+}

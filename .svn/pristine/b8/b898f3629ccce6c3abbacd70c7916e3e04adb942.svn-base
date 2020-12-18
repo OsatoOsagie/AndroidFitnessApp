@@ -1,0 +1,71 @@
+package com.oo115.myapplication.Workout_feature;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import com.oo115.myapplication.PrefConFig;
+import com.oo115.myapplication.R;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+
+import java.util.Objects;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class Plans_Tab extends Fragment {
+
+    public Plans_Tab() {
+        // Required empty public constructor
+    }
+
+    private ListView listView;
+    private String[] plans = {"Custom", "Beginner", "Intermediate", "Advanced", "Elite"};
+    public static PrefConFig prefConFig;
+    public static ApiInterface apiInterface;
+
+    private AdapterView.OnItemClickListener onClickListItem = (parent, view, position, id) -> {
+
+
+        CustomPlanFragment fragment = CustomPlanFragment.newInstance();
+        String backStateName = fragment.getClass().getName();
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack so the user can navigate back
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.addToBackStack(backStateName);
+
+        // Commit the transaction
+        transaction.commit();
+
+    };
+
+
+
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.plans__tab, container, false);
+
+        listView = view.findViewById(R.id.plans_Lv);
+        prefConFig = new PrefConFig(Objects.requireNonNull(getContext()));
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Plans_lvAdapter adapter = new Plans_lvAdapter(getActivity(), plans);
+        //setting the adaptor for the list view
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(onClickListItem);
+
+
+        return view;
+    }
+}

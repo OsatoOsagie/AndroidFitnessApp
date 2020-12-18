@@ -1,0 +1,77 @@
+package com.oo115.myapplication.Settings;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import com.oo115.myapplication.R;
+
+import java.util.Objects;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class SettingsFragment extends Fragment {
+
+    private Toolbar toolbar;
+    private ListView listView;
+
+    String[] settings_titles = {"Email Address", "Change Password", "Getting Started"};
+
+    public SettingsFragment() {
+        // Required empty public constructor
+    }
+
+    private AdapterView.OnItemClickListener onClickListItem = (parent, view, position, id) -> {
+
+        if (position == 1) {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            // Replace whatever is in the fragment_container view with this fragment,
+            // and add the transaction to the back stack so the user can navigate back
+            transaction.replace(R.id.fragment_container, new ChangePasswordFragment());
+            transaction.addToBackStack(null);
+
+            // Commit the transaction
+            transaction.commit();
+        } else {
+
+        }
+
+
+    };
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_settings, container, false);
+
+
+//        initialisation
+        toolbar = view.findViewById(R.id.settings_toolBar);
+        listView = view.findViewById(R.id.settings_listView);
+
+
+        ListAdaptor listAdaptor = new ListAdaptor(this.getActivity(), settings_titles);
+        listView.setAdapter(listAdaptor);
+
+        //removing the actionbar so that tool bar can show
+        Objects.requireNonNull(((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).hide();
+        toolbar.setNavigationIcon(R.drawable.ic_back);
+        toolbar.setNavigationOnClickListener(v -> getActivity().onBackPressed());
+
+        listView.setOnItemClickListener(onClickListItem);
+
+        return view;
+
+
+    }
+}

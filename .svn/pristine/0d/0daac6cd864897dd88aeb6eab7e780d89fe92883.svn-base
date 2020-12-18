@@ -1,0 +1,29 @@
+package com.oo115.myapplication;
+
+import com.google.gson.annotations.SerializedName;
+
+public class UserDB {
+    @SerializedName("name")
+    private String name;
+
+
+    @SerializedName("response")
+    private String response;
+
+    @SerializedName("email")
+    private String email;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getResponse() {
+        return response;
+    }
+
+
+}

@@ -1,0 +1,57 @@
+package com.oo115.myapplication;
+
+
+import android.content.Intent;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import androidx.test.espresso.intent.Intents;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.runner.AndroidJUnit4;
+
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.intent.Intents.intended;
+import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+
+@RunWith(AndroidJUnit4.class)
+public class FirstPageExpressoTest {
+
+    @Rule
+    public ActivityTestRule<WelcomeActivity> mActivityRule =
+            new ActivityTestRule<>(WelcomeActivity.class);
+
+    @Before
+    public void setUp()throws Exception{
+        Intents.init();
+
+
+    }
+
+    @Test
+    public void ensureCorrectPageLoadsInitially(){
+        mActivityRule.launchActivity(new Intent());
+        intended(hasComponent(WelcomeActivity.class.getName()));
+    }
+
+    @Test
+    public void ensureStartButtonWorks() {
+        mActivityRule.launchActivity(new Intent());
+        onView(withId(R.id.btn_letsGetIt)).perform(click());
+        intended(hasComponent(RegisterAndLoginActivity.class.getName()));
+
+    }
+
+
+
+
+    @After
+    public void tearDown() throws Exception{
+        Intents.release();
+    }
+}

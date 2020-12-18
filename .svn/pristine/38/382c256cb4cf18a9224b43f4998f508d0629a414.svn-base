@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!--Bellow you'll find different HEX values depending on the percentage you need for the transparency. Remember, you need to prefix these values to your color.
+
+    100% — FF
+    95% — F2
+    90% — E6
+    85% — D9
+    80% — CC
+    75% — BF
+    70% — B3
+    65% — A6
+    60% — 99
+    55% — 8C
+    50% — 80
+    45% — 73
+    40% — 66
+    35% — 59
+    30% — 4D
+    25% — 40
+    20% — 33
+    15% — 26
+    10% — 1A
+    5% — 0D
+    0% — 00-->
+    <color name="toolbar_background">#0CACF4</color>
+    <color name="background_odd">#99D6EA</color>
+    <color name="background_odd_transparent">#F299D6EA</color>
+    <color name="background_even">#cceaf4</color>
+    <color name="graph_fill">#f2fbff</color>
+    <color name="background">#ffffff</color>
+    <color name="tableheader_background">#FFFFFF</color>
+    <color name="launcher_background">#0dadf4</color>
+</resources>

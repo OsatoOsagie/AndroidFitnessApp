@@ -1,0 +1,183 @@
+package com.oo115.myapplication;
+
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Patterns;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+import java.util.Objects;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class LoginFragment extends Fragment {
+    EditText etEmail, etpassword;
+    Button btnSignIn;
+    TextView tvSignUp, forgotPassword;
+    ProgressBar progressBar;
+    private Context context;
+    private TextView registerText;
+    OnLoginFormActivityListener loginFormActivityListener;
+    PrefConFig prefConFig;
+
+    public  interface OnLoginFormActivityListener{
+        void performRegister();
+
+        void performLogin(String name);
+
+
+
+    }
+
+    public LoginFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        context=container.getContext();
+        // Inflate the layout for this fragment
+        View view= inflater.inflate(R.layout.fragment_login, container, false);
+        registerText= view.findViewById(R.id.register_text);
+        progressBar = view.findViewById(R.id.progressBarLogin);
+        prefConFig = new PrefConFig(Objects.requireNonNull(getActivity()));
+
+        registerText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                progressBar.setVisibility(View.VISIBLE);
+                loginFormActivityListener.performRegister();
+            }
+        });
+        forgotPassword = view.findViewById(R.id.forgot_password);
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new FogotPasswordFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        etEmail = view.findViewById(R.id.etEmail);
+        etpassword = view.findViewById(R.id.etPassword);
+        btnSignIn = view.findViewById(R.id.btn_Signin);
+
+
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onLogin();
+
+
+
+            }
+        });
+        return view;
+
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        Activity activity = (Activity) context;
+        loginFormActivityListener = (OnLoginFormActivityListener) activity;
+    }
+
+
+    public void onLogin(){
+        progressBar.setVisibility(View.VISIBLE);
+        String email= etEmail.getText().toString();
+        String password= etpassword.getText().toString();
+
+
+        //Validations for login
+        if ((email.isEmpty()) && (password.isEmpty())) {
+            progressBar.setVisibility(View.GONE);
+            RegisterAndLoginActivity.prefConFig.distplayToast("Empty Fields");
+            etEmail.setError("Enter email");
+            etEmail.requestFocus();
+            etpassword.setError("Enter Password");
+            etpassword.requestFocus();
+        } else if ((email.isEmpty())) {
+            progressBar.setVisibility(View.GONE);
+            etEmail.setError("Enter email");
+            etEmail.requestFocus();
+        } else if ((password.isEmpty())) {
+            progressBar.setVisibility(View.GONE);
+            etpassword.setError("Enter Password");
+            etpassword.requestFocus();
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            progressBar.setVisibility(View.GONE);
+            etEmail.setError("Enter a valid email");
+            etEmail.requestFocus();
+        } else {
+            Call<UserDB> call = RegisterAndLoginActivity.apiInterface.performUserLogin(email, password);
+
+            call.enqueue(new Callback<UserDB>() {
+                @Override
+                public void onResponse(Call<UserDB> call, Response<UserDB> response) {
+
+                    if (response.body().getResponse().equals("ok")) {
+                        RegisterAndLoginActivity.prefConFig.writeLoginStatus(true);
+                        loginFormActivityListener.performLogin(response.body().getName());
+                        prefConFig.distplayToast(response.body().getName());
+                        prefConFig.writeName(response.body().getName());
+                        prefConFig.writeEmail(response.body().getEmail());
+                        progressBar.setVisibility(View.GONE);
+
+
+                    } else if (response.body().getResponse().equals("failed")) {
+                        progressBar.setVisibility(View.GONE);
+                        RegisterAndLoginActivity.prefConFig.distplayToast("Login failed please try again");
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<UserDB> call, Throwable t) {
+
+
+                }
+            });
+
+            etEmail.setText("");
+            etpassword.setText("");
+
+        }
+
+
+//      §  loginFormActivityListener.performLogin(RegisterAndLoginActivity.prefConFig.readName());
+
+
+    }
+
+
+    public void onBackPressed() {
+        // code here to show dialog
+        progressBar.setVisibility(View.GONE);
+    }
+
+}

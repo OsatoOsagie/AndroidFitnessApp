@@ -1,0 +1,149 @@
+package com.oo115.myapplication.bodyMeasures;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
+import com.oo115.myapplication.BodyPart;
+import com.oo115.myapplication.PrefConFig;
+import com.oo115.myapplication.R;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+import com.oo115.myapplication.retrofitAPI.Delete_MeasurementDB;
+
+import java.util.Objects;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
+public class BodyPartHistoryAdaptor extends ArrayAdapter<String> implements View.OnClickListener {
+    private String[] measurement_size;
+    private String[] date_taken;
+    private String[] measurement_id;
+    int bodypart;
+    private Activity context;
+    public static ApiInterface apiInterface;
+    public static PrefConFig prefConFig;
+
+    public BodyPartHistoryAdaptor(Activity context, String[] measuement_size, String[] date_taken, String[] measurement_id, int bodypart) {
+        super(context, R.layout.measure_history, measuement_size);
+
+        this.context = context;
+        this.measurement_size = measuement_size;
+        this.measurement_id = measurement_id;
+        this.date_taken = date_taken;
+    }
+
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
+        View view = convertView;
+        ViewHolder viewHolder = null;
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        prefConFig = new PrefConFig(Objects.requireNonNull(getContext()));
+        if (view == null) {
+            //build in class to convert xml file to corressponding java object
+            LayoutInflater layoutInflater = context.getLayoutInflater();
+            view = layoutInflater.inflate(R.layout.measure_history, null, true);
+            viewHolder = new ViewHolder(view);
+            //view class method which stores view
+            view.setTag(viewHolder);
+        } else {
+            //this gets the stored method in set tag
+            viewHolder = (ViewHolder) view.getTag();
+        }
+        //setting the reference for the image and text view
+        viewHolder.measurementDate.setText(date_taken[position]);
+        viewHolder.measurementSize.setText(measurement_size[position]);
+
+        //hiding the visibility of the bin icon if no measurement was entered
+        if (date_taken[position].equals("-") && measurement_size[position].equals("-")) {
+            viewHolder.deleteBtn.setVisibility(View.GONE);
+        }
+
+
+        viewHolder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                alert asking the user to confirm their password reset
+
+                new AlertDialog.Builder(getContext())
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Delete measurement")
+                        .setMessage("Are you sure you want to delete measurement")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+//                        prefConFig.distplayToast(measurement_id[position]);
+
+
+                                Call<Delete_MeasurementDB> delete_measurementDBCall = apiInterface.delete_measurement(Integer.parseInt(measurement_id[position]));
+
+                                delete_measurementDBCall.enqueue(new Callback<Delete_MeasurementDB>() {
+                                    @Override
+                                    public void onResponse(Call<Delete_MeasurementDB> call, Response<Delete_MeasurementDB> response) {
+                                        if (response.body().getResponse().equals("deleted")) {
+                                            prefConFig.distplayToast("Measurement deleted");
+                                            BodyPartMeasurements bodyPartMeasurements = new BodyPartMeasurements();
+                                            notifyDataSetChanged();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Delete_MeasurementDB> call, Throwable t) {
+
+                                    }
+                                });
+
+
+                            }
+
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+
+            }
+        });
+
+
+        return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        int position = (Integer) v.getTag();
+        Object object = getItem(position);
+        BodyPart dataModel = (BodyPart) object;
+    }
+
+
+    //to optimise list viw performance
+    //holds and finds view by id of image and name
+
+    class ViewHolder {
+        TextView measurementDate, measurementSize, unit;
+        ImageButton deleteBtn;
+
+
+        ViewHolder(View view) {
+            measurementDate = view.findViewById(R.id.LIST_DATE);
+            measurementSize = view.findViewById(R.id.LIST_MEASUREMENT_SIZE);
+            deleteBtn = view.findViewById(R.id.deleteBtn);
+
+        }
+    }
+
+}

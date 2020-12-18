@@ -1,0 +1,35 @@
+package com.oo115.myapplication.retrofitAPI;
+
+import com.oo115.myapplication.ForgotPassword.ForgotEmailDB;
+
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
+
+public interface ApiInterface {
+
+    @GET("register.php")
+    Call<UserDB> performRegistration(@Query("name") String FirstName, @Query("surname") String LastName, @Query("useremail") String Email, @Query("password") String Password);
+
+    @GET("login.php")
+    Call<UserDB> performUserLogin(@Query("user_email") String Email, @Query("password") String Password);
+
+    @GET("bodyMeasures.php")
+    Call<BodyMeasuresResponse> lastMeasureSearch(@Query("user_id") int user_id, @Query("bodyPart_id") int bodyPart_id);
+
+
+    @GET("recentMeasuresAllBP.php")
+    Call<BodyMeasuresResponse> recentMeasures(@Query("user_id") int user_id);
+
+    @GET("addMeausre.php")
+    Call<BodyMeasuresResponse> addMeasurement(@Query("profile_id") int user_id, @Query("bodyPart") int bodyPart, @Query("measurement") int measurement, @Query("date") java.sql.Date date);
+
+    //performing quote search using user ID
+    @GET("quotes.php")
+    Call<QuotesDB> performQuoteSearch(@Query("id") int Id);
+
+
+    @GET("forgotPassword.php")
+    Call<ForgotEmailDB> performEmailSearch(@Query("user_email") String Email);
+
+}

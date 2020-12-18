@@ -1,0 +1,115 @@
+package com.oo115.myapplication.WeightTracking;
+
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+
+import com.oo115.myapplication.R;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class WeightTrackingFragment extends Fragment {
+
+    private ImageButton weight_imageButton, fat_imgbtn, muscle_imgbtn, water_imgbtn;
+
+    public WeightTrackingFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_weight_tracking, container, false);
+
+
+//weight image button
+        weight_imageButton = view.findViewById(R.id.weightDetailsButton);
+        weight_imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = "Weight";
+                Weight_Add_Fragment fragment = Weight_Add_Fragment.newInstance(name, true);
+                String backStateName = fragment.getClass().getName();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack so the user can navigate back
+                transaction.replace(R.id.fragment_container, fragment);
+                transaction.addToBackStack(backStateName);
+
+                // Commit the transaction
+                transaction.commit();
+            }
+        });
+//fat image button
+        fat_imgbtn = view.findViewById(R.id.fat_imgbtn);
+        fat_imgbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = "Body Fat";
+                Weight_Add_Fragment fragment = Weight_Add_Fragment.newInstance(name, true);
+                String backStateName = fragment.getClass().getName();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack so the user can navigate back
+                transaction.replace(R.id.fragment_container, fragment);
+                transaction.addToBackStack(backStateName);
+
+                // Commit the transaction
+                transaction.commit();
+            }
+        });
+        //water image button
+        water_imgbtn = view.findViewById(R.id.water_imgBtn);
+        water_imgbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = "Water";
+                Weight_Add_Fragment fragment = Weight_Add_Fragment.newInstance(name, true);
+                String backStateName = fragment.getClass().getName();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack so the user can navigate back
+                transaction.replace(R.id.fragment_container, fragment);
+                transaction.addToBackStack(backStateName);
+
+                // Commit the transaction
+                transaction.commit();
+            }
+        });
+
+        //Muscles image button
+        muscle_imgbtn = view.findViewById(R.id.muscles_imgBtn);
+        muscle_imgbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = "Muscle";
+                Weight_Add_Fragment fragment = Weight_Add_Fragment.newInstance(name, true);
+                String backStateName = fragment.getClass().getName();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack so the user can navigate back
+                transaction.replace(R.id.fragment_container, fragment);
+                transaction.addToBackStack(backStateName);
+
+                // Commit the transaction
+                transaction.commit();
+            }
+        });
+
+
+        return view;
+    }
+
+
+
+}

@@ -1,0 +1,104 @@
+package com.oo115.myapplication;
+
+import android.app.DatePickerDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.util.Calendar;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+public class ProfileFragment extends Fragment {
+
+
+    private Spinner gender, goal;
+    private static final String TAG = "profileFragment";
+    private TextView mDisplayDate;
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        gender = view.findViewById(R.id.gender);
+        goal = view.findViewById(R.id.goalSpinner);
+        mDisplayDate = view.findViewById(R.id.selectBirthday);
+
+        mDisplayDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //create calender object so that when text view is clicked it immediately goes to the current date
+                Calendar calendar = Calendar.getInstance();
+                //getting the current year
+                int year = calendar.get(Calendar.YEAR);
+                //getting the current month
+                int month = calendar.get(Calendar.MONTH);
+                //getting the current day
+                //day of month because they are different  number of days in each month
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog dialog = new DatePickerDialog(
+                        getContext(),
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateSetListener,
+                        year, month, day
+
+                );
+                //making background transparent
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+                mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        //we need to add 1 to the month because january is 0 and december is 11
+                        month = month + 1;
+                        String date = month + "/" + day + "/" + year;
+                        mDisplayDate.setText(date);
+
+                    }
+                };
+
+
+            }
+        });
+
+
+        /*
+         *
+         * GENDER
+         */
+        //adaptor= container that will hold gender values
+        ArrayAdapter<String> myGender = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.gender));
+
+        //make it a dropdown list
+        myGender.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //set gender spinner to adaptor
+        gender.setAdapter(myGender);
+
+
+        /*
+         *
+         * GAOL
+         */
+        //adaptor= container that will hold gender values
+        ArrayAdapter<String> myGoal = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.goal));
+
+        //make it a dropdown list
+        myGender.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //set gender spinner to adaptor
+        goal.setAdapter(myGoal);
+
+        return view;
+
+    }
+}

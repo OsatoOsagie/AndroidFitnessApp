@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileFragment"
+    android:background="@color/background">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/saveBtn2"
+            android:layout_width="161dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="44dp"
+            android:text="@string/save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.436"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goalSpinner"
+            android:onClick="myClickHandler" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="113dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="88dp"
+            android:text="@string/goal"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.171"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heightRadioGroup" />
+
+        <EditText
+            android:id="@+id/height_inches"
+            android:layout_width="143dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="@string/inches"
+            android:inputType="number"
+            app:layout_constraintBaseline_toBaselineOf="@+id/height_feet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.243"
+            app:layout_constraintStart_toEndOf="@+id/height_feet" />
+
+        <EditText
+            android:id="@+id/height_feet"
+            android:layout_width="143dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="216dp"
+            android:ems="10"
+            android:hint="@string/height"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@+id/height_inches"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.942"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heightRadioGroup" />
+
+        <RadioGroup
+            android:id="@+id/heightRadioGroup"
+            android:layout_width="308dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.446"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heightSubheading2">
+
+            <RadioButton
+                android:id="@+id/feetRadioButton"
+                android:layout_width="71dp"
+                android:layout_height="wrap_content"
+                android:text="@string/feet"
+
+                />
+
+            <RadioButton
+                android:id="@+id/centimetersRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/centimeters" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/heightSubheading2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/height"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.139"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectBirthday"
+            android:gravity="start" />
+
+        <Spinner
+            android:id="@+id/gender"
+            android:layout_width="308dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="128dp"
+            android:gravity="start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.359"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sex"
+            android:layout_width="45dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="start"
+            android:text="@string/sex"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/gender"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.139"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/birthday"
+            android:layout_width="106dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="48dp"
+            android:text="@string/birthday"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/gender"
+            android:gravity="start" />
+
+        <TextView
+            android:id="@+id/selectBirthday"
+            android:layout_width="308dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.475"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/birthday"
+            android:gravity="start" />
+
+        />
+
+        <Spinner
+            android:id="@+id/goalSpinner"
+            android:layout_width="308dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="20dp"
+            android:gravity="start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.359"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <EditText
+            android:id="@+id/centimeteresET"
+            android:layout_width="327dp"
+            android:layout_height="69dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.547"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heightRadioGroup"
+            android:hint="@string/centimeters" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

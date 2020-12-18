@@ -1,0 +1,284 @@
+package com.oo115.myapplication;
+
+
+/**
+ * This class is to save the user preferences
+ */
+
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.widget.Toast;
+
+public class PrefConFig {
+
+    private SharedPreferences sharedPreferences;
+    private Context context;
+
+
+    public PrefConFig(Context context){
+        this.context = context;
+        sharedPreferences = context.getSharedPreferences(context.getString(R.string.pref_file),Context.MODE_PRIVATE);
+
+    }
+
+    /**
+     * this method writes the user login status to the shared preferences
+     */
+
+    public void writeLoginStatus(boolean status){
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        editor.putBoolean(context.getString(R.string.pref_login_status),status);
+        editor.apply();
+
+    }
+
+    /**
+     *this method reads the user login status from the shared preferences
+     */
+
+    public boolean readLoginStatus(){
+        return sharedPreferences.getBoolean(context.getString(R.string.pref_login_status),false);
+    }
+
+
+    /**
+     *  //this method writes the name of the user to the shared preferences
+     */
+
+
+    public void writeName(String name){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_name),name);
+        editor.apply();
+    }
+
+
+    /**
+     *  //this method reads the name of the user to the shared preferences
+     */
+    public String readName(){
+        return sharedPreferences.getString(context.getString(R.string.pref_user_name), "user default");
+    }
+
+
+    /**
+     *  //this method is for displaying messages to the users
+     */
+    public void distplayToast(String message){
+        Toast.makeText(context,message, Toast.LENGTH_SHORT).show();
+    }
+
+
+    /**
+     *  //this method writes quotes from the database for the landing page
+     */
+    public void writeQuote(String quote){
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_quote),quote);
+        editor.apply();
+
+    }
+
+
+    /**
+     *  //this method Reads quotes from the database for the landing page
+     */
+    public String readQuote(){
+        return sharedPreferences.getString(context.getString(R.string.pref_user_quote), "no quote found");
+    }
+
+
+    /**
+     *  //this method  writes the user email
+     */
+    public void writeEmail(String email) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_email), email);
+        editor.apply();
+    }
+
+
+    /**
+     *  //this method Reads the user email
+     */
+
+    public String readEmail() {
+        return sharedPreferences.getString(context.getString(R.string.pref_user_email), "no email found");
+    }
+
+    /**
+     *  //this method writes the user ID
+     */
+
+    public void writeUser_Id(String id) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_id), id);
+        editor.apply();
+    }
+
+    /**
+     *  This method reads the user ID
+     */
+
+    public String readId() {
+        return sharedPreferences.getString(context.getString(R.string.pref_user_id), "no ID found");
+    }
+
+
+    /**
+     *  This method writes the users most recent left-arm measurement
+     */
+    public void writeUser_arm_measurement_Left(String measurement) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_arm_measurement_Left), measurement);
+        editor.apply();
+    }
+
+
+    /**
+     * This method reads the users most recent arm measurement
+     */
+    public String readArm_measurement_Left() {
+        return sharedPreferences.getString(context.getString(R.string.pref_user_arm_measurement_Left), "-");
+    }
+
+    /**
+     * This method writes the users most recent rigth-arm measurement
+     */
+    public void writeUser_arm_measurement_Right(String measurement) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_arm_measurement_Right), measurement);
+        editor.apply();
+    }
+
+
+    /**
+     * This method reads the users most recent rigth-arm measurement
+     */
+    public String readArm_measurement_Right() {
+        return sharedPreferences.getString(context.getString(R.string.pref_user_arm_measurement_Right), "-");
+    }
+
+    /**
+     * This method writes the users most recent Chest measurement
+     */
+
+    //Reading  and writing Chest measurements
+    public void writeUser_chest_measurement_Chest(String measurement) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_chest_measurement_Chest), measurement);
+        editor.apply();
+    }
+
+    /**
+     * This method reads the users most recent chest measurement
+     */
+    public String read_measurement_Chest() {
+        return sharedPreferences.getString(context.getString(R.string.pref_user_chest_measurement_Chest), "-");
+    }
+
+    /**
+     * This method writes the users most recent Waist measurement
+     */
+
+    public void writeUser_waist_measurement_Waist(String measurement) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_waist_measurement_Waist), measurement);
+        editor.apply();
+    }
+
+    /**
+     * This method reads the users most recent waist measurement
+     */
+    public String read_measurement_Waist() {
+        return sharedPreferences.getString(context.getString(R.string.pref_user_waist_measurement_Waist), "-");
+    }
+
+    /**
+     * This method writes the users most recent Hips measurement
+     */
+    //Reading  and writing Hips measurements
+    public void writeUser_hips_measurement_Hips(String measurement) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_hips_measurement_Hips), measurement);
+        editor.apply();
+    }
+
+    /**
+     * This method reads the users most recent hip measurement
+     */
+    public String read_measurement_Hips() {
+        return sharedPreferences.getString(context.getString(R.string.pref_user_hips_measurement_Hips), "-");
+    }
+
+    /**
+     * This method writes the users most recent left-thigh measurement
+     */
+
+    public void writeUser_thigh_measurement_Left(String measurement) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_thigh_measurement_Left), measurement);
+        editor.apply();
+    }
+
+    /**
+     * This method reads the users most recent left-thigh measurement
+     */
+    public String read_measurement_thigh_Left() {
+        return sharedPreferences.getString(context.getString(R.string.pref_user_thigh_measurement_Left), "-");
+    }
+
+    /**
+     * This method writes the users most recent rigth-tigh measurement
+     */
+    public void writeUser_thigh_measurement_Right(String measurement) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_thigh_measurement_Right), measurement);
+        editor.apply();
+    }
+
+    /**
+     * This method reads the users most recent right-thigh measurement
+     */
+    public String read_measurement_thigh_Right() {
+        return sharedPreferences.getString(context.getString(R.string.pref_user_thigh_measurement_Right), "-");
+    }
+
+    /**
+     * This method writes the users most recent left-calf measurement
+     */
+
+    public void writeUser_calf_measurement_Left(String measurement) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_calves_measurement_Left), measurement);
+        editor.apply();
+    }
+
+    /**
+     * This method reads the users most recent left-calf measurement
+     */
+    public String read_measurement_calf_Left() {
+        return sharedPreferences.getString(context.getString(R.string.pref_user_calves_measurement_Left), "-");
+    }
+
+
+    /**
+     * This method writes the users most recent right-calf measurement
+     */
+
+    public void writeUser_calf_measurement_Right(String measurement) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_calves_measurement_Right), measurement);
+        editor.apply();
+    }
+
+    /**
+     *  This method reads the users most recent right-calf measurement
+     */
+    public String read_measurement_calf_Right() {
+        return sharedPreferences.getString(context.getString(R.string.pref_user_calves_measurement_Right), "-");
+    }
+
+
+}

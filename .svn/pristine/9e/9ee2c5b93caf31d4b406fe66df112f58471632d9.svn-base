@@ -1,0 +1,203 @@
+package com.oo115.myapplication;
+
+
+/*
+* This class is used for handling network operations
+
+* AsyncTask us the liberty to perform heavy tasks in the background and keep the UI thread light thus making the application more responsive.
+
+ */
+
+import android.app.AlertDialog;
+import android.content.Context;
+import android.os.AsyncTask;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
+
+public class BackgroundWorker extends AsyncTask<String,Void,String> {
+    private String type;
+        private Context context;
+       AlertDialog alertDialog;
+
+    public AsyncResponse delegate;
+
+    interface AsyncResponse {
+        void processFinish(String output);
+    }
+
+
+
+
+        BackgroundWorker (Context ctx){
+
+            context =ctx ;
+        }
+
+
+
+    @Override
+    protected String doInBackground(String... params) {
+            //extracting the type of operation we
+             type= params[0];
+            String login_url = "http://clayh.sgedu.site/login.php";
+            String register_url = "http://clayh.sgedu.site/register.php";
+            //checking the type of request we're handling
+            if (type.equals("login")){
+                try {
+                    //getting email and passwordET passed from the login class to the bacground worker.
+                    String user_email= params[1];
+                    String password= params[2];
+                    URL url= new URL(login_url);
+                    HttpURLConnection httpURLConnection= (HttpURLConnection)url.openConnection();
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setDoOutput(true);
+                     httpURLConnection.setDoInput(true);
+                    OutputStream outputStream=httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter= new BufferedWriter(new OutputStreamWriter(outputStream, UTF_8));
+                    String post_data= URLEncoder.encode("user_email", "UTF-8") + "=" + URLEncoder.encode(user_email, "UTF-8")+"&"
+                            +URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
+                    //write post data to buffer writer
+                    bufferedWriter.write(post_data );
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
+                    outputStream.close();
+                    //to get response from writting data
+                    InputStream inputStream= httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream,"iso_8859_1"));
+                    String result ="";
+                    String line="";
+
+                    while((line=bufferedReader.readLine()) !=null){
+//                        StringBuilder str
+//                                = new StringBuilder(result);
+//                        str.append(line);
+                        result +=line;
+                    }
+                    bufferedReader.close();
+                    inputStream.close();
+                    httpURLConnection.disconnect();
+                    return result;
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+            }else if (type.equals("register")){
+                try {
+                    //getting email and passwordET passed from the login class to the bacground worker.
+                    String name= params[1];
+                    String surname= params[2];
+                    String useremail= params[3];
+                    String password= params[4];
+                    URL url= new URL(register_url);
+                    HttpURLConnection httpURLConnection= (HttpURLConnection)url.openConnection();
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setDoInput(true);
+                    OutputStream outputStream=httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter= new BufferedWriter(new OutputStreamWriter(outputStream, UTF_8));
+                    String post_data= URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8")+"&"
+                    + URLEncoder.encode("surname", "UTF-8") + "=" + URLEncoder.encode(surname, "UTF-8")+"&"
+                    + URLEncoder.encode("useremail", "UTF-8") + "=" + URLEncoder.encode(useremail , "UTF-8")+"&"
+                            +URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
+                    //write post data to buffer writer
+                    bufferedWriter.write(post_data );
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
+                    outputStream.close();
+                    //to get response from writting data
+                    InputStream inputStream= httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream,"iso_8859_1"));
+                    String result ="";
+                    String line ="";
+
+                    while((line=bufferedReader.readLine()) !=null){
+//                        StringBuilder str
+//                                = new StringBuilder(result);
+//                        str.append(line);
+                        result +=line;
+                    }
+                    bufferedReader.close();
+                    inputStream.close();
+                    httpURLConnection.disconnect();
+
+                    return result;
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+
+        return null;
+    }
+
+    @Override
+    protected void onPreExecute() {
+
+        alertDialog = new AlertDialog.Builder(context).create();
+        alertDialog.setTitle("Login Status");
+    }
+
+    @Override
+    protected void onPostExecute(String result) {
+
+        try {
+            JSONObject jObject = new JSONObject(result);
+            //delegate.processFinish(result);
+            String response = jObject.getString("response");
+            String name = jObject.getString("name");
+//
+            if (type.equals("login") && response.equals("ok")){
+                RegisterAndLoginActivity.prefConFig.writeLoginStatus(true);
+                new RegisterAndLoginActivity().performLogin(name);
+                RegisterAndLoginActivity.prefConFig.distplayToast("success");
+
+
+
+            }
+
+
+            if (type.equals("register") && response.equals("ok")){
+                RegisterAndLoginActivity.prefConFig.writeLoginStatus(true);
+                new RegisterAndLoginActivity().performRegister();
+                RegisterAndLoginActivity.prefConFig.distplayToast("success reg");
+            }
+
+
+//                -
+
+
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
+
+
+    }
+
+    @Override
+    protected void onProgressUpdate(Void... values) {
+        super.onProgressUpdate(values);
+
+    }
+
+}

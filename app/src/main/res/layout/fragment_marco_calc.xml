@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE">
+
+
+    <LinearLayout
+        android:id="@+id/tab_weight"
+        android:name="tab_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EEEEEE"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
+        android:layout_marginTop="65dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:minWidth="70dp"
+                android:minHeight="70dp"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:autoSizeMaxTextSize="18sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:autoSizeStepGranularity="1dp"
+                        android:textSize="24sp"
+                        android:textStyle="italic"
+                        android:gravity="center_horizontal"
+                        android:lines="1"
+                        android:text="@string/target"
+                        android:textColor="@color/colorAccent" />
+
+
+                    <Spinner
+                        android:id="@+id/marcro_targetSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:gravity="start"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.359"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView10"
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:textStyle="italic"
+                        android:autoSizeMaxTextSize="18sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:autoSizeStepGranularity="1dp"
+                        android:gravity="center_horizontal"
+                        android:lines="1"
+                        android:text="@string/activity_level"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="24sp" />
+
+                    <Spinner
+                        android:id="@+id/macro_activityLevelSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:gravity="start"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.359"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView10"
+
+                        />
+
+                    <Button
+                        android:id="@+id/macro_calc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/calculate"
+                        android:layout_marginTop="20dp"></Button>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_margin="5dp"
+                android:layout_weight="50"
+                app:cardCornerRadius="5dp"
+                app:contentPadding="5dp">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:shrinkColumns="3"
+                    android:stretchColumns="0,1,2">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/indexTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_span="4"
+                            android:gravity="center_horizontal"
+                            android:text="@string/recommended_daily_intake"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="24sp"
+                            android:textStyle="italic" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/recommended_protein"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/required_protein"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/protein_actual"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:maxWidth="100dp"
+                            android:maxLines="1"
+                            android:textColor="@color/launcher_background"
+                            android:textSize="20sp"
+                            android:text="@string/hyphen" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:ellipsize="start"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="italic"
+                            android:text="@string/grams" />
+
+                        <ImageButton
+                            android:id="@+id/imcHelp_protein"
+                            android:layout_width="match_parent"
+                            android:layout_height="25sp"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="false"
+                            android:background="@color/background"
+                            android:cropToPadding="false"
+                            app:srcCompat="@drawable/ic_baseline_help_outline_24px" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/recomeneded_carbohydrates"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/carbohydrates"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/carbohydrates_actualValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:maxWidth="100dp"
+                            android:maxLines="1"
+                            android:textColor="@color/toolbar_background"
+                            android:textSize="20sp"
+                            android:text="@string/hyphen" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="italic"
+                            android:text="@string/grams" />
+
+                        <ImageButton
+                            android:id="@+id/carbohydratesHelp"
+                            android:layout_width="25sp"
+                            android:layout_height="25sp"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="false"
+                            android:background="@color/background"
+                            android:cropToPadding="false"
+                            app:srcCompat="@drawable/ic_baseline_help_outline_24px"
+                            tools:ignore="ContentDescription" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/fatsTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fats"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/fats_actualValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:maxWidth="100dp"
+                            android:maxLines="1"
+                            android:textColor="@color/toolbar_background"
+                            android:textSize="20sp"
+                            android:text="@string/hyphen" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="italic"
+                            android:text="@string/grams" />
+
+                        <ImageButton
+                            android:id="@+id/fatsHelp"
+                            android:layout_width="25sp"
+                            android:layout_height="25sp"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="false"
+                            android:background="@color/background"
+                            android:cropToPadding="false"
+                            app:srcCompat="@drawable/ic_baseline_help_outline_24px"
+                            tools:ignore="ContentDescription" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/waterTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/water"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/water_actualValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:maxWidth="100dp"
+                            android:maxLines="1"
+                            android:textColor="@color/toolbar_background"
+                            android:textSize="20sp"
+                            android:text="@string/hyphen" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="italic"
+                            android:text="@string/Litres" />
+
+                        <ImageButton
+                            android:id="@+id/waterHelp"
+                            android:layout_width="25sp"
+                            android:layout_height="25sp"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="false"
+                            android:background="@color/background"
+                            android:cropToPadding="false"
+                            app:srcCompat="@drawable/ic_baseline_help_outline_24px"
+                            tools:ignore="ContentDescription" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/caloriesTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Calories"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/calories_actualValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:maxWidth="100dp"
+                            android:maxLines="1"
+                            android:textColor="@color/toolbar_background"
+                            android:textSize="20sp"
+                            android:text="@string/hyphen" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textStyle="italic"
+                            android:text="@string/Kcal" />
+
+                        <ImageButton
+                            android:id="@+id/caloriesHelp"
+                            android:layout_width="25sp"
+                            android:layout_height="25sp"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="false"
+                            android:background="@color/background"
+                            android:cropToPadding="false"
+                            app:srcCompat="@drawable/ic_baseline_help_outline_24px"
+                            tools:ignore="ContentDescription" />
+
+                    </TableRow>
+                </TableLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+</ScrollView>

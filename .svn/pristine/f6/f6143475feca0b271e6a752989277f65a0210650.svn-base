@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+
+    <SearchView
+        android:id="@+id/exercise_search"
+        android:layout_width="399dp"
+        android:layout_height="36dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="8dp">
+
+    </SearchView>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_exercises"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/toolbar_background"
+        android:elevation="4dp" />
+
+    <ListView
+        android:id="@+id/exercises_workout_ListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="85dp">
+
+    </ListView>
+
+</RelativeLayout>
+
+

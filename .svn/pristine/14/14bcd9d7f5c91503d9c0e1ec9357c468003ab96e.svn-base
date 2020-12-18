@@ -1,0 +1,770 @@
+[
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_getting_started.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/getting_started.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_scale_foreground.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-mdpi/ic_launcher_scale_foreground.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_scale.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-hdpi/ic_launcher_scale.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_scale.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxxhdpi/ic_launcher_scale.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_arm_measure.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_arm_measure.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_checklist.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/checklist.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_launcher_scale_background.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_launcher_scale_background.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_calculators_listview.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/calculators_listview.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_login.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_login.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_carbohydrates.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/carbohydrates.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_scale_foreground.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxxhdpi/ic_launcher_scale_foreground.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_tape_foreground.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-mdpi/ic_launcher_tape_foreground.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_star.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-xhdpi/ic_action_star.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_img_bgimagetwo.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/img_bgimagetwo.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_arm.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_arm.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_tape.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-mdpi/ic_launcher_tape.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_tape_foreground.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxxhdpi/ic_launcher_tape_foreground.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_hammercurl.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/hammercurl.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_add_circle_black_24dp.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_add_circle_black_24dp.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_exercise_log.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/exercise_log.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_information.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/information.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_tape_round.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxxhdpi/ic_launcher_tape_round.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_workout.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_workout.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_scale_round.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxhdpi/ic_launcher_scale_round.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_back.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_back.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_scale_round.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxxhdpi/ic_launcher_scale_round.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_star.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-xxhdpi/ic_action_star.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_bodypartlist.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/bodypartlist.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout-land_activity_main.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout-land/activity_main.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_getting_started.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_getting_started.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_calculator.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_calculator.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_measure_history.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/measure_history.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_logout.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_logout.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/menu_drawer_menu.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/menu/drawer_menu.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_tape_foreground.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xhdpi/ic_launcher_tape_foreground.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_scale.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xhdpi/ic_launcher_scale.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_arrow_forward_black_24dp.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_arrow_forward_black_24dp.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_measurement.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_measurement.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_calculators_layout.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/calculators_layout.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_scale_round.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-mdpi/ic_launcher_scale_round.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_triceps.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/triceps.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_exercises_layout.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/exercises_layout.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_twitter.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_twitter.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_tape.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxhdpi/ic_launcher_tape.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_pencil.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/pencil.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_scale_foreground.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxhdpi/ic_launcher_scale_foreground.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_tight_measure.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_tight_measure.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_settings.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/settings.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_img_bgpic.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/img_bgpic.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_dish.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_dish.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_img_bgimage.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/img_bgimage.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_tape_foreground.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxhdpi/ic_launcher_tape_foreground.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_done_black_24dp.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_done_black_24dp.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_scale_round.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-anydpi-v26/ic_launcher_scale_round.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_glutes.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/glutes.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_ruler.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/generated/res/pngs/debug/drawable-anydpi-v24/ic_ruler.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_baseline_help_outline_24px.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-xxxhdpi/ic_baseline_help_outline_24px.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_core.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/core.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_profile.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_tape_round.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-hdpi/ic_launcher_tape_round.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_delete_forever_black_24dp.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_delete_forever_black_24dp.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_tab_exercise_description.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/tab_exercise_description.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_tape.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-hdpi/ic_launcher_tape.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_tape.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xhdpi/ic_launcher_tape.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_applogo.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/applogo.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_healthyfats.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/healthyfats.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_tape_round.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xhdpi/ic_launcher_tape_round.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_action_name.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-xxxhdpi/ic_action_name.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_exercises_for_muscle_groups.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_exercises_for_muscle_groups.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-anydpi_ic_action_star.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-anydpi/ic_action_star.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_ruler.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_ruler.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_quads.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/quads.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_workout_page.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_workout_page.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_plans__tab.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/plans__tab.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_tape_round.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-mdpi/ic_launcher_tape_round.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_water.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/water.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_settings.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_settings.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_chest.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_chest.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_ruler.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/generated/res/pngs/debug/drawable-mdpi/ic_ruler.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_tape_round.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-anydpi-v26/ic_launcher_tape_round.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_name.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-hdpi/ic_action_name.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_favorite_border_black_24dp.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_favorite_border_black_24dp.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_chest_measure.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_chest_measure.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_forgot_password.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_forgot_password.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_proteinfoods.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/proteinfoods.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_device_hub_black_24dp.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_device_hub_black_24dp.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_scale_round.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xhdpi/ic_launcher_scale_round.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_cardio.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/cardio.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_nutrition.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_nutrition.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_star.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-mdpi/ic_action_star.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-xxhdpi_marker2.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-xxhdpi/marker2.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_forearms.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/forearms.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_star.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-hdpi/ic_action_star.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_leg.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_leg.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_muscle_group_layout.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/muscle_group_layout.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_edit_black_24dp.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_edit_black_24dp.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_logo.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/logo.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_tab_muscle_worked.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/tab_muscle_worked.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_more.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_more.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_target.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/target.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_bodymeasure_rowheader.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/bodymeasure_rowheader.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_tape.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-anydpi-v26/ic_launcher_tape.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_exerciselog_list_parent.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/exerciselog_list_parent.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_icarbohydrates.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/icarbohydrates.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_home.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_calves.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/calves.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_buttock_measure.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_buttock_measure.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_activity_firstpage.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/activity_firstpage.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_profile.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_profile.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_scale.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxhdpi/ic_launcher_scale.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-ldpi_ic_ruler.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/generated/res/pngs/debug/drawable-ldpi/ic_ruler.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_register.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_register.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-xxhdpi_gif.gif.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-xxhdpi/gif.gif"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_calve_measure.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_calve_measure.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_tape_round.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxhdpi/ic_launcher_tape_round.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_muscleworked.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/muscleworked.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_welcome.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_welcome.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_weight.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_weight.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_baseline_list_alt_24px.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-xxxhdpi/ic_baseline_list_alt_24px.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_fade_blue.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-xxxhdpi/fade_blue.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_waist_measure.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_waist_measure.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_scale_foreground.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xhdpi/ic_launcher_scale_foreground.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_tape.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxxhdpi/ic_launcher_tape.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_activity_workout.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/activity_workout.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_activity_protein_calculator.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/activity_protein_calculator.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_marco_calc.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_marco_calc.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_back.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/back.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_instagram_2.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_instagram_2.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_launcher_tape_background.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_launcher_tape_background.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_scale_foreground.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-hdpi/ic_launcher_scale_foreground.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_exercise__gifs_tab.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_exercise__gifs_tab.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_exercise_details_fragment.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/exercise_details_fragment.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_exerciselog_listchild.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/exerciselog_listchild.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_plan_exercises_layout.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/plan_exercises_layout.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_weight_tracking.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_weight_tracking.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_tape_foreground.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-hdpi/ic_launcher_tape_foreground.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_facebook.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_facebook.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_name.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-xxhdpi/ic_action_name.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_scale.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-mdpi/ic_launcher_scale.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_ruler.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/generated/res/pngs/debug/drawable-hdpi/ic_ruler.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_custom_plan.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_custom_plan.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_name.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-xhdpi/ic_action_name.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_shoulders.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/shoulders.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/menu_home_menu.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/menu/home_menu.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_ruler.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_ruler.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_round_button.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/round_button.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_selectmuscle.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_selectmuscle.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_scale_round.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-hdpi/ic_launcher_scale_round.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_scale.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-anydpi-v26/ic_launcher_scale.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_confirm_password.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_confirm_password.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_bicep.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/bicep.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_protein.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/protein.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_change__email.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_change__email.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_onerep.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/onerep.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_bodypart_details.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_bodypart_details.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_exercise_log.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_exercise_log.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_edit_layoulog.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/edit_layoulog.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_ruler.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_ruler.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_calories.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/calories.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_action_name.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable-mdpi/ic_action_name.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_info_black_24dp.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_info_black_24dp.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_home.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_home.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_weight__add.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_weight__add.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_nav_header.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/nav_header.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_plans_layout.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/plans_layout.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_chest.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/chest.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_workout.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_workout.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_ic_neck.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/ic_neck.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_favourite_exercises.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_favourite_exercises.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_activity_home.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/activity_home.xml"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/drawable_showall.jpg.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/drawable/showall.jpg"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/build/intermediates/res/merged/debug/layout_fragment_calculators.xml.flat",
+        "source": "/Users/aesthetic/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/fragment_calculators.xml"
+    }
+]

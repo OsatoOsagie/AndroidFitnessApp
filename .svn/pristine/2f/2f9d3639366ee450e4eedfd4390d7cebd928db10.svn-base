@@ -1,0 +1,98 @@
+package com.oo115.myapplication;
+
+
+
+/*
+This class is to save the user preferences
+*/
+
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.widget.Toast;
+
+public class PrefConFig {
+
+    private SharedPreferences sharedPreferences;
+    private Context context;
+
+
+
+    public PrefConFig(Context context){
+        this.context = context;
+        sharedPreferences = context.getSharedPreferences(context.getString(R.string.pref_file),Context.MODE_PRIVATE);
+
+    }
+
+//this method writes the user login status to the shared preferences
+    public void writeLoginStatus(boolean status){
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        editor.putBoolean(context.getString(R.string.pref_login_status),status);
+        editor.apply();
+
+    }
+
+
+    //this method reads the user login status from the shared preferences
+    public boolean readLoginStatus(){
+        return sharedPreferences.getBoolean(context.getString(R.string.pref_login_status),false);
+    }
+
+    //this method writes the name of the user to the shared preferences
+     public void writeName(String name){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_name),name);
+        editor.apply();
+     }
+
+     public String readName(){
+        return sharedPreferences.getString(context.getString(R.string.pref_user_name), "user default");
+     }
+
+     //is method is for displaying messages to the users
+    public void distplayToast(String message){
+        Toast.makeText(context,message, Toast.LENGTH_SHORT).show();
+    }
+
+    public void writeQuote(String quote){
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_quote),quote);
+        editor.apply();
+
+    }
+
+    public String readQuote(){
+        return sharedPreferences.getString(context.getString(R.string.pref_user_quote), "no quote found");
+    }
+
+    public void writeEmail(String email) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_email), email);
+        editor.apply();
+    }
+
+    public String readEmail() {
+        return sharedPreferences.getString(context.getString(R.string.pref_user_email), "no email found");
+    }
+
+    public void writeUser_Id(String id) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_id), id);
+        editor.apply();
+    }
+
+    public String readId() {
+        return sharedPreferences.getString(context.getString(R.string.pref_user_id), "no ID found");
+    }
+
+    public void writeUser_arm_measurement_one(String measurement) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getString(R.string.pref_user_arm_measurement_one), measurement);
+        editor.apply();
+    }
+
+    public String readArm_measurement_one() {
+        return sharedPreferences.getString(context.getString(R.string.pref_user_arm_measurement_one), "no ID found");
+    }
+
+}

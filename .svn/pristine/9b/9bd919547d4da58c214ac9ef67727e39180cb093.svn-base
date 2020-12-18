@@ -1,0 +1,204 @@
+package com.oo115.myapplication.Settings;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.util.Patterns;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.oo115.myapplication.PrefConFig;
+import com.oo115.myapplication.R;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+import com.oo115.myapplication.retrofitAPI.Change_EmailDB;
+
+import java.util.Objects;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class Change_EmailFragment extends Fragment {
+
+    Toolbar toolbar;
+    EditText current_email, new_email, confirm_email;
+    Button changeEmail_btn;
+    public static PrefConFig prefConFig;
+    public static ApiInterface apiInterface;
+
+
+    public Change_EmailFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_change__email, container, false);
+
+        toolbar = view.findViewById(R.id.emailChange_toolBar);
+        current_email = view.findViewById(R.id.current_email_restET);
+        new_email = view.findViewById(R.id.email_resetET);
+        confirm_email = view.findViewById(R.id.emailConfirm_resetET2);
+        changeEmail_btn = view.findViewById(R.id.changeEmail_btn);
+        prefConFig = new PrefConFig(Objects.requireNonNull(getContext()));
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+
+        /*
+        setting up the toolbar
+         */
+
+
+        Objects.requireNonNull(((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).hide();
+        toolbar.setNavigationIcon(R.drawable.ic_back);
+        toolbar.setNavigationOnClickListener(v -> getActivity().onBackPressed());
+
+        toolbar.setTitle(R.string.change_email);
+
+
+
+        /*
+
+        adding hints and asterisks to edit texts
+         */
+
+
+        String asterisk = "*";
+        SpannableString redSpannable = new SpannableString(asterisk);
+        redSpannable.setSpan(new ForegroundColorSpan(Color.RED), 0, asterisk.length(), 0);
+        current_email.setText(prefConFig.readEmail());
+        current_email.setEnabled(false);
+
+
+        SpannableStringBuilder builderNewEmail = new SpannableStringBuilder();
+        String builderNewEmailHint = "New Email";
+        builderNewEmail.append(builderNewEmailHint);
+        builderNewEmail.append(redSpannable);
+        new_email.setHint(builderNewEmail);
+
+
+        SpannableStringBuilder builderConfirmEmail = new SpannableStringBuilder();
+        String builderConfirmEmailHint = "Confirm Email";
+        builderConfirmEmail.append(builderConfirmEmailHint);
+        builderConfirmEmail.append(redSpannable);
+        confirm_email.setHint(builderConfirmEmail);
+
+        /*
+        Change email button
+         */
+        changeEmail_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (new_email.getText().toString().isEmpty() || confirm_email.getText().toString().isEmpty()) {
+                    new_email.setError("Field Cannot be empty");
+                    confirm_email.setError("Field Cannot be empty");
+                    new_email.requestFocus();
+                    confirm_email.requestFocus();
+
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(new_email.getText().toString()).matches() || !Patterns.EMAIL_ADDRESS.matcher(confirm_email.getText().toString()).matches()) {
+                    new_email.setError("Enter a valid email");
+                    confirm_email.setError("Enter a valid email");
+                    new_email.requestFocus();
+                    confirm_email.requestFocus();
+                } else if ((new_email.getText().toString()).equals(current_email.getText().toString())) {
+                    new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText(getString(R.string.str_error))
+                            .setContentText("old email cannot be the same as new email")
+                            .show();
+                } else {
+
+
+                    if ((new_email.getText().toString()).equals(confirm_email.getText().toString())) {
+//
+
+                        Call<Change_EmailDB> email_change = apiInterface.emailChange(prefConFig.readEmail(), new_email.getText().toString());
+
+                        SweetAlertDialog pDialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.PROGRESS_TYPE);
+                        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+                        pDialog.setTitleText("Loading");
+                        pDialog.setCancelable(false);
+                        pDialog.show();
+                        email_change.enqueue(new Callback<Change_EmailDB>() {
+                            @Override
+                            public void onResponse(Call<Change_EmailDB> call, Response<Change_EmailDB> response) {
+                                if (response.body().getResponse().equals("changed")) {
+                                    pDialog.getProgressHelper().stopSpinning();
+                                    pDialog.dismissWithAnimation();
+
+
+                                    SweetAlertDialog p_Dialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE);
+                                    p_Dialog.setTitleText(getString(R.string.success_));
+                                    p_Dialog.setContentText("Your Email has been updated");
+                                    p_Dialog.setConfirmButton(R.string.str_ok, new SweetAlertDialog.OnSweetClickListener() {
+                                        @Override
+                                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                            p_Dialog.dismissWithAnimation();
+                                        }
+                                    })
+                                            .show();
+
+                                    prefConFig.writeEmail(new_email.getText().toString());
+                                    new_email.setText("");
+                                    confirm_email.setText("");
+                                    current_email.setText(prefConFig.readEmail());
+                                } else if (response.body().getResponse().equals("Email already exits")) {
+                                    pDialog.getProgressHelper().stopSpinning();
+                                    pDialog.dismissWithAnimation();
+
+                                    new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+                                            .setTitleText(getString(R.string.str_error))
+                                            .setContentText("Email already exits")
+                                            .show();
+
+                                } else {
+                                    pDialog.getProgressHelper().stopSpinning();
+                                    pDialog.dismissWithAnimation();
+
+                                    new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+                                            .setTitleText(getString(R.string.str_error))
+                                            .setContentText(getString(R.string.default_msg))
+                                            .show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<Change_EmailDB> call, Throwable t) {
+
+                            }
+                        });
+
+
+                    } else {
+
+                        confirm_email.setError("emails do not match");
+                        new_email.requestFocus();
+                        confirm_email.requestFocus();
+                    }
+
+                }
+
+
+            }
+
+
+        });
+
+
+        return view;
+    }
+}

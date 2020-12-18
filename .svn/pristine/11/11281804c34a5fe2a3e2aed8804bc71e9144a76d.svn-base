@@ -1,0 +1,355 @@
+package com.oo115.myapplication.Workout_feature;
+
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.like.LikeButton;
+import com.like.OnLikeListener;
+import com.oo115.myapplication.BodyPart;
+import com.oo115.myapplication.PrefConFig;
+import com.oo115.myapplication.R;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+import com.oo115.myapplication.retrofitAPI.FavouritesDB;
+import com.oo115.myapplication.retrofitAPI.ResponseDB;
+import com.squareup.picasso.Picasso;
+
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Objects;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class Exercises_LVAdapter extends ArrayAdapter<String> implements View.OnClickListener, Filterable {
+
+
+    //    private String[] exercise;
+    private ArrayList<Integer> image;
+    private Activity context;
+    private ArrayList<String> exercise = new ArrayList<String>();
+    private ArrayList<String> favourites = new ArrayList<String>();
+    private ArrayList<String> exercise_Id = new ArrayList<String>();
+    private ArrayList<String> custom_plan = new ArrayList<String>();
+
+    private ArrayList<String> exerciseFilter;
+    private Filter filter;
+    protected ArrayList<String> items;
+    protected ArrayList<String> res;
+    private ArrayList<String> image_url = new ArrayList<String>();
+    public static PrefConFig prefConFig;
+    public static ApiInterface apiInterface;
+
+    public Exercises_LVAdapter(Activity context, ArrayList<String> exercise, ArrayList<Integer> image, ArrayList<String> image_url, ArrayList<String> favourites, ArrayList<String> exercise_Id, ArrayList<String> custom_plan) {
+        super(context, R.layout.exercises_layout, exercise);
+
+        this.context = context;
+        this.exercise = exercise;
+        this.image = image;
+        this.favourites = favourites;
+        exerciseFilter = (ArrayList<String>) exercise.clone();
+        this.image_url = image_url;
+        this.exercise_Id = exercise_Id;
+        this.custom_plan = custom_plan;
+
+        filter = new PhysFilter();
+        res = new ArrayList<String>();
+    }
+
+    @Override
+    public void onClick(View v) {
+        int position = (Integer) v.getTag();
+        Object object = getItem(position);
+        BodyPart dataModel = (BodyPart) object;
+        Toast.makeText(getContext(), "This is my Toast message!",
+                Toast.LENGTH_LONG).show();
+
+    }
+
+
+    public static Drawable LoadImageFromWebOperations(String url) {
+        try {
+            InputStream is = (InputStream) new URL(url).getContent();
+            Drawable d = Drawable.createFromStream(is, "src name");
+            return d;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        prefConFig = new PrefConFig(Objects.requireNonNull(getContext()));
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        View view = convertView;
+        ViewHolder viewHolder;
+        if (view == null) {
+            //build in class to convert xml file to corressponding java object
+            LayoutInflater layoutInflater = context.getLayoutInflater();
+            view = layoutInflater.inflate(R.layout.exercises_layout, null, true);
+            viewHolder = new ViewHolder(view);
+            //view class method which stores view
+            view.setTag(viewHolder);
+        } else {
+            //this gets the stored method in set tag
+            viewHolder = (ViewHolder) view.getTag();
+        }
+
+
+        //setting the reference for the image and text view
+        viewHolder.exercise_array.setText(exercise.get(position));
+//     viewHolder.image.setImageResource(image.get(0));
+
+        if (image_url.size() > 0 && !image_url.get(position).isEmpty()) {
+            Picasso.get().
+                    load(image_url.get(position))
+                    .placeholder(R.drawable.back)
+                    .into(viewHolder.image);
+
+        } else {
+            Picasso.get().
+                    load("http://osatoo1.sgedu.site//images//linked%20inPic.jpg")
+                    .placeholder(R.drawable.back)
+                    .into(viewHolder.image);
+        }
+
+
+        //setting the favourites when user first logs in
+        if (favourites.contains(viewHolder.exercise_array.getText().toString())) {
+            viewHolder.likebtn.setLiked(true);
+        }
+//setting the custom plan when user first logs in
+        if (custom_plan.contains(viewHolder.exercise_array.getText().toString())) {
+            viewHolder.addToPlanbtn.setLiked(true);
+        }
+
+
+
+//        viewHolder.likebtn.setFocusable(false);
+//        viewHolder.addToPlanbtn.setFocusable(false);
+
+         /*
+        Add to Favourites
+         */
+        viewHolder.likebtn.setOnLikeListener(new OnLikeListener() {
+            String ex_name = exercise.get(position);
+            @Override
+            public void liked(LikeButton likeButton) {
+                prefConFig.distplayToast(Integer.toString(favourites.size()));
+
+
+                int user_id = Integer.parseInt(prefConFig.readId());
+
+                Call<FavouritesDB> favourite_ex = apiInterface.favourite(user_id, ex_name);
+
+                favourite_ex.enqueue(new Callback<FavouritesDB>() {
+                    @Override
+                    public void onResponse(Call<FavouritesDB> call, Response<FavouritesDB> response) {
+                        if (response.body().getResponse().equals("Favourited")) {
+                            likeButton.setLiked(true);
+
+                        } else {
+                            likeButton.setLiked(false);
+                            prefConFig.distplayToast(ex_name);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<FavouritesDB> call, Throwable t) {
+
+
+                    }
+                });
+            }
+
+            @Override
+            public void unLiked(LikeButton likeButton) {
+                Call<FavouritesDB> unfavourite_ex = apiInterface.unfavourite(ex_name, Integer.parseInt(prefConFig.readId()));
+                unfavourite_ex.enqueue(new Callback<FavouritesDB>() {
+                    @Override
+                    public void onResponse(Call<FavouritesDB> call, Response<FavouritesDB> response) {
+                        if (response.body().getResponse().equals("deleted")) {
+                            likeButton.setLiked(false);
+                        } else {
+                            likeButton.setLiked(true);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<FavouritesDB> call, Throwable t) {
+
+                    }
+                });
+
+            }
+        });
+
+        /*
+        Add to plan
+         */
+
+
+        viewHolder.addToPlanbtn.setOnLikeListener(new OnLikeListener() {
+            @Override
+            public void liked(LikeButton likeButton) {
+                String exercise_id = exercise_Id.get(position);
+                Call<ResponseDB> add_to_plan = apiInterface.add_to_plan(Integer.parseInt(prefConFig.readId()), Integer.parseInt(exercise_id));
+
+                add_to_plan.enqueue(new Callback<ResponseDB>() {
+                    @Override
+                    public void onResponse(Call<ResponseDB> call, Response<ResponseDB> response) {
+                        if (response.body().getResponse().equals("added to plan")) {
+                            likeButton.setLiked(true);
+                        } else if (response.body().getResponse().equals("error")) {
+                            likeButton.setLiked(false);
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseDB> call, Throwable t) {
+
+                    }
+                });
+
+
+            }
+
+            @Override
+            public void unLiked(LikeButton likeButton) {
+                String exercise_id = exercise_Id.get(position);
+                Call<ResponseDB> remove_from_plan = apiInterface.remove_from_plan(Integer.parseInt(prefConFig.readId()), Integer.parseInt(exercise_id));
+
+
+                remove_from_plan.enqueue(new Callback<ResponseDB>() {
+                    @Override
+                    public void onResponse(Call<ResponseDB> call, Response<ResponseDB> response) {
+                        if (response.body().getResponse().equals("removed from plan")) {
+                            likeButton.setLiked(false);
+
+                        } else if (response.body().getResponse().equals("not removed from plan")) {
+                            likeButton.setLiked(true);
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseDB> call, Throwable t) {
+
+                    }
+                });
+
+            }
+        });
+
+//        viewHolder.addToPlanbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getContext(), "Add to plan",
+//                        Toast.LENGTH_LONG).show();
+//            }
+//        });
+
+
+        return view;
+
+
+    }
+
+
+    class ViewHolder {
+        TextView exercise_array;
+        ImageView image;
+        ListView listView;
+        LikeButton likebtn, addToPlanbtn;
+
+
+        ViewHolder(View view) {
+            exercise_array = view.findViewById(R.id.plan_list_exercise);
+            image = view.findViewById(R.id.plan_exercise_picture);
+            likebtn = view.findViewById(R.id.favouriteBtn);
+            addToPlanbtn = view.findViewById(R.id.addToList_button);
+
+
+
+
+
+        }
+    }
+
+    @NonNull
+    @Override
+    public Filter getFilter() {
+
+        return filter;
+    }
+
+    private class PhysFilter extends Filter {
+
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            FilterResults f = new FilterResults();
+
+            ArrayList<String> res = new ArrayList<String>();
+
+            if (constraint == null || constraint.length() == 0) {
+
+                f.values = exerciseFilter;
+                //.toArray();
+                f.count = exerciseFilter.size();
+            } else {
+
+                for (int x = 0; x < exercise.size(); x++) {
+
+                    if (!exerciseFilter.contains(exercise.get(x))) {
+                        exerciseFilter.add(exercise.get(x));
+                    }
+
+                    if (exercise.get(x).toUpperCase().contains(constraint.toString().toUpperCase())) {
+                        res.add(exercise.get(x));
+
+                    }
+                }
+                f.values = res;//.toArray();
+                f.count = res.size();
+            }
+            return f;
+        }
+
+        @SuppressWarnings("unchecked")
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            if (results.count > 0) {
+                Toast.makeText(getContext(), "if",
+                        Toast.LENGTH_LONG).show();
+
+                exercise.clear();
+                exercise.addAll((ArrayList<String>) results.values);
+                notifyDataSetChanged();
+            } else {
+                Toast.makeText(getContext(), "else",
+                        Toast.LENGTH_LONG).show();
+                notifyDataSetChanged();
+            }
+        }
+    }
+
+
+}
+

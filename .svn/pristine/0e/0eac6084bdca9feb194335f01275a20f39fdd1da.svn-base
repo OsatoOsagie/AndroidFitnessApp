@@ -1,0 +1,97 @@
+package com.oo115.myapplication.Workout_feature;
+
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.oo115.myapplication.R;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class Exercises_for_muscle_groupsFragment extends Fragment {
+    private Toolbar toolbar;
+
+    public Exercises_for_muscle_groupsFragment() {
+        // Required empty public constructor
+    }
+
+
+    /**
+     * Create a new instance of DetailsFragment, initialized to
+     * show the text at 'index'.
+     */
+    public static Exercises_for_muscle_groupsFragment newInstance(int muscle_group, boolean showInput) {
+        Exercises_for_muscle_groupsFragment f = new Exercises_for_muscle_groupsFragment();
+
+        // Supply index input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("muscle_groupID", muscle_group);
+        args.putBoolean("showInput", showInput);
+        f.setArguments(args);
+
+        return f;
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_exercises_for_muscle_groups, container, false);
+
+//setting up the tool bar to have a back arrow on create and setting the title of the fragment
+        toolbar = view.findViewById(R.id.toolbar_exercises);
+
+
+        //removing the actionbar so that tool bar can show
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        toolbar.setNavigationIcon(R.drawable.ic_back);
+        toolbar.setNavigationOnClickListener(v -> getActivity().onBackPressed());
+
+
+        //getting the extras sent over when item was clicked on the list view
+        int extras = getArguments().getInt("muscle_groupID");
+
+
+        switch (extras) {
+            case 0:
+                toolbar.setTitle(R.string.triceps);
+                break;
+            case 1:
+                toolbar.setTitle(R.string.pectoraux);
+                break;
+            case 2:
+                toolbar.setTitle(R.string.deltoids);
+                break;
+            case 3:
+                toolbar.setTitle(R.string.biceps);
+                break;
+            case 4:
+                toolbar.setTitle(R.string.core);
+                break;
+            case 5:
+                toolbar.setTitle(R.string.dorseaux);
+                break;
+            case 6:
+                toolbar.setTitle(R.string.quadriceps);
+                break;
+            case 7:
+                toolbar.setTitle(R.string.showAll);
+                break;
+
+
+        }
+
+
+        return view;
+
+    }
+
+}

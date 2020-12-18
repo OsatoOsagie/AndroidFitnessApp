@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn= "navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/iconHome" />
+        <item
+            android:id="@+id/nav_workout"
+            android:icon="@drawable/ic_workout"
+            android:title="@string/iconWorkout" />
+        
+        <item
+            android:id="@+id/nav_weight"
+            android:icon="@drawable/ic_weight"
+            android:title="@string/iconWeight" />
+        <item
+            android:id="@+id/nav_Measurements"
+            android:icon="@drawable/ic_ruler"
+            android:title="@string/iconMeasurement" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_profile"
+            android:title="@string/iconProfile" />
+
+        <item
+            android:id="@+id/nav_calculator"
+            android:icon="@drawable/ic_calculator"
+            android:title="@string/calculators" />
+
+
+    </group>
+
+
+</menu>

@@ -1,0 +1,201 @@
+package com.oo115.myapplication.Workout_feature;
+
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Filterable;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.like.LikeButton;
+import com.like.OnLikeListener;
+import com.oo115.myapplication.PrefConFig;
+import com.oo115.myapplication.R;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+import com.oo115.myapplication.retrofitAPI.FavouritesDB;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class Favourites_listAdaptor extends ArrayAdapter<String> implements View.OnClickListener, Filterable {
+
+    private ArrayList<String> image_url = new ArrayList<String>();
+    private ArrayList<String> exercise = new ArrayList<String>();
+    ArrayList<String> custom_plan = new ArrayList<String>();
+    private ArrayList<String> exercise_Id = new ArrayList<String>();
+    private Activity context;
+
+    public static PrefConFig prefConFig;
+    public static ApiInterface apiInterface;
+
+    public Favourites_listAdaptor(Activity context, ArrayList<String> exercise, ArrayList<String> image_url, ArrayList<String> custom_plan, ArrayList<String> exercise_Id) {
+        super(context, R.layout.exercises_layout, exercise);
+
+        this.context = context;
+        this.exercise = exercise;
+        this.image_url = image_url;
+        this.custom_plan = custom_plan;
+        this.exercise_Id = exercise_Id;
+
+    }
+
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        prefConFig = new PrefConFig(Objects.requireNonNull(getContext()));
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        View view = convertView;
+        Favourites_listAdaptor.ViewHolder viewHolder;
+        if (view == null) {
+            //build in class to convert xml file to corressponding java object
+            LayoutInflater layoutInflater = context.getLayoutInflater();
+            view = layoutInflater.inflate(R.layout.exercises_layout, null, true);
+            viewHolder = new Favourites_listAdaptor.ViewHolder(view);
+            //view class method which stores view
+            view.setTag(viewHolder);
+        } else {
+            //this gets the stored method in set tag
+            viewHolder = (Favourites_listAdaptor.ViewHolder) view.getTag();
+        }
+
+        if (exercise.get(0).equals("No favourites found")) {
+            viewHolder.addToPlanbtn.setVisibility(View.GONE);
+            viewHolder.likebtn.setVisibility(View.GONE);
+        }
+        //setting the reference for the image and text view
+        viewHolder.exercise_array.setText(exercise.get(position));
+//     viewHolder.image.setImageResource(image.get(0));
+
+
+        if (image_url.size() > 0 && !image_url.get(position).isEmpty()) {
+            Picasso.get().
+                    load(image_url.get(position))
+                    .placeholder(R.drawable.back)
+                    .into(viewHolder.image);
+
+
+        } else {
+            Picasso.get().
+                    load("http://peterp1.sgedu.site//images//noFavouritesFound.png")
+                    .placeholder(R.drawable.back)
+                    .into(viewHolder.image);
+        }
+
+        viewHolder.likebtn.setLiked(true);
+
+        if (custom_plan.contains(viewHolder.exercise_array.getText().toString())) {
+            viewHolder.addToPlanbtn.setLiked(true);
+        }
+
+
+        viewHolder.likebtn.setOnLikeListener(new OnLikeListener() {
+            String ex_name = exercise.get(position);
+
+            @Override
+            public void liked(LikeButton likeButton) {
+
+
+                int user_id = Integer.parseInt(prefConFig.readId());
+
+                Call<FavouritesDB> favourite_ex = apiInterface.favourite(user_id, ex_name);
+
+                favourite_ex.enqueue(new Callback<FavouritesDB>() {
+                    @Override
+                    public void onResponse(Call<FavouritesDB> call, Response<FavouritesDB> response) {
+                        if (response.body().getResponse().equals("Favourited")) {
+                            likeButton.setLiked(true);
+
+                        } else {
+                            likeButton.setLiked(false);
+                            prefConFig.distplayToast(ex_name);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<FavouritesDB> call, Throwable t) {
+
+
+                    }
+                });
+            }
+
+            @Override
+            public void unLiked(LikeButton likeButton) {
+                Call<FavouritesDB> unfavourite_ex = apiInterface.unfavourite(ex_name, Integer.parseInt(prefConFig.readId()));
+                unfavourite_ex.enqueue(new Callback<FavouritesDB>() {
+                    @Override
+                    public void onResponse(Call<FavouritesDB> call, Response<FavouritesDB> response) {
+                        if (response.body().getResponse().equals("deleted")) {
+                            likeButton.setLiked(false);
+
+                            if (exercise.size() <= 1) {
+                                exercise.remove(position);
+                                exercise.add(position, "No favourites found");
+                                viewHolder.likebtn.setVisibility(View.GONE);
+                                viewHolder.addToPlanbtn.setVisibility(View.GONE);
+                            } else {
+                                exercise.remove(position);
+                            }
+
+
+                            notifyDataSetChanged();
+                        } else {
+                            likeButton.setLiked(true);
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<FavouritesDB> call, Throwable t) {
+
+                    }
+                });
+
+
+            }
+        });
+
+
+
+
+
+        return view;
+
+
+    }
+
+
+    class ViewHolder {
+        TextView exercise_array;
+        ImageView image;
+        LikeButton likebtn, addToPlanbtn;
+
+        ViewHolder(View view) {
+            exercise_array = view.findViewById(R.id.plan_list_exercise);
+            image = view.findViewById(R.id.plan_exercise_picture);
+            likebtn = view.findViewById(R.id.favouriteBtn);
+            addToPlanbtn = view.findViewById(R.id.addToList_button);
+
+        }
+    }
+
+
+}

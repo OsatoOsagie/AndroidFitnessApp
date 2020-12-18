@@ -1,0 +1,201 @@
+package com.oo115.myapplication.bodyMeasures;
+
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.oo115.myapplication.BodyPart;
+import com.oo115.myapplication.PrefConFig;
+import com.oo115.myapplication.R;
+import com.oo115.myapplication.retrofitAPI.ApiClient;
+import com.oo115.myapplication.retrofitAPI.ApiInterface;
+import com.oo115.myapplication.retrofitAPI.BodyMeasuresResponse;
+
+import java.util.Objects;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class MeasurementFragment extends Fragment {
+    BodyPart bodyPartNum;
+    String[] measurements_array = new String[3];
+    private static final String TAG = "profileFragment";
+    ListView listView;
+    String[] bodyPart = {"Left bicep", "Right bicep", "Chest", "Waist", "Hips", "Left thigh", "Right thigh", "Left calves", "Right calves"};
+    //datasource for the pictures of the macronutrients
+    Integer[] bodyPartIMV = {R.drawable.ic_arm_measure, R.drawable.ic_arm_measure, R.drawable.ic_chest_measure, R.drawable.ic_waist_measure,
+            R.drawable.ic_buttock_measure, R.drawable.ic_tight_measure, R.drawable.ic_tight_measure, R.drawable.ic_calve_measure, R.drawable.ic_calve_measure};
+
+    int[] bodypartNumber = {BodyPart.LEFTARM, BodyPart.RIGHTARM, BodyPart.PECTORAUX, BodyPart.WAIST, BodyPart.BEHIND, BodyPart.LEFTTHIGH, BodyPart.RIGHTTHIGH, BodyPart.LEFTCALVES, BodyPart.RIGHTCALVES};
+    String[] recent_measureArray = new String[9];
+
+
+    public static ApiInterface apiInterface;
+    public static PrefConFig prefConFig;
+    private int id;
+
+    public MeasurementFragment() {
+        // Required empty public constructor
+    }
+
+
+    private AdapterView.OnItemClickListener onClickListItem = (parent, view, position, id) -> {
+
+        prefConFig.distplayToast(Integer.toString(position));
+        TextView textView = view.findViewById(R.id.LIST_BODYPART_ID);
+        int bodyPartID = position;
+        BodyPartMeasurements fragment = BodyPartMeasurements.newInstance(bodyPartID, true);
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack so the user can navigate back
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+
+    };
+
+
+//    public void apiCalls(int user_id) {
+//
+//         String[] measurement = new String[1];
+//        measurement[0]= "hey";
+//
+//
+//
+//
+//        for (int i=0; i<bodypartNumber.length; i++){
+//            Call<BodyMeasuresResponse> recent_Measurement = apiInterface.lastMeasureSearch(user_id, bodypartNumber[i]);
+//
+//                int b=i;
+//
+//            recent_Measurement.enqueue(new Callback<BodyMeasuresResponse>() {
+//                @Override
+//                public void onResponse(Call<BodyMeasuresResponse> call, Response<BodyMeasuresResponse> response) {
+//
+//
+//
+//                    if (response.body().getResponse().equals("Measurement Found")){
+//
+//                        recent_measureArray[b] = response.body().getMeasurementArray().get(0).getMeasurement();
+//
+//
+//                    } else {
+//                        recent_measureArray[b]="-";
+//                    }
+//
+//
+////            prefConFig.distplayToast();
+//
+//
+//                }
+//
+//                @Override
+//                public void onFailure(Call<BodyMeasuresResponse> call, Throwable t) {
+//
+//                }
+//            });
+//
+//
+//
+//        }
+////
+//
+//
+////
+//
+//
+//
+//    }
+
+
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_measurement, container, false);
+
+        //setting the title of the fragmentf
+        Objects.requireNonNull(getActivity()).setTitle("Measurements");
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        prefConFig = new PrefConFig(Objects.requireNonNull(getContext()));
+
+        listView = view.findViewById(R.id.measurementListView);
+
+        String[] measurement = new String[1];
+        measurement[0] = "hey";
+
+
+
+
+        BodyPartAdaptor bodyPartAdaptor = new BodyPartAdaptor(this.getActivity(), bodyPart, bodyPartIMV, recent_measureArray);
+        listView.setAdapter(bodyPartAdaptor);
+        listView.setOnItemClickListener(onClickListItem);
+        bodyPartAdaptor.notifyDataSetChanged();
+//        apiCalls(154);
+
+
+        id = Integer.parseInt(prefConFig.readId());
+        prefConFig.distplayToast(prefConFig.readId());
+        for (int i = 0; i < bodypartNumber.length; i++) {
+            Call<BodyMeasuresResponse> recent_Measurement = apiInterface.lastMeasureSearch(id, bodypartNumber[i]);
+
+            int b = i;
+
+            recent_Measurement.enqueue(new Callback<BodyMeasuresResponse>() {
+                @Override
+                public void onResponse(Call<BodyMeasuresResponse> call, Response<BodyMeasuresResponse> response) {
+
+
+                    if (response.body().getResponse().equals("Measurement Found")) {
+
+                        recent_measureArray[b] = response.body().getMeasurementArray().get(0).getMeasurement() + " cm";
+                        bodyPartAdaptor.notifyDataSetChanged();
+
+                    } else {
+                        recent_measureArray[b] = "-";
+                        bodyPartAdaptor.notifyDataSetChanged();
+                    }
+
+
+//            prefConFig.distplayToast();
+
+
+                }
+
+                @Override
+                public void onFailure(Call<BodyMeasuresResponse> call, Throwable t) {
+
+                }
+            });
+
+
+        }
+//
+
+
+
+
+
+
+
+        return view;
+    }
+
+}

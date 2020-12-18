@@ -1,0 +1,25 @@
+package com.oo115.myapplication;
+
+import org.junit.Rule;
+import org.junit.Test;
+
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+
+public class LoginFragmentTest {
+    @Rule
+    public FragmentTestRule<LoginFragment> mFragmentTestRule = new FragmentTestRule<>(LoginFragment.class);
+
+    @Test
+    public void fragment_can_be_instantiated() {
+
+        // Launch the activity to make the fragment visible
+        mFragmentTestRule.launchActivity(null);
+
+        // Then use Espresso to test the Fragment
+        onView(withId(R.id.etEmail)).check(matches(isDisplayed()));
+    }
+
+}

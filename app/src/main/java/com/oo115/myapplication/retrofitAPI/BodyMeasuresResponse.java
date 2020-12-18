@@ -1,0 +1,37 @@
+package com.oo115.myapplication.retrofitAPI;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
+public class BodyMeasuresResponse {
+
+    @SerializedName("measurements_array")
+    @Expose
+    private List<BodyMeasure_Array> measurementArray = null;
+
+
+    @SerializedName("response")
+    @Expose
+    private String response = "test";
+
+
+    public String getResponse() {
+        return response;
+    }
+
+    public void setResponse(String response) {
+        this.response = response;
+    }
+
+    public List<BodyMeasure_Array> getMeasurementArray() {
+        return measurementArray;
+    }
+
+    public void setMeasurementArray(List<BodyMeasure_Array> measurementArray) {
+        this.measurementArray = measurementArray;
+    }
+
+
+}

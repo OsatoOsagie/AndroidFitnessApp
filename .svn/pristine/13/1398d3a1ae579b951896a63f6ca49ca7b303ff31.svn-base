@@ -1,0 +1,76 @@
+package com.oo115.myapplication;
+
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+public class MacroNutrientsListView extends ArrayAdapter<String> {
+
+    //arrays for macronutrient name,description and image
+    private String[] macroNutrientsName;
+    private String[] macroNutrientsDes;
+    private Integer[] macroNutrientImage;
+
+
+    private Activity context;
+
+    public MacroNutrientsListView(Activity context, String[] macroNutirentsName, String[] macronutrientsDes, Integer[] macroNutrientImage) {
+        super(context, R.layout.listviewnutrition, macroNutirentsName);
+
+        this.context = context;
+        this.macroNutrientsName = macroNutirentsName;
+        this.macroNutrientsDes = macronutrientsDes;
+        this.macroNutrientImage = macroNutrientImage;
+
+
+    }
+
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
+        View view = convertView;
+        MacroNutrientsListView.ViewHolder viewHolder = null;
+        //this gets the stored method in set tag
+        if (view == null) {
+            //build in class to convert xml file to corressponding java object
+            LayoutInflater layoutInflater = context.getLayoutInflater();
+            view = layoutInflater.inflate(R.layout.listviewnutrition, null, true);
+            viewHolder = new MacroNutrientsListView.ViewHolder(view);
+            //view class method which stores view
+            view.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) view.getTag();
+        }
+        //setting the reference for the image and text view
+        viewHolder.macroNutrientImage.setImageResource(macroNutrientImage[position]);
+        viewHolder.macroNutrientsName.setText(macroNutrientsName[position]);
+        viewHolder.macroNutrientsDes.setText(macroNutrientsDes[position]);
+
+        return view;
+
+    }
+
+    //to optimise list viw performance
+    //holds and finds view by id of image and name
+
+    class ViewHolder {
+        TextView macroNutrientsName;
+        TextView macroNutrientsDes;
+        ImageView macroNutrientImage;
+
+        ViewHolder(View view) {
+            macroNutrientsName = view.findViewById(R.id.macroNutrient_name);
+            macroNutrientsDes = view.findViewById(R.id.macroNutrient_description);
+            macroNutrientImage = view.findViewById(R.id.macroNutrient_IMV);
+        }
+    }
+}
